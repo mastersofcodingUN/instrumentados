@@ -21,4 +21,4 @@ Desarrollar una plataforma educativa en la cual los usuarios puedan elegir entre
 * Instalación de devise y creación del modelo user
 * Modelo de base de datos
 * Mockups de la aplicación
-* Implementación landing page y conectaod a las vistas de devise
+* Implementación landing page con el formulario de contacto y conectado a las vistas de devise
