@@ -18,4 +18,6 @@ Desarrollar una plataforma educativa en la cual los usuarios puedan elegir entre
 
 ### Sprint 1
 * Configuración del archivo database.yml de acuerdo a las credenciales de heroku, para el ambiente de producción
-* Instalación de dvise y creación del modelo user
+* Instalación de devise y creación del modelo user
+* Modelo de base de datos
+* Mockups de la aplicación

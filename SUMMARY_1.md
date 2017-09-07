@@ -8,7 +8,8 @@
 * Mockups para flujo registro: Fabian Ordoñez
 * Mockups para flujo crear curso: Dago Fonseca
 * Mockups para estadísticas, mis cursos y sección foro: Sebastian Castelblanco
-*
+* Ubicación de la landing page
+* Configuración de login y sign in por el devise
 
 
 ### Posibles Features:
