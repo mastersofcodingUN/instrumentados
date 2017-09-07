@@ -47,8 +47,9 @@
           <a class="navbar-brand" href="#">Instrumentados</a>
         </div>        
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="<%= new_user_registration_path%>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="<%= user_session_path %>"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        
         </ul>
       </div>
     </nav>
@@ -97,7 +98,7 @@
 	</div>
   
   	<div id="contact" class="container-fluid bg-grey">
-  		<h2 class="text-center">CONTACT</h2>
+  		<h2 class="text-center">CONTACTO</h2>
   		<div class="row">
     		<div class="col-sm-5">
       			<p>Contactanos y te responderemos en menos de una semana.</p>
