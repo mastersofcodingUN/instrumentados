@@ -14,3 +14,7 @@ Desarrollar una plataforma educativa en la cual los usuarios puedan elegir entre
 * Iván Santiago Cepeda Zambrano - iscepedaz@unal.edu.co - Desarrollador
 * Jair Alexis Villalba Barreto - javillalbab@unal.edu.co - Desarrollador
 * Fabian Camilo Ordoñez Ordoñez - fcordonezo@unal.edu.co - Desarrollador
+
+
+### Sprint 1
+* Configuración del archivo database.yml de acuerdo a las credenciales de heroku, para el ambiente de producción

@@ -25,6 +25,5 @@ production:
   database: dbp6heirs9v4qd
   host: "ec2-54-197-253-210.compute-1.amazonaws.com"
   username: ytuzoxyzvdyimk
-  password:
-  "b75e0a56812fe83a881aa3ca15a254f8dbb5b2094ac06b4b24ff7546dae9c236"
+  password: "b75e0a56812fe83a881aa3ca15a254f8dbb5b2094ac06b4b24ff7546dae9c236"
   port: 5432
