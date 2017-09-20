@@ -10,7 +10,7 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <div class="texts">
-          <%= f.label :"correo" %><br/>
+          <%= f.label :email, "Correo" %><br/>
         </div>
         <div class="boxes">
           <%= f.email_field :email, autofocus: true %>
@@ -19,7 +19,7 @@
 
       <div class="field">
         <div class="texts">
-          <%= f.label :"contraseña" %><br/>
+          <%= f.label :password, "Contraseña" %><br/>
         </div>
         <div class="boxes">
           <%= f.password_field :password, autocomplete: "off" %>

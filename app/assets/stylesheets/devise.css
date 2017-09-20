@@ -17,7 +17,13 @@
 }
 
 .inset .alert {
-  color: red
+  color: red;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+.inset .notice {
+  color: #12e612;
 }
 
 .texts {
@@ -51,11 +57,8 @@ input:-webkit-autofill {
 
 /*Vista Registro*/
 
-.new_user {
-  background-color: #251d4c;
-}
-
 .panel-default {
+  background: #251d4c;
   border-color: #251d4c;
 }
 
@@ -63,4 +66,12 @@ input:-webkit-autofill {
   padding-left: 10px;
   text-align: left;
   color: white;
+}
+
+#error_explanation ul{
+  font-size: 14px;
+  list-style: decimal;
+  padding: 0;
+  color: red;
+  text-align: center;
 }

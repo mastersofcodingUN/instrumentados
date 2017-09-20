@@ -9,7 +9,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="field">
           <div class="texts-registro">
-            <%= f.label :Correo %><br/>
+            <%= f.label :email, "Correo" %><br/>
           </div>
           <div class="boxes">
             <%= f.email_field :email, autofocus: true %>
@@ -18,12 +18,11 @@
 
         <div class="field">
           <div class="texts-registro">
-            <%= f.label :"contraseña" %>
+            <%= f.label :password, "Contraseña" %>
           </div>
           <% if @minimum_password_length %>
           <em style="color: white">(Mínimo
-            <%= @minimum_password_length %>
-            caracteres)</em>
+            <%= @minimum_password_length %> caracteres)</em>
           <% end %><br/>
           <div class="boxes">
             <%= f.password_field :password, autocomplete: "off" %>
@@ -32,7 +31,7 @@
 
         <div class="field">
           <div class="texts-registro">
-            <%= f.label :"confirmar_contraseña" %><br/>
+            <%= f.label :password_confirmation, "Confirmar contraseña" %><br/>
           </div>
           <div class="boxes">
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
@@ -42,8 +41,8 @@
           <%= f.submit "Continuar" %>
         </div>
         <% end %>
-        <%= devise_error_messages! %>
       </div>
+      <%= devise_error_messages! %>
     </div>
   </div>
 </div>

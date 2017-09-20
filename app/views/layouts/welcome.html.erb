@@ -10,9 +10,17 @@
           </div>
           <div>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/contact"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span> Contacto</a></li>
-              <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> Registrarse</a></li>
-              <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>Iniciar Sesión</a></li>
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do%>
+                    <span class="glyphicon glyphicon-log-out" style="padding-right:5px;"></span>Cerrar Sesión
+                  <% end %>
+                </li>
+              <% else %>
+                <li><a href="/contact"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span> Contacto</a></li>
+                <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> Registrarse</a></li>
+                <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>Iniciar Sesión</a></li>
+              <% end%>
             </ul>
           </div>
         </div>
