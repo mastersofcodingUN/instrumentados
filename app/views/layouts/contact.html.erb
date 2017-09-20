@@ -1,0 +1,23 @@
+    <%= render "partials/header" %>
+    <%= stylesheet_link_tag "styles"%>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+        <div id="header"class="container-fluid">
+          <div class="navbar-header">
+            <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-home" style="padding-right:7px;"></span>Inicio</a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<%= new_user_registration_path%>"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> Registrarse</a></li>
+              <li><a href="<%= user_session_path %>"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>Iniciar Sesión</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <%= yield %>
+
+  </body>
+</html>

@@ -1,32 +1,35 @@
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Iniciar Sesión</title>
 </head>
-<div class="container text-center row">
-<h2>Iniciar Sesión</h2>
-<div class="panel panel-default center-block" style="width:25%; min-width: 200px;">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <span class="glyphicon glyphicon-user"></span>
-    <%= f.label :"Correo" %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<div style="width: 100%; height:90%; position: absolute; background-color: rgba(152, 141, 53, 0.6);">
+  <div class="container text-center">
+    <div class="inset">
+      <h2 style="color: white;">Iniciar Sesión</h2>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <div class="texts">
+          <%= f.label :"correo" %><br/>
+        </div>
+        <div class="boxes">
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+      </div>
 
-  <div class="field">
-    <span class="glyphicon glyphicon-lock"></span>
-    <%= f.label :"contraseña" %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <div class="field">
+        <div class="texts">
+          <%= f.label :"contraseña" %><br/>
+        </div>
+        <div class="boxes">
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Iniciar sesión" %>
+      <div class="actions">
+        <%= f.submit "Iniciar sesión" %>
+      </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
 </div>

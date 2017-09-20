@@ -1,128 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <title>instrumentados</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  	.jumbotron {
-    	background-color: #000;
-      	color: #fff;
-      	padding: 100px 25px;
-  	}
-  	.bg-grey {
-    	background-color: #f6f6f6;
-  	}
-  	.container-fluid {
-    	padding: 60px 50px;
-	}
-	.logo {
-    	font-size: 200px;
-	}
-	@media screen and (max-width: 768px) {
-    	.col-sm-4 {
-        	text-align: center;
-        	margin: 25px 0;
-    	}
-	}
-	#contact {
-		background-color: #000;
-		color: #878787;
-	}
-	
-	#header{
-		height: 50%;
-		padding: 10px 25px;		
-	}
-  </style>
-
+	<title>Instrumentados</title>
 </head>
-<body>
-	<nav class="navbar navbar-inverse">
-      <div id="header"class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Instrumentados</a>
-        </div>        
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="<%= new_user_registration_path%>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="<%= user_session_path %>"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-        
-        </ul>
-      </div>
-    </nav>
-	<div class="jumbotron text-center">
-		<h1>Instrumentados</h1> 
-		<p>Aprende y comparte tu conocimiento musical</p> 
+<div class="jumbotron text-center">
+	<div class="titulo">
+		<h1>Instrumentados</h1>
+		<p>Aprende y comparte tu conocimiento musical</p>
 	</div>
+</div>
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-8">
-			    <h2><strong>Acerca de nosostros</strong></h2>			    
-			    <p>Somos una plataforma educativa que pretender facilitar el acceso a la educación músical
-			    	a través de cursos virtuales de manera interactiva. En los cursos podrás encontrar
-			    	videos, documentos, lecciones y foros para darte una experiancia realmente fascinante
-			    	mientras aprendes.
-			    </p>			    
-			</div>
-			<div class="col-sm-4">
-	      		<span class="glyphicon glyphicon-info-sign logo"></span>
-	   		</div>
-	 	</div>
-	</div>
-
-	<div class="container-fluid bg-grey">
-		<div class="row">
-		    <div class="col-sm-4">
-      			<span class="glyphicon glyphicon-book logo"></span> 
-    		</div>
-    		<div class="col-sm-8">
-		  		<h2><strong>Acerca de los cursos</strong></h2>
-		  		<p>Instrumentados ofrece una gran variedad de cursos extructurados
-		  		en lecciones, encontrarás cursos propios de la plataforma y cursos
-		  		creados por otros usuarios permitiendo una gran oferta. Algunos instrumentos
-		  		que podrás aprender son:
-		  		</p>
-		    	<ul>
-		    		<li>Guitarra</li>
-		    		<li>Trompeta</li>
-		    		<li>Violín</li>
-		    		<li>etc...</li>
-		    	</ul>
-		    	
-		  	</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-8">
+			<h2 style="color: #251d4c;">
+				<strong>Acerca de nosostros</strong>
+			</h2>
+			<p style="text-align: justify;">
+				Somos una plataforma educativa que pretender facilitar el acceso a la educación músical a través de cursos virtuales de manera interactiva. En los cursos podrás encontrar videos, documentos, lecciones y foros para darte una experiancia realmente
+				fascinante mientras aprendes.
+			</p>
+		</div>
+		<div class="col-sm-4">
+			<span class="glyphicon glyphicon-info-sign logo" style="color: #251d4c;"></span>
 		</div>
 	</div>
-  
-  	<div id="contact" class="container-fluid bg-grey">
-  		<h2 class="text-center">CONTACTO</h2>
-  		<div class="row">
-    		<div class="col-sm-5">
-      			<p>Contactanos y te responderemos en menos de una semana.</p>
-      			<p><span class="glyphicon glyphicon-map-marker"></span>Bogotá D.C.,Colombia</p>
-      			<p><span class="glyphicon glyphicon-phone"></span>3157657159</p>
-      			<p><span class="glyphicon glyphicon-envelope"></span>contacto@instumentados.com</p> 
-    		</div>
-    		<div class="col-sm-7">
-      			<div class="row">
-        			<div class="col-sm-6 form-group">
-          				<input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
-        			</div>
-       				<div class="col-sm-6 form-group">
-          				<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        			</div>
-      			</div>
-      			<textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea><br>
-      			<div class="row">
-        			<div class="col-sm-12 form-group">
-          				<button class="btn btn-default pull-right" type="submit">Enviar</button>
-        			</div>
-      			</div> 
-    		</div>
-  		</div>
-	</div>   
-</body>
-</html>
+</div>
+
+<div class="container-fluid bg-grey">
+	<div class="row">
+		<div class="col-sm-4">
+			<span class="glyphicon glyphicon-book logo" style="color: #251d4c;"></span>
+		</div>
+		<div class="col-sm-8">
+			<h2 style="color:#251d4c;">
+				<strong>Acerca de los cursos</strong>
+			</h2>
+			<p style="text-align: justify;">
+				Instrumentados ofrece una gran variedad de cursos extructurados en lecciones, encontrarás cursos propios de la plataforma y cursos creados por otros usuarios permitiendo una gran oferta. Algunos instrumentos que podrás aprender son:
+			</p>
+			<ul>
+				<li>Guitarra</li>
+				<li>Trompeta</li>
+				<li>Violín</li>
+				<li>etc...</li>
+			</ul>
+		</div>
+	</div>
+</div>

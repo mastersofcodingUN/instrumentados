@@ -1,0 +1,66 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.inset {
+  margin: 10% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 1em;
+  border: 1px solid #191919;
+  box-shadow: 2px 5px 7px 5px rgba(0, 0, 0, 0.4);
+  background: #251d4c;
+}
+
+.inset .alert {
+  color: red
+}
+
+.texts {
+  color: #FFF;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.boxes {
+  margin-bottom: 30px;
+}
+
+.boxes input {
+  padding-left: 7px;
+  box-shadow: 1px 1px 7px 0px #3c3b3b inset;
+  background: #c9c7c7;
+  border: #c9c7c7;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #c9c7c7 inset;
+}
+
+.actions input {
+  background: #69b6ff;
+  border-color: #69b6ff;
+  border-radius: 5px;
+  color: black;
+}
+
+
+/*Vista Registro*/
+
+.new_user {
+  background-color: #251d4c;
+}
+
+.panel-default {
+  border-color: #251d4c;
+}
+
+.texts-registro {
+  padding-left: 10px;
+  text-align: left;
+  color: white;
+}
