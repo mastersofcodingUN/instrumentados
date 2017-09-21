@@ -6,6 +6,13 @@
   margin-bottom: 0px;
 }
 
+.backgrounds {
+  width: 100%;
+  height:100%;
+  position: fixed;
+  background-color: rgba(152, 141, 53, 0.6);
+}
+
 .inset {
   margin: 10% auto;
   padding: 20px;
@@ -52,10 +59,8 @@ input:-webkit-autofill {
   border-color: #69b6ff;
   border-radius: 5px;
   color: black;
+  margin-bottom: 10px;
 }
-
-
-/*Vista Registro*/
 
 .panel-default {
   background: #251d4c;
