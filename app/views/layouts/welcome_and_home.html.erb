@@ -1,6 +1,7 @@
   <head>
     <%= render "partials/header" %>
     <%= stylesheet_link_tag "styles"%>
+    <%= javascript_include_tag "welcome" %>
     <% if current_page?(root_path)%> <!-- verificar en que pagina estoy para asignar el titulo -->
       <title>Instrumentados</title>
     <% else %>

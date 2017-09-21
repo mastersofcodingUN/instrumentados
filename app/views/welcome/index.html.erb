@@ -1,5 +1,10 @@
-<head>
-</head>
+<% if notice %>
+	<div class="alert alert-success alert-dismissable sesion">
+	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  <strong><%= notice %></strong>
+	</div>
+<% end %>
+
 <div class="jumbotron text-center">
 	<div class="titulo">
 		<h1>Instrumentados</h1>
