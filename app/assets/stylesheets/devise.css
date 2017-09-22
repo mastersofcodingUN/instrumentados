@@ -2,6 +2,22 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+h2 {
+  color:white;
+  padding-bottom: 20px;
+}
+
+em {
+  color: white;
+}
+
+.container {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 .sesion {
   position: fixed;
   width:100%;
@@ -43,6 +59,7 @@
   color: #FFF;
   text-align: left;
   padding-left: 40px;
+  height: 25px;
 }
 
 .boxes {
@@ -77,6 +94,7 @@ input:-webkit-autofill {
   padding-left: 10px;
   text-align: left;
   color: white;
+  height: 25px
 }
 
 #error_explanation ul{
@@ -85,4 +103,16 @@ input:-webkit-autofill {
   padding: 0;
   color: red;
   text-align: center;
+}
+
+#error_explanation h2 {
+  padding: 0px;
+}
+
+.remember {
+  position: relative;
+  top:-25px;
+  color: white;
+  font-size: 12px;
+  padding-right: 100px;
 }
