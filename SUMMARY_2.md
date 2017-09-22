@@ -2,4 +2,4 @@
 
 ## Features desarrolldos:
 
-* Personalización de las vistas de landing page y registro, inicio de sesión: Juan Castelblanco
+* Personalización de las vistas de landing page y devise: Juan Castelblanco

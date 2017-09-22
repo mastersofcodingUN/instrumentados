@@ -1,5 +1,6 @@
 Rails.application.configure do
 
+  config.action_mailer.default_url_options = { :host => 'instrumentados.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
@@ -10,7 +11,7 @@ Rails.application.configure do
     user_name: "instrumentados@gmail.com",
     password: "mastersofcodin"
   }
-config.action_mailer.raise_delivery_errors = true
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
