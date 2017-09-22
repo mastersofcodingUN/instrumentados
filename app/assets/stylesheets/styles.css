@@ -28,7 +28,7 @@
   }
 }
 .jumbotron {
-  background-image: url(background.jpg);
+  background-image: url(https://raw.githubusercontent.com/mastersofcodingUN/instrumentados/views/app/assets/images/background.jpg);
   background-size: 85% 100%;
   background-repeat: no-repeat;
   background-position: center;
