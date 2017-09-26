@@ -20,8 +20,7 @@
               <% if user_signed_in? %> <!-- Modificar el nav al iniciar sesion, uno diferente si el usuario inicia sesion-->
                 <li>
                   <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do%>
-                    <span class="glyphicon glyphicon-log-out" style="padding-right:5px;"></span>Cerrar Sesión
-                  <% end %>
+                    <span class="glyphicon glyphicon-log-out" style="padding-right:5px;"></span>Cerrar Sesión                  <% end %>
                 </li>
               <% else %>
                 <li><a href="/contact"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span> Contacto</a></li>
