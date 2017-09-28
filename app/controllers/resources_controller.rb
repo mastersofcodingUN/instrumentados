@@ -22,9 +22,9 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-  	@resource = Resume.find(params[:id])
+  	@resource = Resource.find(params[:id])
   	@resource.destroy
-  	redicrect_to resources_path, notice: "El recurso #{@resource.name} fue eliminado"
+  	redirect_to resources_path, notice: "El recurso #{@resource.name} fue eliminado"
   end
 
   private
