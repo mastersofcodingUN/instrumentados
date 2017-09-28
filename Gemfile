@@ -36,6 +36,13 @@ gem 'jbuilder', '~> 2.5'
 #Authentication
 gem 'devise'
 
+# Use carrierwave to upload files
+gem 'carrierwave', '~> 1.1.0'
+
+# bootstrap
+gem 'bootstrap-sass', '~> 3.3.7'
+
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +50,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  # Use this to generate data
+  gem 'faker', '~> 1.8', '>= 1.8.4'
 end
 
 group :production do
