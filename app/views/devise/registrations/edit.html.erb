@@ -3,7 +3,7 @@
 </head>
 <div class="backgrounds">
   <div class="container text-center">
-    <div class="inset" style="height: 500px; overflow:auto; width:50%" >
+    <div class="inset" style="height: 500px; overflow:auto; width:50%; margin-top: 50px;" >
 	<h2>Editar Perfil</h2>
 
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -24,11 +24,12 @@
 
 	  <div class="field">
 	    <div class="texts">
-	      <%= f.label :password, "Contraseña" %> <i>(Dejalo en blanco si no lo quieres editar.)</i><br />
-            </div>
-            <div class="boxes">
+	      <%= f.label :password, "Contraseña" %> <br />
+        <i>(Déjalo en blanco si no lo quieres editar.)</i>
+      </div>
+      <div class="boxes">
 	      <%= f.password_field :password, autocomplete: "off" %>
-            </div>
+      </div>
 	    <% if @minimum_password_length %>
 	      <br />
 	      <em>Mínimo <%= @minimum_password_length %> caracteres</em>
@@ -45,24 +46,23 @@
 	  </div>
 
 	  <div class="field">
-            <div class="texts">
-	      <%= f.label :current_password, "Contraseña actual"  %> <i>(Necesitas la contraseña actual para confirmar los cambios)</i><br />
-            </div>
-            <div class="boxes">
+      <div class="texts">
+	      <%= f.label :current_password, "Contraseña actual"  %><br />
+        <i>(Necesitas la contraseña actual para confirmar los cambios)</i>
+      </div>
+      <div class="boxes">
 	      <%= f.password_field :current_password, autocomplete: "off" %>
-            </div>
+      </div>
 	  </div>
 
 	  <div class="actions">
-	    <%= f.submit "Update" %>
+	    <%= f.submit "Guardar" %>
 	  </div>
 	<% end %>
 
-	<h3>Cancel my account</h3>
+	<p><%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "¿Seguro que deseas cancelar tu cuenta?" }, method: :delete %></p>
 
-	<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-	<%= link_to "Back", :back %>
+	<%= link_to "Atrás", :back %>
     </div>
   </div>
 </div>
