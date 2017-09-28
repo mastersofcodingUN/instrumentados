@@ -1,15 +1,16 @@
 
-<%if !flash[:notice].blank? %>
-	<div class="alert añert-info">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-
 <nav class="navbar navbar-inverse" style="margin-bottom:20px;">
 		<div id="header" class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" <%= link_to "Instrumentados", root_path %>></a>
 			</div>
+
+			<%if !flash[:notice].blank? %>
+				<div class="alert añert-info">
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+			
 			<div>
 				<ul class="nav navbar-nav navbar-right">
 					<% if user_signed_in? %> <!-- Modificar el nav al iniciar sesion, uno diferente si el usuario inicia sesion-->
