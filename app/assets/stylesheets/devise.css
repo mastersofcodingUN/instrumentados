@@ -56,7 +56,7 @@ em {
 
 .boxes {
   margin-bottom: 30px;
-
+  display: block;
 }
 
 .boxes input {
@@ -86,7 +86,7 @@ input:-webkit-autofill {
 .texts-registro {
   text-align: center;
   color: white;
-  height: 25px  
+  height: 25px
 }
 
 #error_explanation ul{
