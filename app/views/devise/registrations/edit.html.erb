@@ -7,7 +7,6 @@
 	<h2>Editar Perfil</h2>
 
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-	  <%= devise_error_messages! %>
 
 	  <div class="field">
 	    <div class="texts">
@@ -63,6 +62,7 @@
 	<p><%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "¿Seguro que deseas cancelar tu cuenta?" }, method: :delete %></p>
 
 	<%= link_to "Atrás", :back %>
+  <%= devise_error_messages! %>
     </div>
   </div>
 </div>
