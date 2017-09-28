@@ -35,6 +35,8 @@ es:
       models:
         user:
           attributes:
+            current_password:
+              blank: "La contraseña no puede estar vacia"
             unlock_token:
               invalid: "incorrecto, imposible desbloquear cuenta"
             email:

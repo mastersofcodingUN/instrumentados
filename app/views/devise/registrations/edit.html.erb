@@ -1,13 +1,21 @@
 <head>
   <title>Editar perfil</title>
 </head>
-<div class="backgrounds">
+<div class="backgrounds" style="overflow: auto">
   <div class="container text-center">
-    <div class="inset" style="height: 500px; overflow:auto; width:50%; margin-top: 50px;">
+    <div class="inset" style="width:500px; margin-top: 50px;">
       <h2>Editar Perfil</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
+
+      <div class="field">
+        <div class="texts-registro">
+          <%= f.label :name, "Nombre" %><br/>
+        </div>
+        <div class="boxes">
+          <%= f.text_field :name, autofocus: true, value: "#{current_user.name}"  %>
+        </div>
+      </div>
 
       <div class="field">
         <div class="texts">
@@ -51,6 +59,16 @@
         </div>
         <div class="boxes">
           <%= f.password_field :current_password, autocomplete: "off" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="texts-registro">
+          <%= f.label :country, "Pais" %><br/>
+        </div>
+
+        <div class="boxes">
+          <%= f.text_field :country, autofocus: true, value: "#{current_user.country}" %>
         </div>
       </div>
 

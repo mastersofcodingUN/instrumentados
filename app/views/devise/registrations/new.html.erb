@@ -1,11 +1,11 @@
 <head>
   <title>Registro</title>
 </head>
-<div class="backgrounds">
+<div class="backgrounds" style=" overflow: auto;">
   <div class="container text-center" >
-    <div class="inset" style="margin-top: 6%; width:50%; max-height: 500px; overflow: auto;">
+    <div class="inset" style="margin-top: 6%; width:50%;">
       <h2 style="color: white;">Crea una cuenta de instrumentados</h2>
-      <div class="panel panel-default center-block" style="width:40%; min-width: 200px;"> 
+      <div class="panel panel-default center-block" style="width:40%; min-width: 200px;">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="field">
           <div class="texts-registro">
@@ -45,7 +45,7 @@
           <div class="boxes">
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
-        </div>        
+        </div>
 
         <div class="field">
           <div class="texts-registro">
@@ -57,14 +57,14 @@
         </div>
 
         <div class="field">
-          <div class="texts-registro">          
-            <%= f.label :birthdate, "Fecha de nacimiento" %><br/>          
+          <div class="texts-registro">
+            <%= f.label :birthdate, "Fecha de nacimiento" %><br/>
           </div>
           <div class="boxes">
-            <%= date_field :birthdate, autofocus: true %>   
+            <%= date_field :birthdate, autofocus: true %>
           </div>
-        </div>        
-                
+        </div>
+
         <div class="actions">
           <%= f.submit "Continuar" %>
         </div>

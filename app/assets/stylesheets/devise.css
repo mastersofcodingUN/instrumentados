@@ -26,6 +26,7 @@ em {
   height:100%;
   position: fixed;
   background-color: rgba(152, 141, 53, 0.6);
+  background-image: url(https://st.depositphotos.com/1504316/3464/v/950/depositphotos_34648525-stock-illustration-seamless-musical-background.jpg);
 }
 
 .inset {
@@ -113,4 +114,10 @@ input:-webkit-autofill {
   background-color: red;
   border-color: red;
   color: black;
+}
+
+.field_with_errors{
+  display: block;
+  background-color: #251d4c;
+  color: red;
 }
