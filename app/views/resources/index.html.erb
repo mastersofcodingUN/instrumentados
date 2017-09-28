@@ -1,0 +1,37 @@
+
+<%if !flash[:notice].blank? %>
+	<div class="alert añert-info">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+
+<br />
+
+<%= link_to "New Resource", new_resource_path, class: "btn btn-primary" %>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Nombre del recurso</th>
+         <th>Visualizar</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @resources.each do |resource| %>
+         
+         <tr>
+            <td><%= resource.name %></td>
+            <td><%= link_to "Visualizar recurso", resource.attachment_url %></td>
+            <td><%= button_to "Eliminar",  resource, method: :delete, class: "btn btn-danger", confirm: "Quiere eliminar el recurso #{resource.name}?" %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+
