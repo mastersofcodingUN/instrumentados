@@ -11,13 +11,6 @@ em {
   color: white;
 }
 
-.container {
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-
 .sesion {
   position: fixed;
   width:100%;
@@ -56,14 +49,14 @@ em {
 }
 
 .texts {
+  display: inline-block;
   color: #FFF;
-  text-align: left;
-  padding-left: 40px;
   height: 25px;
 }
 
 .boxes {
   margin-bottom: 30px;
+
 }
 
 .boxes input {
@@ -91,8 +84,7 @@ input:-webkit-autofill {
 }
 
 .texts-registro {
-  padding-left: 10px;
-  text-align: left;
+  text-align: center;
   color: white;
   height: 25px
 }
@@ -115,4 +107,10 @@ input:-webkit-autofill {
   color: white;
   font-size: 12px;
   padding-right: 100px;
+}
+
+.button_to input{
+  background-color: red;
+  border-color: red;
+  color: black;
 }
