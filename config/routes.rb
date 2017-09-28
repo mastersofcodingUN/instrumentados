@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :lessons
   #get 'resources/index'
 
   #get 'resources/new'
