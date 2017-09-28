@@ -39,7 +39,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # def extension_whitelist
   #   %w(jpg jpeg gif png)
   # end
-  def extension_white_list
+  def extension_whitelist
     %w(pdf doc docx jpg jpeg gif png avi mp4)
   end
 
