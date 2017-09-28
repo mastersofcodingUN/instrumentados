@@ -5,33 +5,60 @@
 	</div>
 <% end %>
 
+<nav class="navbar navbar-inverse" style="margin-bottom:20px;">
+		<div id="header" class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" <%= link_to "Instrumentados", root_path %>></a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav navbar-right">
+					<% if user_signed_in? %> <!-- Modificar el nav al iniciar sesion, uno diferente si el usuario inicia sesion-->
+						<li>
+							<%= link_to edit_user_registration_path, :class => 'navbar-link' do%>
+								<span class="glyphicon glyphicon-pencil" style="padding-right:5px;"></span>Editar perfil
+							<% end %>
+						</li>
+						<li>
+							<%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do%>
+								<span class="glyphicon glyphicon-log-out" style="padding-right:5px;"></span>Cerrar Sesión
+							<% end %>
+						</li>
+					<% else %>
+						<li><a href="/contact"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span> Contacto</a></li>
+						<li><a href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> Registrarse</a></li>
+						<li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>Iniciar Sesión</a></li>
+					<% end%>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-<br />
+<div class = "container" style = "padding-top:20px;">
+<%= link_to "Nuevo recurso", new_resource_path, class: "btn btn-primary" %>
+</div>
 
-<%= link_to "New Resource", new_resource_path, class: "btn btn-primary" %>
-<br />
-<br />
+<div class = "container" style = "padding-top:20px;">
 
-<table class = "table table-bordered table-striped">
-   <thead>.
-      <tr>
-         <th>Nombre del recurso</th>
-         <th>Visualizar</th>
-         <th> </th>
-      </tr>
-   </thead>
-   
-   <tbody>
-      <% @resources.each do |resource| %>
-         
-         <tr>
-            <td><%= resource.name %></td>
-            <td><%= link_to "Visualizar recurso", resource.attachment_url %></td>
-            <td><%= button_to "Eliminar",  resource, method: :delete, class: "btn btn-danger", confirm: "Quiere eliminar el recurso #{resource.name}?" %></td>
-         </tr>
-         
-      <% end %>
-   </tbody>
-   
-</table>
+	<table class = "table table-bordered table-striped">
+	   <thead>
+	      <tr>
+	         <th>Nombre del recurso</th>
+	         <th>Visualizar</th>
+	         <th> </th>
+	      </tr>
+	   </thead>
 
+	   <tbody>
+	      <% @resources.each do |resource| %>
+
+	         <tr>
+	            <td><%= resource.name %></td>
+	            <td><%= link_to "Visualizar recurso", resource.attachment_url %></td>
+	            <td><%= button_to "Eliminar",  resource, method: :delete, class: "btn btn-danger", confirm: "Quiere eliminar el recurso #{resource.name}?" %></td>
+	         </tr>
+
+	      <% end %>
+	   </tbody>
+
+	</table>
+</div>
