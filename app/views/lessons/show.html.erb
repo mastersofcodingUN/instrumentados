@@ -10,5 +10,28 @@
   <%= @lesson.description %>
 </p>
 
+<table class = "table table-bordered table-striped">
+	   <thead>
+	      <tr>
+	         <th>Nombre del recurso</th>
+	         <th>Visualizar</th>
+	         <th> </th>
+	      </tr>
+	   </thead>
+
+	   <tbody>
+	      <% @lesson.resources.each do |resource| %>
+
+	         <tr>
+	            <td><%= resource.name %></td>
+	            <td><%= link_to "Visualizar recurso", resource.attachment_url %></td>
+	            <td><%= button_to "Eliminar",  resource, method: :delete, class: "btn btn-danger", confirm: "Quiere eliminar el recurso #{resource.name}?" %></td>
+	         </tr>
+
+	      <% end %>
+	   </tbody>
+
+	</table>
+
 <%= link_to 'Edit', edit_lesson_path(@lesson) %> |
 <%= link_to 'Back', lessons_path %>

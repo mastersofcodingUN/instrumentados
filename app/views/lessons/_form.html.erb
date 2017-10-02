@@ -13,14 +13,27 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :lesson_title %>
   </div>
+  <%= form.text_field :title, id: :lesson_title %>
+  
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :lesson_description %>
   </div>
-
+  <%= form.text_area :description, id: :lesson_description %>
+ 
+  <div class = "well">
+   <%= form.fields_for :resources, html: { multipart: true } do |r| %>
+    <div class="field">
+      <%= r.label "Nombre del recurso" %>
+    </div>
+    <%= r.text_field :name %>    
+    <div class="field">
+      <%= r.label :Archivo %>      
+    </div>    
+    <%= r.file_field :attachment %>     
+   <% end %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

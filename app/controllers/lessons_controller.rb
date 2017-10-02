@@ -15,40 +15,33 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   def new
     @lesson = Lesson.new
+    @lesson.resources.new
   end
 
   # GET /lessons/1/edit
-  def edit
+  def edit    
   end
 
-  # POST /lessons
-  # POST /lessons.json
+  # POST /lessons  
   def create
     @lesson = Lesson.new(lesson_params)
 
-    respond_to do |format|
-      if @lesson.save
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
-        format.json { render :show, status: :created, location: @lesson }
-      else
-        format.html { render :new }
-        format.json { render json: @lesson.errors, status: :unprocessable_entity }
-      end
-    end
+    if @lesson.save
+      redirect_to @lesson, notice: 'Lesson was successfully created.'        
+    else
+      render :new         
+    end    
   end
 
   # PATCH/PUT /lessons/1
-  # PATCH/PUT /lessons/1.json
   def update
-    respond_to do |format|
-      if @lesson.update(lesson_params)
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully updated.' }
-        format.json { render :show, status: :ok, location: @lesson }
-      else
-        format.html { render :edit }
-        format.json { render json: @lesson.errors, status: :unprocessable_entity }
-      end
+   
+    if @lesson.update(lesson_params)
+      redirect_to @lesson, notice: 'Lesson was successfully updated.'        
+    else
+      render :edit        
     end
+
   end
 
   # DELETE /lessons/1
@@ -69,6 +62,6 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:title, :description)
+      params.require(:lesson).permit(:title, :description, resources_attributes: [:name, :attachment])
     end
 end

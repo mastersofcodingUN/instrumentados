@@ -24,11 +24,11 @@ class ResourcesController < ApplicationController
   def destroy
   	@resource = Resource.find(params[:id])
   	@resource.destroy
-  	redirect_to resources_path, notice: "El recurso #{@resource.name} fue eliminado"
+  	redirect_to @resource.lesson, notice: "El recurso #{@resource.name} fue eliminado"
   end
 
   private
   	def resource_params
   		params.require(:resource).permit(:name, :attachment)
-	end
+	  end
 end
