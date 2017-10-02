@@ -5,11 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# Login with google
+gem 'omniauth-google-oauth2'
+# Login with facebook
+gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
-# Use sqlite3 as the database for Active Record
-
 # Use will paginate for pagination purposes
 gem 'will_paginate', '~> 3.1.0'
 # Use Puma as the app server
