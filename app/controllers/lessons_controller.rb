@@ -16,8 +16,12 @@ class LessonsController < ApplicationController
 
   # GET /lessons/new
   def new
-    @lesson = Lesson.new
+    #@lesson = Lesson.new
+    #@lesson.resources.new
+    @course = Course.find(params[:course_id])
+    @lesson = @course.lessons.new
     @lesson.resources.new
+       puts "OH MY GOD #{@lesson.course_id}"
   end
 
   # GET /lessons/1/edit
@@ -29,7 +33,8 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
 
     if @lesson.save
-      redirect_to @lesson, notice: 'Lesson was successfully created.'        
+      puts "OH MY GOD REDIRECT #{@lesson.course_id}"
+      redirect_to @lesson.course_id, notice: 'Lesson was successfully created.'        
     else
       render :new         
     end    

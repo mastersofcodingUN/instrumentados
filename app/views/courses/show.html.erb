@@ -67,7 +67,7 @@
 
 	</table>
 
-	<%= link_to "Crear Leccion", new_lesson_path, class: "btn btn-primary" %>
+	<%= link_to "Crear Leccion", new_lesson_path(course_id: @course.id), class: "btn btn-primary" %>
 	
 </div>
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-primary" %>

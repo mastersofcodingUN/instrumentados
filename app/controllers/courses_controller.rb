@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
 
 	def new
 		@course = Course.new
-		@course.lessons.new
+		
 	end
 
 	def edit    
