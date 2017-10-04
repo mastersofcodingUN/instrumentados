@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profile/view_profile'
+
   resources :lessons
   #get 'resources/index'
 
@@ -15,4 +17,5 @@ Rails.application.routes.draw do
   root "welcome#index"
   get "/contact", to:"contact#form"
   get "/home", to:"home#show"
+  get "/profile", to:"profile#view_profile"
 end
