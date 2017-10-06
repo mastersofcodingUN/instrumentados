@@ -121,3 +121,32 @@ input:-webkit-autofill {
   background-color: #251d4c;
   color: red;
 }
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  width: 70px;
+  text-decoration: none;
+  margin: 15px 2px;
+  border-radius: 50%;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+a:focus, a:hover {
+    color: #ffffff;
+    text-decoration: solid;
+}

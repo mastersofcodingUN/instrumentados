@@ -18,8 +18,32 @@
   <%= link_to "Enviar instrucciones de desbloqueo", new_unlock_path(resource_name) %><br />
 <% end -%>
 
+<!--
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to "<i class='#{ICONS[provider]}'></i>".html_safe, omniauth_authorize_path(resource_name, provider), class: "ui #{COLOR[provider]} mini submit button ok" %>
   <% end -%>
 <% end -%>
+-->
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <% if provider == :facebook %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), :class => "fa fa-facebook" do%>
+      <%end%>
+    <% else %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), :class => "fa fa-google" do%>
+      <%end%>
+    <%end%>
+  <% end -%>
+<% end -%>
+<!--
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <% if provider == :facebook %>
+
+    <%end%>
+    <%= link_to "Iniciar sesión con #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+<% end -%>
+-->
