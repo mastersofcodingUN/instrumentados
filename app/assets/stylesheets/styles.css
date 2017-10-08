@@ -7,8 +7,13 @@
 .navbar-header{
   margin-left: 30px;
 }
+.logofont{
+  font-family: 'lobster', cursive;
+  font-size: 30px;
+  color: black;
+}
 .navbar-inverse{
-  background-color: #251d4c;
+  background-color: black;
   border-color: white;
 }
 .nav>li>a {
