@@ -42,6 +42,10 @@
 	<div class="alert alert-warning">
 		El curso no está activo. Añade lecciones para activarlo
 	</div>
+<% elsif @course.state == "ACTIVO" %>
+	<div class="alert alert-warning">
+		El curso está activo.
+	</div>
 <% end %>
 
 <div class="container-fluid">
@@ -58,8 +62,8 @@
 	      <% @course.lessons.each do |lesson| %>
 
 	         <tr>
-	            <td><%= lesson.name %></td>
-	            <td><%= link_to "Visualizar Leción", show_lesson_path %></td>	            
+	            <td><%= lesson.title %></td>
+	            <td><%= link_to "Visualizar Lección", lesson_path(lesson.id) %></td>	            
 	         </tr>
 
 	      <% end %>
@@ -67,7 +71,7 @@
 
 	</table>
 
-	<%= link_to "Crear Leccion", new_lesson_path(course_id: @course.id), class: "btn btn-primary" %>
+	<%= link_to "Crear Leccion", new_lesson_path(:course_id => params[:id]), class: "btn btn-primary" %>
 	
 </div>
 <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-primary" %>

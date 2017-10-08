@@ -16,12 +16,13 @@ class LessonsController < ApplicationController
 
   # GET /lessons/new
   def new
-    #@lesson = Lesson.new
+    @lesson = Lesson.new
+    @lesson.course_id = params[:course_id]
     #@lesson.resources.new
-    @course = Course.find(params[:course_id])
-    @lesson = @course.lessons.new
+    #@course = Course.find(params[:course_id])
+    #@lesson = @course.lessons.new
     @lesson.resources.new
-       puts "OH MY GOD #{@lesson.course_id}"
+      
   end
 
   # GET /lessons/1/edit
@@ -31,10 +32,11 @@ class LessonsController < ApplicationController
   # POST /lessons  
   def create
     @lesson = Lesson.new(lesson_params)
-
-    if @lesson.save
-      puts "OH MY GOD REDIRECT #{@lesson.course_id}"
-      redirect_to @lesson.course_id, notice: 'Lesson was successfully created.'        
+    @course_id = lesson_params['course_id']
+    #@lesson.course_id = course_id
+    
+    if @lesson.save    
+      redirect_to course_path(@lesson.course_id), notice: 'Lesson was successfully created.'        
     else
       render :new         
     end    
@@ -69,6 +71,6 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:title, :description, resources_attributes: [:name, :attachment])
+      params.require(:lesson).permit(:title, :description, :course_id, resources_attributes: [:name, :attachment])
     end
 end

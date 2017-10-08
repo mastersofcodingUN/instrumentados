@@ -12,15 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label 'Titulo' %>
   </div>
-  <%= form.text_field :title, id: :lesson_title %>
+  <%= form.text_field :title%>
   
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label 'Descripción' %>
   </div>
-  <%= form.text_area :description, id: :lesson_description %>
+  <%= form.text_area :description %>
+
+  <%= form.hidden_field :course_id, value: params['course_id'] %>
  
   <div class = "well">
    <%= form.fields_for :resources, html: { multipart: true } do |r| %>
@@ -33,7 +35,8 @@
     </div>    
     <%= r.file_field :attachment %>     
    <% end %>
-  </div>
+  </div> 
+
   <div class="actions">
     <%= form.submit %>
   </div>
