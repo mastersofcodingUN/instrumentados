@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
 	before_action :authenticate_user!
+	before_action :check_state, only: [:show, :edit]
 	layout "lesson"
 
 	def index
@@ -7,12 +8,11 @@ class CoursesController < ApplicationController
   	end
 
 	def new
-		@course = Course.new
-		
+		@course = Course.new		
 	end
 
 	def edit    
-		@course = Course.find(params[:id])
+		#@course = Course.find(params[:id])
 	end
 
 
@@ -38,7 +38,7 @@ class CoursesController < ApplicationController
 
 
 	def update
-
+		@course = Course.find(params[:id])
 		if @course.update(course_params)
 		  redirect_to @course, notice: 'El curso fue actualizado de manera exitosa.'        
 		else
@@ -47,11 +47,24 @@ class CoursesController < ApplicationController
 
 	end
 
+
 	private
 
 		def course_params
 			params.require(:course).permit(:name, :description, :difficulty, :views, :reputation, :genre, :instrument, :image,
 											lessons_attributes: [:title, :description] )
 		end
+
+
+	def check_state
+		#puts "I HOPE TO FIND THE ERROR #{params['id']}"
+		@course  = Course.find(params['id'])
+		@lessons = Lesson.where(course_id: @course.id)			
+		if @lessons.size >= 3			
+			@course.update(state: "ACTIVO" )
+		else
+			@course.update(state: "INACTIVO")
+		end		
+	end
 
 end
