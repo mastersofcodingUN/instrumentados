@@ -1,7 +1,7 @@
 <head>
   <title>Registro</title>
 </head>
-<div class="backgrounds" style=" overflow: auto;">
+<div class="backgrounds">
   <div class="container text-center" >
     <div class="inset" style="margin-top: 6%; width:50%;">
       <h2 style="color: white;">Crea una cuenta de instrumentados</h2>
@@ -62,7 +62,7 @@
             <%= f.label :birthdate, "Fecha de nacimiento" %><br/>
           </div>
           <div class="boxes">
-            <%= date_field :birthdate, autofocus: true %>
+            <%= f.date_field :birthdate, autofocus: true %>
           </div>
         </div>
 
