@@ -4,37 +4,48 @@
 <div class="backgrounds" style="overflow: auto">
   <div class="container text-center">
     <div class="inset" style="width:500px; margin-top: 50px;">
-      <h2>Perfil</h2>
+
+      <h2 style="color: white;">Perfil</h2>
       <% User.all.each do |d| %>
-      <% if current_user.id == d.id %>
-        <div class="field">
-          <div class="texts-registro">
-            <h3>Nombre<br/></h3>
+        <% if current_user.id == d.id %>
+          <div class="field">
+            <div class="texts-registro">
+              <h3>Nombre<br/></h3>
+            </div>
+            <div class="texts-registro">
+              <td><%= d.name %></td>
+            </div>
           </div>
-          <div class="boxes">
-            <td><%= d.name %></td>
+
+          <div class="field">
+            <div class="texts-registro">
+              <h3>Correo<br/></h3>
+            </div>
+            <div class="texts-registro">
+              <td><%= d.email %></td>
+            </div>
           </div>
-          <div class="texts-registro">
-            <h3>Correo<br/></h3>
+
+          <div class="field">
+            <div class="texts-registro">
+              <h3>Pais<br/></h3>
+            </div>
+            <div class="texts-registro">
+              <td><%= d.country %></td>
+            </div>
           </div>
-          <div class="boxes">
-            <td><%= d.email %></td>
+
+          <div class="field">
+            <div class="texts-registro">
+              <h3>Fecha De Nacimiento<br/></h3>
+            </div>
+            <div class="texts-registro">
+              <td><%= d.birthdate.strftime("%d-%m-%Y") %></td>
+            </div>
           </div>
-          <div class="texts-registro">
-            <h3>Pais<br/></h3>
-          </div>
-          <div class="boxes">
-            <td><%= d.country %></td>
-          </div>
-          <div class="texts-registro">
-            <h3>Dia De Nacimiento<br/></h3>
-          </div>
-          <div class="boxes">
-            <td><%= d.birthdate %></td>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-      <% end %>
+
     </div>
   </div>
 </div>
