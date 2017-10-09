@@ -1,43 +1,63 @@
-<%= form_with(model: lesson, local: true) do |form| %>
-  <% if lesson.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
-
-      <ul>
-      <% lesson.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<body>
+  <%= form_with(model: lesson, local: true) do |form| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Nueva lección</h1>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <% if lesson.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+
+            <ul>
+            <% lesson.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <br>
+        <%= form.label 'Titulo' %>
+        <br>
+        <%= form.text_field :title%>
+      </div>
+      <div class="col-md-6">
+        <br>
+        <%= form.label 'Descripción' %>
+        <br>
+        <%= form.text_area :description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <br>
+        <%= form.hidden_field :course_id, value: params['course_id'] %>
+        <%= form.fields_for :resources, html: { multipart: true } do |r| %>
+          <%= r.label "Nombre del recurso" %>
+          <br>
+          <%= r.text_field :name %>
+          <%= r.label :Archivo %>
+          <br>
+          <%= r.file_field :attachment %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <br>
+        <%= form.submit%>
+        <%= link_to 'Regresar', lessons_path, class:"btn btn-default" %>
+      </div>
+    </div>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label 'Titulo' %>
-  </div>
-  <%= form.text_field :title%>
-  
-
-  <div class="field">
-    <%= form.label 'Descripción' %>
-  </div>
-  <%= form.text_area :description %>
-
-  <%= form.hidden_field :course_id, value: params['course_id'] %>
- 
-  <div class = "well">
-   <%= form.fields_for :resources, html: { multipart: true } do |r| %>
-    <div class="field">
-      <%= r.label "Nombre del recurso" %>
-    </div>
-    <%= r.text_field :name %>    
-    <div class="field">
-      <%= r.label :Archivo %>      
-    </div>    
-    <%= r.file_field :attachment %>     
-   <% end %>
-  </div> 
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>
