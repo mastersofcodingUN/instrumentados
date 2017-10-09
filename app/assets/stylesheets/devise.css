@@ -119,7 +119,7 @@ input:-webkit-autofill {
 
 .field_with_errors{
   display: block;
-  background-color: #251d4c;
+  background-color: white;
   color: red;
 }
 

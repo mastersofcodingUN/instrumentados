@@ -1,78 +1,73 @@
 <head>
   <title>Registro</title>
 </head>
-<div class="backgrounds">
-  <div class="container text-center" >
-    <div class="inset" style="margin-top: 6%; width:50%;">
-      <h2 style="color: white;">Crea una cuenta de instrumentados</h2>
-          <%= render "devise/shared/links" %>
-      <div class="panel panel-default center-block" style="width:40%; min-width: 200px;">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="field">
-          <div class="texts-registro">
-            <%= f.label :name, "Nombre" %><br/>
-          </div>
-          <div class="boxes">
-            <%= f.text_field :name, autofocus: true %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="texts-registro">
-            <%= f.label :email, "Correo" %><br/>
-          </div>
-          <div class="boxes">
-            <%= f.email_field :email, autofocus: true %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="texts-registro">
-            <%= f.label :password, "Contraseña" %>
-          </div>
-          <% if @minimum_password_length %>
-          <em>(Mínimo
-            <%= @minimum_password_length %> caracteres)</em>
-          <% end %><br/>
-          <div class="boxes">
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="texts-registro">
-            <%= f.label :password_confirmation, "Confirmar contraseña" %><br/>
-          </div>
-          <div class="boxes">
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="texts-registro">
-            <%= f.label :country, "Pais" %><br/>
-          </div>
-          <div class="boxes">
-            <%= f.text_field :country, autofocus: true %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="texts-registro">
-            <%= f.label :birthdate, "Fecha de nacimiento" %><br/>
-          </div>
-          <div class="boxes">
-            <%= f.date_field :birthdate, autofocus: true %>
-          </div>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Continuar" %>
-        </div>
-        <% end %>
+<body>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center">Crea una cuenta en Instrumentados</h2>
       </div>
-      <%= devise_error_messages! %>
+      <div class="row">
+        <div class="col-md-6">
+          <br>
+          <h4>Nombre</h4>
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <h4>Correo electronico</h4>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
 
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <br>
+          <h4>Contraseña</h4>
+          <%= f.password_field :password, autocomplete: "off" %>
+          <br>
+          <% if @minimum_password_length %>
+            <em style="color:#CF4232">(Mínimo
+            <%= @minimum_password_length %> caracteres)</em>
+          <% end %>
+        </div>
+
+        <div class="col-md-6">
+          <br>
+          <h4>Confirmar contraseña</h4>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <br>
+          <h4>País</h4>
+          <%= f.text_field :country, autofocus: true %>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <h4>Fecha de nacimiento</h4>
+          <%= f.date_field :birthdate, autofocus: true %>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <br>
+          <div class="btn">
+            <%= f.submit "Continuar" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <h4>O crea una cuenta con Facebook/Google</h4>
+          <%= render "devise/shared/links" %>
+        </div>
+
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+  <%= devise_error_messages! %>
+
+</body>
