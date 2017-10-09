@@ -10,12 +10,12 @@
       <div class="row">
         <div class="col-md-6">
           <br>
-          <h4>Nombre</h4>
+          <%= f.label :name, "Nombre" %><br/>
           <%= f.text_field :name, autofocus: true %>
         </div>
         <div class="col-md-6">
           <br>
-          <h4>Correo electronico</h4>
+          <%= f.label :email, "Correo" %><br/>
           <%= f.email_field :email, autofocus: true %>
         </div>
 
@@ -23,7 +23,8 @@
       <div class="row">
         <div class="col-md-6">
           <br>
-          <h4>Contraseña</h4>
+          <%= f.label :password, "Contraseña" %>
+          <br>
           <%= f.password_field :password, autocomplete: "off" %>
           <br>
           <% if @minimum_password_length %>
@@ -34,7 +35,8 @@
 
         <div class="col-md-6">
           <br>
-          <h4>Confirmar contraseña</h4>
+          <%= f.label :password_confirmation, "Confirmar contraseña" %>
+          <br>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
@@ -42,12 +44,13 @@
       <div class="row">
         <div class="col-md-6">
           <br>
-          <h4>País</h4>
+          <%= f.label :country, "País" %><br/>
           <%= f.text_field :country, autofocus: true %>
         </div>
         <div class="col-md-6">
           <br>
-          <h4>Fecha de nacimiento</h4>
+          <%= f.label :birthdate, "Fecha de nacimiento" %>
+          <br>
           <%= f.date_field :birthdate, autofocus: true %>
         </div>
 
@@ -61,7 +64,7 @@
         </div>
         <div class="col-md-6">
           <br>
-          <h4>O crea una cuenta con Facebook/Google</h4>
+          <h4>O crea una cuenta con:</h4>
           <%= render "devise/shared/links" %>
         </div>
 
