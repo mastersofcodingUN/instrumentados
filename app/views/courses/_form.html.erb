@@ -1,47 +1,73 @@
 <%= form_with(model: course,local: true) do |form| %>
-	<% if course.errors.any? %>
-		<div id="error_explanation">
-	      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
 
-	      <ul>
-		      <% course.errors.full_messages.each do |message| %>
-		        <li><%= message %></li>
-		      <% end %>
-	      </ul>
-	    </div>
-	<% end %>
-
-	<div class="form-group">
-		<div class="field">
-			<%= form.label "Nombre del curso" %>
-		</div>
-		<%= form.text_field :name %>
-
-		<div class="field">
-			<%= form.label "Description" %>
-		</div>
-		<%= form.text_area :description %>
-		
-		<div class="field"> 
-			<%= form.label "Dificultad" %>
-		</div>
-		<div class="form-control">
-			<%= form.select( :difficulty, ["Principiante","Intermedio", "Avanzado"]) %>
-		</div>
-
-		<div class="field"> 
-			<%= form.label "Genero" %>
-		</div>
-		<%= form.text_field :genre %>
-
-		<div class="field"> 
-			<%= form.label "Instrumento" %>
-		</div>
-		<%= form.text_field :instrument %>
-
-		<div class="actions">
-			<%= form.submit "Continuar" %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>Crear curso</h1>
 		</div>
 	</div>
-	
+	<div class="row">
+		<div class="col-md-12">
+			<% if course.errors.any? %>
+				<div id="error_explanation">
+			      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+			      <ul>
+				      <% course.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+			      </ul>
+			    </div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<br>
+			<%= form.label "Nombre del curso" %>
+			<br>
+			<%= form.text_field :name %>
+		</div>
+		<div class="col-md-6">
+			<br>
+			<%= form.label "Description" %>
+			<br>
+			<%= form.text_area :description %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<br>
+			<%= form.label "Dificultad" %>
+			<br>
+			<%= form.select( :difficulty, ["Principiante","Intermedio", "Avanzado"]) %>
+		</div>
+		<div class="col-md-6">
+			<br>
+			<%= form.label "Género" %>
+			<br>
+			<%= form.text_field :genre %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<br>
+			<%= form.label "Instrumento" %>
+			<br>
+			<%= form.text_field :instrument %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<br>
+			<div class="btn">
+				<%= form.submit "Continuar" %>
+				<br>
+				<br>
+				<%= link_to 'Atras', courses_path %>
+			</div>
+		</div>
+	</div>
+</div>
+
 <% end %>
