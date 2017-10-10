@@ -9,10 +9,14 @@ end
 gem 'omniauth-google-oauth2'
 # Login with facebook
 gem 'omniauth-facebook'
+# Gem Annotate
+gem 'annotate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use will paginate for pagination purposes
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate'
+# Use to integrate boostrap pagination component to will_paginate
+gem 'will_paginate-bootstrap'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
