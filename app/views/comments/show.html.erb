@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @comment.question_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @comment.course_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @comment.user_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @comment.content %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @comment.score %>
+</p>
+
+<p>
+  <strong>Isforumcomment:</strong>
+  <%= @comment.isforumcomment %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
