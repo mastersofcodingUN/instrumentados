@@ -1,3 +1,26 @@
 <div class = "container-fluid" style = "padding-top:20px;">	
+
+	<div class="container-fluid">
+	<h3>Cursos</h3>
+	<table class = "table table-bordered table-striped">
+	   <thead>
+	      <tr>
+	         <th>Curso</th>
+	         <th>Visualizar</th>	         
+	      </tr>
+	   </thead>
+
+	   <tbody>
+	      <% @courses.each do |course| %>
+
+	         <tr>	            
+	            <td><%= link_to "#{course.name}", course_path(course.id) %></td>	            
+	            <td><%= course.description%></td>
+	         </tr>
+
+	      <% end %>
+	   </tbody>
+
+	</table>
 	<%= link_to "Crear Curso", courses_path, class: "btn btn-primary" %>
 </div>

@@ -4,6 +4,9 @@
 <div class="backgrounds">
   <div class="container text-center" >
     <div class="inset" style="margin-top: 6%; width:50%;">
+      
+      <%= devise_error_messages! %>
+
       <h2 style="color: white;">Crea una cuenta de instrumentados</h2>
           <%= render "devise/shared/links" %>
       <div class="panel panel-default center-block" style="width:40%; min-width: 200px;">
@@ -71,8 +74,7 @@
         </div>
         <% end %>
       </div>
-      <%= devise_error_messages! %>
-
+      
     </div>
   </div>
 </div>

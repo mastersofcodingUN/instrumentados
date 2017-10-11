@@ -56,15 +56,15 @@ class CoursesController < ApplicationController
 		end
 
 
-	def check_state
-		#puts "I HOPE TO FIND THE ERROR #{params['id']}"
-		@course  = Course.find(params['id'])
-		@lessons = Lesson.where(course_id: @course.id)			
-		if @lessons.size >= 3			
-			@course.update(state: "ACTIVO" )
-		else
-			@course.update(state: "INACTIVO")
-		end		
-	end
+		def check_state
+			#puts "I HOPE TO FIND THE ERROR #{params['id']}"
+			@course  = Course.find(params['id'])
+			@lessons = Lesson.where(course_id: @course.id)			
+			if @lessons.size >= 3			
+				@course.update(state: "ACTIVO" )
+			else
+				@course.update(state: "INACTIVO")
+			end		
+		end
 
 end
