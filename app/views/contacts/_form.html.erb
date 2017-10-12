@@ -1,0 +1,45 @@
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACTO</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contactanos y te responderemos en menos de una semana.</p>
+      <p>
+        <span class="glyphicon glyphicon-map-marker"></span>Bogotá D.C.,Colombia</p>
+      <p>
+        <span class="glyphicon glyphicon-phone"></span>3157657159</p>
+      <p>
+        <span class="glyphicon glyphicon-envelope"></span>instrumentados@gmail.com</p>
+    </div>
+    <div class="col-sm-7">
+      <%= form_with(model: contact, local: true) do |form| %>
+      <% if contact.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(contact.errors.count, "error") %>
+          prohibited this contact from being saved:</h2>
+
+        <ul>
+          <% contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <%= form.text_field :name, id: :contact_name, class: "form-control", placeholder:"Nombre" %>
+        </div>
+        <div class="col-sm-6 form-group">
+          <%= form.text_field :mail, id: :contact_mail, class: "form-control", placeholder: "Email" %>
+        </div>
+      </div>
+      <%= form.text_area :content, id: :contact_content, class: "form-control", placeholder:"Contenido" %>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <%= form.submit "Enviar", :class => "btn btn-default pull-right"%>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
