@@ -1,11 +1,11 @@
 # == Schema Information
 #
-# Table name: resources
+# Table name: user_enrolleds
 #
 #  id         :integer          not null, primary key
-#  name       :string
-#  attachment :string
-#  lesson_id  :integer
+#  admin      :boolean
+#  user_id    :integer
+#  course_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -13,9 +13,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  attachment: MyString
+  admin: false
 
 two:
-  name: MyString
-  attachment: MyString
+  admin: false

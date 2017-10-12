@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 password = "password"
+difficulty = ["Principiante","Intermedio", "Avanzado"]
+genre = ["Rock","Clásica","Pop","Metal","Ranchera","Jazz"]
 
 100.times do
 	User.create([{
@@ -16,4 +18,15 @@ password = "password"
 		birthdate: Faker::Date.between(100.year.ago, 5.year.ago),
 		name: Faker::Name.name 
 		}])
-end
+
+	Course.create([{
+		name: Faker::Name.title,
+		description: Faker::Lorem.paragraph,
+		reputation: Faker::Number.between(1, 5).to_i,
+		difficulty: difficulty.sample,
+		views: Faker::Number.between(1, 100000).to_i,
+		genre: genre.sample,
+		instrument: Faker::Music.instrument	}])	
+	
+	end
+
