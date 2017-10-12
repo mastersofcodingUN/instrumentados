@@ -33,4 +33,9 @@ class Course < ApplicationRecord
   		end
 	end
 
+	def self.filter_by_genre(gen)
+		@genre = self.where(genre: gen)
+		return @genre
+	end
+
 end

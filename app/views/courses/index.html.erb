@@ -25,6 +25,10 @@
   </tbody>
 </table>
 
+<div class="pagination">
+    <%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante'  %>  
+</div>
+
 <br>
 
 <%= link_to 'New course', new_course_path %>
