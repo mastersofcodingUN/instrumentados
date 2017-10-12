@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171011194518) do
 
-
   create_table "comments", force: :cascade do |t|
     t.integer "question_id"
     t.integer "course_id"

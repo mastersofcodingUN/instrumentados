@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  
+
   layout "resource"
   before_action :authenticate_user!
 
@@ -29,6 +29,7 @@ class ResourcesController < ApplicationController
 
   private
   	def resource_params
-  		params.require(:resource).permit(:name, :attachment)
-	  end
+  	  params.require(:resource).permit(:name, :attachment)
+  	end
+
 end
