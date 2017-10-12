@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 # Login with google
 gem 'omniauth-google-oauth2'
 # Login with facebook
