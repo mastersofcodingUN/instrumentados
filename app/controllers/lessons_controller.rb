@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  
+
   before_action :authenticate_user!
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
   layout "lesson"
@@ -22,33 +22,33 @@ class LessonsController < ApplicationController
     #@course = Course.find(params[:course_id])
     #@lesson = @course.lessons.new
     @lesson.resources.new
-      
+
   end
 
   # GET /lessons/1/edit
-  def edit    
+  def edit
   end
 
-  # POST /lessons  
+  # POST /lessons
   def create
     @lesson = Lesson.new(lesson_params)
     @course_id = lesson_params['course_id']
     #@lesson.course_id = course_id
-    
-    if @lesson.save    
-      redirect_to course_path(@lesson.course_id), notice: 'Lesson was successfully created.'        
+
+    if @lesson.save
+      redirect_to course_path(@lesson.course_id), notice: 'Lesson was successfully created.'
     else
-      render :new         
-    end    
+      render :new
+    end
   end
 
   # PATCH/PUT /lessons/1
   def update
-   
+
     if @lesson.update(lesson_params)
-      redirect_to @lesson, notice: 'Lesson was successfully updated.'        
+      redirect_to @lesson, notice: 'Lesson was successfully updated.'
     else
-      render :edit        
+      render :edit
     end
 
   end

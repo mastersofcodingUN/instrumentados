@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
 	layout "lesson"
 
 	def index
-  		@courses = Course.all
+  		@courses = Course.all.paginate(:page => params[:page],per_page: 10)
   	end
 
 	def new
@@ -56,15 +56,15 @@ class CoursesController < ApplicationController
 		end
 
 
-	def check_state
-		#puts "I HOPE TO FIND THE ERROR #{params['id']}"
-		@course  = Course.find(params['id'])
-		@lessons = Lesson.where(course_id: @course.id)			
-		if @lessons.size >= 3			
-			@course.update(state: "ACTIVO" )
-		else
-			@course.update(state: "INACTIVO")
-		end		
-	end
+		def check_state
+			#puts "I HOPE TO FIND THE ERROR #{params['id']}"
+			@course  = Course.find(params['id'])
+			@lessons = Lesson.where(course_id: @course.id)			
+			if @lessons.size >= 3			
+				@course.update(state: "ACTIVO" )
+			else
+				@course.update(state: "INACTIVO")
+			end		
+		end
 
 end

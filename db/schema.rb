@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002061633) do
+ActiveRecord::Schema.define(version: 20171012101346) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "course_id"
+    t.integer "user_id"
+    t.text "content"
+    t.integer "score"
+    t.boolean "isforumcomment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "mail"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -34,6 +53,15 @@ ActiveRecord::Schema.define(version: 20171002061633) do
     t.integer "course_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "course_id"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "resources", force: :cascade do |t|
     t.string "name"
     t.string "attachment"
@@ -41,6 +69,14 @@ ActiveRecord::Schema.define(version: 20171002061633) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lesson_id"], name: "index_resources_on_lesson_id"
+  end
+
+  create_table "user_enrolleds", force: :cascade do |t|
+    t.boolean "admin"
+    t.integer "user_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,6 +1,7 @@
 <head>
   <title>Registro</title>
 </head>
+
 <body>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <div class="container">
@@ -12,6 +13,7 @@
           <br>
           <%= f.label :name, "Nombre" %><br/>
           <%= f.text_field :name, autofocus: true %>
+
         </div>
         <div class="col-md-6">
           <br>
@@ -67,10 +69,17 @@
           <h4>O crea una cuenta con:</h4>
           <%= render "devise/shared/links" %>
         </div>
+        <div class="row text-center">
+          <div class="col-md-12">
+            <%= devise_error_messages! %>
+          </div>
+
+        </div>
+
 
       </div>
+
     </div>
   <% end %>
-  <%= devise_error_messages! %>
 
 </body>
