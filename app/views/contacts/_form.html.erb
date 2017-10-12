@@ -1,4 +1,3 @@
-
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">CONTACTO</h2>
   <div class="row">
@@ -12,20 +11,23 @@
         <span class="glyphicon glyphicon-envelope"></span>instrumentados@gmail.com</p>
     </div>
     <div class="col-sm-7">
+      <%= form_with(model: contact, local: true) do |form| %>
+
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+          <%= form.text_field :name, id: :contact_name, class: "form-control", placeholder:"Nombre" %>
         </div>
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          <%= form.text_field :mail, id: :contact_mail, class: "form-control", placeholder: "Email" %>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea><br>
+      <%= form.text_area :content, id: :contact_content, class: "form-control", placeholder:"Contenido" %>
       <div class="row">
         <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Enviar</button>
+          <%= form.submit "Enviar", :class => "btn btn-default pull-right"%>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

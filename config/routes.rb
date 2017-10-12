@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
   resources :questions
   resources :comments
+
+  resources :contacts
+
   get 'profile/view_profile'
 
   resources :lessons
@@ -18,7 +22,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "welcome#index"
-  get "/contact", to:"contact#form"
   get "/home", to:"home#show"
+  get "/contacts/new", to:"contacts#new"
   get "/profile", to:"profile#view_profile"
 end
