@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1>Cursos</h1>
+        <h1> Mis cursos</h1>
       </div>
     </div>
     <div class="row">
@@ -38,16 +38,10 @@
         <%= link_to 'Nuevo curso', new_course_path, class:"btn btn-default" %>
       </div>
     </div>
-
-
-
-
     <div class="pagination">
       <%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante'  %>
     </div>
 
     <br>
-
-    <%= link_to 'New course', new_course_path %>
   </div>
 </body>
