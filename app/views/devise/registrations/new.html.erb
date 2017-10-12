@@ -60,18 +60,22 @@
       <div class="row">
         <div class="col-md-6">
           <br>
-          <div class="btn">
-            <%= f.submit "Continuar" %>
-          </div>
+            <%= f.submit "Continuar", class: "btn btn-default btn-responsive btninter" %>
         </div>
         <div class="col-md-6">
           <br>
           <h4>O crea una cuenta con:</h4>
           <%= render "devise/shared/links" %>
         </div>
-        <div class="row text-center">
-          <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-4">
             <%= devise_error_messages! %>
+          </div>
+          <div class="col-md-4">
+
           </div>
 
         </div>

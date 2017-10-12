@@ -2,36 +2,49 @@
 	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 	<strong><%= notice %></strong>
 </div>
-<div class = "container-fluid" style = "padding-top:20px;">
-
-	<div class="container-fluid">
-	<h3>Cursos</h3>
-	<table class = "table table-bordered table-striped">
-	   <thead>
-	      <tr>
-	         <th>Curso</th>
-	         <th>Visualizar</th>
-	      </tr>
-	   </thead>
-
-	   <tbody>
-	      <% @courses.each do |course| %>
-
-	         <tr>
-	            <td><%= link_to "#{course.name}", course_path(course.id) %></td>
-	            <td><%= course.description%></td>
-	         </tr>
-
-	      <% end %>
-	   </tbody>
-
-	</table>
-	<div class="pagination">
-		<%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante'  %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<br>
+			<h3>Cursos</h3>
+		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<br>
+			<table class = "table table-bordered table-striped">
+			   <thead>
+			      <tr>
+			         <th>Curso</th>
+			         <th>Visualizar</th>
+			      </tr>
+			   </thead>
 
+			   <tbody>
+			      <% @courses.each do |course| %>
 
-	<div class = "container-fluid" style = "padding-top:20px;">
-		<%= link_to "Crear Curso", courses_path, class: "btn btn-default" %>
+			         <tr>
+
+			            <td><%= link_to "#{course.name}", course_path(course.id), class:"btn btn-default" %></td>
+			            <td><%= course.description%></td>
+			         </tr>
+
+			      <% end %>
+			   </tbody>
+
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<%= link_to "Crear Curso", courses_path, class: "btn btn-success" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="pagination">
+				<%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante'  %>
+			</div>
+		</div>
 	</div>
 </div>

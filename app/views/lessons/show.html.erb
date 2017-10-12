@@ -1,37 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="container" style="margin-bottom:5%">
+  <div class="row">
+    <div class="col-md-12">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>
+        <strong>Titulo: </strong>
+        <%= @lesson.title %>
+      </h3>
 
-<p>
-  <strong>Title:</strong>
-  <%= @lesson.title %>
-</p>
+      <h3>
+        <strong>Descripción: </strong>
+        <%= @lesson.description %>
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <br>
+      <table class = "table table-bordered table-striped">
+      	   <thead>
+      	      <tr>
+      	         <th>Nombre del recurso</th>
+      	         <th>Visualizar</th>
+      	         <th> </th>
+      	      </tr>
+      	   </thead>
 
-<p>
-  <strong>Description:</strong>
-  <%= @lesson.description %>
-</p>
+      	   <tbody>
+      	      <% @lesson.resources.each do |resource| %>
 
-<table class = "table table-bordered table-striped">
-	   <thead>
-	      <tr>
-	         <th>Nombre del recurso</th>
-	         <th>Visualizar</th>
-	         <th> </th>
-	      </tr>
-	   </thead>
+      	         <tr>
+      	            <td><%= resource.name %></td>
+      	            <td><%= link_to "Visualizar recurso", resource.attachment_url, class:"btn btn-default" %></td>
+      	            <td><%= button_to "Eliminar",  resource, method: :delete, class: "btn btn-danger", confirm: "Quiere eliminar el recurso #{resource.name}?" %></td>
+      	         </tr>
 
-	   <tbody>
-	      <% @lesson.resources.each do |resource| %>
+      	      <% end %>
+      	   </tbody>
 
-	         <tr>
-	            <td><%= resource.name %></td>
-	            <td><%= link_to "Visualizar recurso", resource.attachment_url %></td>
-	            <td><%= button_to "Eliminar",  resource, method: :delete, class: "btn btn-danger", confirm: "Quiere eliminar el recurso #{resource.name}?" %></td>
-	         </tr>
-
-	      <% end %>
-	   </tbody>
-
-	</table>
-
-<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-<%= link_to 'Back', lessons_path %>
+      	</table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col.md-12">
+      <%= link_to 'Editar', edit_lesson_path(@lesson), class:"btn btn-default" %>
+      <%= link_to 'Atrás', lessons_path, class:"btn btn-default" %>
+    </div>
+  </div>
+</div>

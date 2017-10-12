@@ -1,29 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lessons</h1>
+<div class="container" style="margin-bottom:5%">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <br>
+      <h1>Leciones</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <table class = "table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<table class = "table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <tbody>
+          <% @lessons.each do |lesson| %>
+            <tr>
+              <td><%= lesson.title %></td>
+              <td><%= lesson.description %></td>
+              <td><%= link_to 'Mostrar', lesson, class:"btn btn-success" %></td>
+              <td><%= link_to 'Editar', edit_lesson_path(lesson), class:"btn btn-default" %></td>
+              <td><%= link_to 'Eliminar', lesson, method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-danger" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to 'New Lesson', new_lesson_path, class:"btn btn-default" %>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= lesson.title %></td>
-        <td><%= lesson.description %></td>
-        <td><%= link_to 'Show', lesson %></td>
-        <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-        <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
 
 <br>
-
-<%= link_to 'New Lesson', new_lesson_path %>

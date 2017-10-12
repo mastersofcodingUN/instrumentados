@@ -1,11 +1,12 @@
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <%= render "partials/header" %>
   <%= stylesheet_link_tag "styles"%>
   <%= javascript_include_tag "welcome" %>
   <% if current_page?(root_path)%> <!-- verificar en que pagina estoy para asignar el titulo -->
     <title>Instrumentados</title>
   <% else %>
-    <title>Home</title>
+    <title>Mi perfil</title>
   <% end %>
 </head>
 
@@ -13,7 +14,7 @@
   <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
       <div id="header" class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" <%= link_to "Instrumentados", root_path %>></a>
+          <a class="logofont navbar-brand" style="color:#EDB749" <%= link_to "Instrumentados", root_path %></a>
         </div>
         <div>
           <ul class="nav navbar-nav navbar-right">
