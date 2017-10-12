@@ -29,7 +29,6 @@ class ResourcesController < ApplicationController
 
   private
   	def resource_params
-  	  params.require(:resource).permit(:name, :attachment)
+      params.require(:resource).permit(:name, :attachment)
   	end
-
 end

@@ -18,6 +18,8 @@
 
 class Course < ApplicationRecord
 	has_many :lessons, dependent: :destroy
+	has_many :user_enrolleds
+	has_many :users, through: :user_enrolleds
 
 	accepts_nested_attributes_for :lessons	
 	validates :name, :description, :reputation, :difficulty, :views, presence: true
@@ -30,4 +32,10 @@ class Course < ApplicationRecord
   			errors.add(:state, "El estado no es válido")
   		end
 	end
+
+	def self.filter_by_genre(gen)
+		@genre = self.where(genre: gen)
+		return @genre
+	end
+
 end

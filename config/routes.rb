@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   get "/home", to:"home#show"
   get "/contacts/new", to:"contacts#new"
   get "/profile", to:"profile#view_profile"
+  
 end

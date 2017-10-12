@@ -1,0 +1,2 @@
+module UserEnrolledHelper
+end

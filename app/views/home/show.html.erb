@@ -26,8 +26,12 @@
 	   </tbody>
 
 	</table>
-
-
-<div class = "container-fluid" style = "padding-top:20px;">
-	<%= link_to "Crear Curso", courses_path, class: "btn btn-primary" %>
+	<div class="pagination">
+		<%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante'  %> 	
+	</div>
+	
+		
+	<div class = "container-fluid" style = "padding-top:20px;">
+		<%= link_to "Crear Curso", courses_path, class: "btn btn-primary" %>
+	</div>
 </div>
