@@ -13,4 +13,5 @@
 class UserEnrolled < ApplicationRecord
 	belongs_to :course, optional: true
 	belongs_to :user, optional: true
+	has_many :comments
 end
