@@ -8,6 +8,7 @@
 * Mailer de contacto: Juan Castelblanco/Jair Villalba
 * Inicio de sesión con redes sociales(Facebook y google): Juan Castelblanco
 * Configuración de variables de entorno: Juan Castelblanco/Ivan Cepeda
+* Diseño y corrección de vistas: Fabián Camilo Ordóñez 
 
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
