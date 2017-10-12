@@ -1,34 +1,53 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Cursos</h1>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Cursos</h1>
+      </div>
+    </div>
+    <div class="row">
+      <br>
+      <div class="col-md-12">
+        <table class = "table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Titulo</th>
+              <th>Description</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-<table class = "table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <tbody>
+            <% @courses.each do |course| %>
+              <tr>
+                <td><%= course.name %></td>
+                <td><%= course.description %></td>
 
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <td><%= course.name %></td>
-        <td><%= course.description %></td>
+                <td><%= link_to 'Mostrar', course, class:"btn btn-success"  %></td>
+                <td><%= link_to 'Editar', edit_course_path(course), class:"btn btn-info" %></td>
+                <td><%= link_to 'Eliminar', course, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <%= link_to 'Nuevo curso', new_course_path, class:"btn btn-default" %>
+      </div>
+    </div>
 
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<div class="pagination">
-    <%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante'  %>  
-</div>
 
-<br>
 
-<%= link_to 'New course', new_course_path %>
+    <div class="pagination">
+      <%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante'  %>
+    </div>
+
+    <br>
+
+    <%= link_to 'New course', new_course_path %>
+  </div>
+</body>

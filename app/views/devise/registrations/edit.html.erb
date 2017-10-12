@@ -1,85 +1,76 @@
 <head>
   <title>Editar perfil</title>
 </head>
-<div class="backgrounds" style="overflow: auto">
-  <div class="container text-center">
-    <div class="inset" style="width:500px; margin-top: 50px;">
-      <h2>Editar Perfil</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-
-      <div class="field">
-        <div class="texts-registro">
-          <%= f.label :name, "Nombre" %><br/>
-        </div>
-        <div class="boxes">
-          <%= f.text_field :name, autofocus: true, value: "#{current_user.name}"  %>
+<body>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-center">Editar Perfil</h2>
         </div>
       </div>
-
-      <div class="field">
-        <div class="texts">
-          <%= f.label :email, "Correo" %><br/>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.label :name, "Nombre" %>
+          <br>
+          <%= f.text_field :name, autofocus: true, value: "#{current_user.name}"  %>
         </div>
-        <div class="boxes">
+        <div class="col-md-6">
+          <%= f.label :email, "Correo" %>
+          <br>
           <%= f.email_field :email, autofocus: true %>
         </div>
       </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for:
-        <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="field">
-        <div class="texts">
+      <div class="row">
+        <div class="col-md-6">
+          <br>
+          <br>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for:
+              <%= resource.unconfirmed_email %>
+            </div>
+          <% end %>
           <%= f.label :password, "Nueva contraseña" %>
+          <br>
+          <%= f.password_field :password, autocomplete: "off" %><br>
+          <i style="color:grey; font-size:12px;">(Déjalo en blanco si no lo quieres editar)</i>
+          <br>
           <% if @minimum_password_length %>
-            <em style="font-size:12px;">Mínimo <%= @minimum_password_length %> caracteres</em>
+            <em style="font-size:12px; color:#CF4232">Mínimo <%= @minimum_password_length %> caracteres</em>
           <% end %>
         </div>
-        <div class="boxes">
-          <%= f.password_field :password, autocomplete: "off" %><br>
-          <i style="color:white; font-size:12px;">(Déjalo en blanco si no lo quieres editar.)</i>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="texts">
-          <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br/>
-        </div>
-        <div class="boxes">
+        <div class="col-md-6">
+          <br>
+          <br>
+          <%= f.label :password_confirmation, "Confirmar nueva contraseña" %>
+          <br>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
       </div>
-
-      <div class="field">
-        <div class="texts">
+      <div class="row">
+        <div class="col-md-6">
+          <br>
           <%= f.label :current_password, "Contraseña actual"  %>
-        </div>
-        <div class="boxes">
+          <br>
           <%= f.password_field :current_password, autocomplete: "off" %>
         </div>
-      </div>
-
-      <div class="field">
-        <div class="texts-registro">
-          <%= f.label :country, "Pais" %><br/>
-        </div>
-
-        <div class="boxes">
+        <div class="col-md-6">
+          <br>
+          <%= f.label :country, "Pais" %>
+          <br>
           <%= f.text_field :country, autofocus: true, value: "#{current_user.country}" %>
+
         </div>
       </div>
-
-      <div class="actions">
-        <%= f.submit "Guardar" %>
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+          <br>
+            <%= f.submit "Guardar", class:"btn btn-success" %>
+            <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "¿Seguro que deseas cancelar tu cuenta?" }, method: :delete, class:"btn btn-danger" %>
+          <%= link_to "Atrás", :back, class:"btn btn-default" %>
+        </div>
       </div>
-      <% end %>
-
-      <p><%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "¿Seguro que deseas cancelar tu cuenta?" }, method: :delete %></p>
-
-      <%= link_to "Atrás", :back %>
-    </div>
-  </div>
-</div>
+  <% end %>
+</body>

@@ -1,31 +1,36 @@
-<%- if controller_name != 'sessions' && controller_name != 'registrations' %>
-  <%= link_to "Iniciar Sesión", new_session_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Registrarse", new_registration_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' && controller_name != 'unlocks'%>
-  <%= link_to "Olvidé mi contraseña", new_password_path(resource_name) %><br />
-<% end -%>
-
-<%- if(devise_mapping.confirmable? && controller_name != 'confirmations'&& controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'  && controller_name != 'unlocks')%>
-  <%= link_to "Reenviar confirmación", new_confirmation_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' && controller_name != 'registrations' && controller_name != 'passwords'%>
-  <%= link_to "Enviar instrucciones de desbloqueo", new_unlock_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <% if provider == :facebook %>
-      <%= link_to omniauth_authorize_path(resource_name, provider), :class => "fa fa-facebook" do%>
+<div class="col-md-6">
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <% if provider == :facebook %>
+        <%= link_to omniauth_authorize_path(resource_name, provider), :class => "fa fa-facebook" do%>
+        <%end%>
+      <% else %>
+        <%= link_to omniauth_authorize_path(resource_name, provider), :class => "fa fa-google" do%>
+        <%end%>
       <%end%>
-    <% else %>
-      <%= link_to omniauth_authorize_path(resource_name, provider), :class => "fa fa-google" do%>
-      <%end%>
-    <%end%>
+    <% end -%>
   <% end -%>
-<% end -%>
+  <br>
+  <br>
+  <br>
+  
+  <%- if controller_name != 'sessions' && controller_name != 'registrations' %>
+    <%= link_to "Iniciar Sesión", new_session_path(resource_name) %><br />
+  <% end -%>
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "Registrarse", new_registration_path(resource_name) %><br />
+  <% end -%>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' && controller_name != 'unlocks'%>
+    <%= link_to "Olvidé mi contraseña", new_password_path(resource_name) %><br />
+  <% end -%>
+
+  <%- if(devise_mapping.confirmable? && controller_name != 'confirmations'&& controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'  && controller_name != 'unlocks')%>
+    <%= link_to "Reenviar confirmación", new_confirmation_path(resource_name) %><br />
+  <% end -%>
+
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' && controller_name != 'registrations' && controller_name != 'passwords'%>
+    <%= link_to "Enviar instrucciones de desbloqueo", new_unlock_path(resource_name) %><br />
+  <% end -%>
+</div>

@@ -65,8 +65,10 @@ ActiveRecord::Schema.define(version: 20171012101346) do
   create_table "resources", force: :cascade do |t|
     t.string "name"
     t.string "attachment"
+    t.integer "lesson_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_resources_on_lesson_id"
   end
 
   create_table "user_enrolleds", force: :cascade do |t|

@@ -1,16 +1,11 @@
-    <%= render "partials/header" %>
-    <%= stylesheet_link_tag "devise"%>
-    <%= stylesheet_link_tag "styles"%>
-  </head>
 
-  <body>
-    <nav class="navbar navbar-inverse">
-        <div id="header"class="container-fluid">
-          <div class="navbar-header">
-            <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-home" style="padding-right:7px;"></span>Inicio</a>
-          </div>
-        </div>
-      </nav>
-    <%= yield %>
+  <%= render "partials/header" %>
+  <%= stylesheet_link_tag "devise"%>
+  <%= stylesheet_link_tag "styles"%>
+</head>
+
+<body>
+  <%= render "partials/banner" %>
+  <%= yield %>
   </body>
 </html>
