@@ -2,6 +2,7 @@
 
 ## Features desarrollados
 
+* Algo
 
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
