@@ -32,9 +32,10 @@
           <blockquote>
             <h3>Fecha de Nacimiento</h3>
             <br>
-            <td><%= d.birthdate.strftime("%d-%m-%Y") %></td>
+            <%if d.birthdate != nil%>
+              <td><%= d.birthdate.strftime("%d-%m-%Y") %></td>
+            <%end%>
           </blockquote>
-
         </div>
       </div>
     </div>
