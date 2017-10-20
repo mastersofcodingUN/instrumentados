@@ -79,6 +79,7 @@
 				<%= link_to "Crear Leccion", new_lesson_path(:course_id => params[:id]), class: "btn btn-default" %>
 				<%= link_to 'Editar', edit_course_path(@course), class: "btn btn-default" %>
 				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
+				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: :_blank%>
 			</div>
 		</div>
 	</div>
