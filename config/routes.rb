@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'profile/view_profile'
 
   resources :lessons
-  resources :courses
+  resources :courses do
+    member do
+      get 'generate'
+    end
+  end
   #get 'resources/index'
 
   #get 'resources/new'
@@ -25,5 +29,5 @@ Rails.application.routes.draw do
   get "/home", to:"home#show"
   get "/contacts/new", to:"contacts#new"
   get "/profile", to:"profile#view_profile"
-  
+
 end
