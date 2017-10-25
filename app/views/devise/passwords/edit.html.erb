@@ -1,42 +1,46 @@
-<head>
+
   <title>Nueva Contraseña</title>
 </head>
+<body style="background-color:#F1F1F1">
+  <%= render "partials/banner" %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+    <div class="row">
+      <div class="col-md-12">
+        <h3><strong>CAMBIA TU CONTRASEÑA</strong></h3>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
 
-<div class="backgrounds">
-  <div class="container text-center">
-    <div class="inset" style="padding: 15px;">
-      <h2>Cambia tu contraseña</h2>
+      <div class="col-md-12" style="padding-right:50%; margin-bottom:8%">
+        <br>
 
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :reset_password_token %>
-
-        <div class="field">
-          <div class="texts">
-            <%= f.label :password, "Nueva Contraseña" %><br />
-          </div>
-          <% if @minimum_password_length %>
-            <em>(Mínimo <%= @minimum_password_length %> caracteres) </em><br />
-          <% end %>
-          <div class="boxes">
-            <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-          </div>
+        <br>
+        <br>
+        <%= f.label :password, "Nueva contraseña" %>
+        <div class="input-group" style="margin-bottom:10%">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <%= f.password_field :password, autofocus: true, autocomplete: "off", class:"form-control", placeholder:"Nueva contraseña" %>
         </div>
 
-        <div class="field">
-          <div class="texts">
-            <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br />
-          </div>
-          <div class="boxes">
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          </div>
+        <% if @minimum_password_length %>
+          <em>(Mínimo <%= @minimum_password_length %> caracteres) </em>
+        <% end %>
+        <br>
+        <%= f.label :password_confirmation, "Confirmar nueva contraseña" %>
+        <div class="input-group" style="margin-bottom:10%">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Confirmar nueva contraseña" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "Cambiar mi contraseña" %>
-        </div>
-      <% end %>
-      <%= render "devise/shared/links" %>
+        <%= f.submit "Cambiar contraseña", class:"btn btn-default" %>
+        <br>
+      </div>
     </div>
   </div>
-</div>
+  <%end%>
+  <%= render "partials/footer" %>
+</body>

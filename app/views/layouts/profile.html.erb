@@ -1,39 +1,17 @@
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-  <%= render "partials/header" %>
-  <%= stylesheet_link_tag "styles"%>
-  <%= javascript_include_tag "welcome" %>
-  <% if current_page?(root_path)%> <!-- verificar en que pagina estoy para asignar el titulo -->
-    <title>Instrumentados</title>
-  <% else %>
-    <title>Mi perfil</title>
-  <% end %>
-</head>
 
-<body>
-  <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
-      <div id="header" class="container-fluid">
-        <div class="navbar-header">
-          <a class="logofont navbar-brand" style="color:#EDB749" <%= link_to "Instrumentados", root_path %></a>
-        </div>
-        <div>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <%= link_to edit_user_registration_path, :class => 'navbar-link' do%>
-                <span class="glyphicon glyphicon-pencil" style="padding-right:5px;"></span>Editar Perfil
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do%>
-                <span class="glyphicon glyphicon-log-out" style="padding-right:5px;"></span>Cerrar Sesión
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <%= render "partials/header" %>
+    <%= stylesheet_link_tag "styles"%>
+    <%= javascript_include_tag "welcome" %>
+    <% if current_page?(root_path)%> <!-- verificar en que pagina estoy para asignar el titulo -->
+      <title>Instrumentados</title>
+    <% else %>
+      <title>Mi perfil</title>
+    <% end %>
+  </head>
 
-  <%= yield %>
-
-</body>
+  <body style="background-color:#F1F1F1">
+    <%= render "partials/banner" %>
+    <%= yield %>
+    <%= render "partials/footer" %>
+  </body>
 </html>

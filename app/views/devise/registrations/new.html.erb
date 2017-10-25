@@ -1,69 +1,67 @@
-<head>
   <title>Registro</title>
 </head>
-
-<body>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="container">
+<body style="background-color:#F1F1F1">
+  <%= render "partials/banner" %>
+    <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="row">
-        <h2 class="text-center">Crea una cuenta en Instrumentados</h2>
+        <h3><strong>REGISTRARSE</strong></h3>
+        <hr>
+        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"Nombre" %>
+          </div>
+        </div>
+        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Correo" %>
+          </div>
+        </div>
+
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <br>
-          <%= f.label :name, "Nombre" %><br/>
-          <%= f.text_field :name, autofocus: true %>
+        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Contraseña" %>
+          </div>
 
-        </div>
-        <div class="col-md-6">
-          <br>
-          <%= f.label :email, "Correo" %><br/>
-          <%= f.email_field :email, autofocus: true %>
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <br>
-          <%= f.label :password, "Contraseña" %>
-          <br>
-          <%= f.password_field :password, autocomplete: "off" %>
-          <br>
           <% if @minimum_password_length %>
             <em style="color:#CF4232">(Mínimo
             <%= @minimum_password_length %> caracteres)</em>
           <% end %>
         </div>
 
-        <div class="col-md-6">
-          <br>
-          <%= f.label :password_confirmation, "Confirmar contraseña" %>
-          <br>
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder:"Confirmar Contraseña" %>
+          </div>
         </div>
 
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <br>
-          <%= f.label :country, "País" %><br/>
-          <%= f.text_field :country, autofocus: true %>
+        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+            <%= f.text_field :country, autofocus: true, class: "form-control", placeholder:"País" %>
+          </div>
         </div>
-        <div class="col-md-6">
-          <br>
-          <%= f.label :birthdate, "Fecha de nacimiento" %>
-          <br>
-          <%= f.date_field :birthdate, autofocus: true %>
+        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <%= f.date_field :birthdate, autofocus: true, class: "form-control", placeholder:"Fecha de Nacimiento" %>
+          </div>
         </div>
 
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <br>
+        <div class="col-md-6" style="margin-top:2%; padding-right:5%">
             <%= f.submit "Continuar", class: "btn btn-default btn-responsive btninter" %>
         </div>
-        <div class="col-md-6">
-          <br>
+        <div class="col-md-6" style="margin-top:2%; padding-right:5%">
           <h4>O crea una cuenta con:</h4>
           <%= render "devise/shared/links" %>
         </div>
@@ -74,16 +72,9 @@
           <div class="col-md-4">
             <%= devise_error_messages! %>
           </div>
-          <div class="col-md-4">
-
-          </div>
-
         </div>
-
-
       </div>
-
+      <% end %>
     </div>
-  <% end %>
-
+    <%= render "partials/footer"%>
 </body>
