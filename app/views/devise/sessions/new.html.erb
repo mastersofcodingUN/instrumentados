@@ -1,36 +1,41 @@
-<head>
+
   <title>Iniciar Sesión</title>
 </head>
 
-<body>
+
+<body style="background-color:#F1F1F1">
+  <%= render "partials/banner" %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="container">
+    <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
       <div class="row">
-        <div class="col-md-12">
-          <h2 class="text-center" style="color: black;">Iniciar Sesión</h2>
+        <h3><strong>INICIAR SESIÓN</strong></h3>
+        <hr>
+        <!--
+        <div class="col-md-12" style="color:red">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
         </div>
+      -->
       </div>
-      <div class="row">
+      <div class="row" style="margin-bottom:5%">
         <div class="col-md-6">
-          <%= f.label :email, "Correo" %><br/>
-          <%= f.email_field :email, autofocus: true %>
           <br>
-          <br>
-          <br>
-          <%= f.label :password, "Contraseña" %><br/>
-          <%= f.password_field :password, autocomplete: "off" %>
-          <br>
-          <br>
+          <p class="alert" style="color:red"><%= alert %></p>
+          <div class="input-group" style="margin-bottom:15%">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Correo" %>
+          </div>
+          <div class="input-group" style="margin-bottom:10%">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder:"Contraseña" %>
+          </div>
           <div class="btn">
-            <%= f.submit "Iniciar sesión" %>
+            <%= f.submit "Iniciar sesión", class: "btn btn-default" %>
           </div>
 
         </div>
         <div class="col-md-6">
           <h4>Iniciar sesión con:</h4>
-          <br>
           <%= render "devise/shared/links" %>
         </div>
       </div>
@@ -46,4 +51,5 @@
       <% end -%>
 -->
   <% end %>
+  <%= render "/partials/footer"%>
 </body>

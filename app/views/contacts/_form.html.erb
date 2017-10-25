@@ -1,19 +1,9 @@
 
-<div class="container">
-
+<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
   <div class="row">
-    <div class="col-md-12">
-      <h2 class="text-center">Contacto</h2>
-    </div>
-  </div>
-  <div class="row" style="background-color:#FAFAFF">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="col-md-4">
+    <h3><strong>CONTACTO</strong></h3>
+    <hr>
+    <div class="col-md-4" style="margin-top:17%">
       <p>Contactanos y te responderemos en menos de una semana.</p>
       <p>
         <span class="glyphicon glyphicon-map-marker"></span>Bogotá D.C.,Colombia</p>
@@ -23,24 +13,32 @@
         <span class="glyphicon glyphicon-envelope"></span>instrumentados@gmail.com</p>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8" style="margin-top:17%">
 
       <%= form_with(model: contact, local: true) do |form| %>
 
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <%= form.text_field :name, id: :contact_name, class: "form-control", placeholder:"Nombre" %>
+      <div class="row" style="margin-bottom:3%">
+        <div class="col-sm-6">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <%= form.text_field :name, id: :contact_name, class: "form-control", placeholder:"Nombre" %>
+          </div>
+
         </div>
-        <div class="col-sm-6 form-group">
-          <%= form.text_field :mail, id: :contact_mail, class: "form-control", placeholder: "Email" %>
+        <div class="col-sm-6">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <%= form.text_field :mail, id: :contact_mail, class: "form-control", placeholder: "Email" %>
+          </div>
         </div>
       </div>
       <%= form.text_area :content, id: :contact_content, class: "form-control", placeholder:"Contenido" %>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <%= form.submit "Enviar", :class => "btn btn-default pull-right"%>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <br>
+            <%= form.submit "Enviar", :class => "btn btn-default pull-right"%>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
