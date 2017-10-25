@@ -1,7 +1,9 @@
+<% if notice %>
 <div class="alert alert-success alert-dismissable sesion">
- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
- <strong><%= notice %></strong>
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	<strong><%= notice %></strong>
 </div>
+<% end %>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center">
@@ -11,34 +13,43 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
+			<%= form_tag searches_path, method: :get, class: "" do %>
+			<!-- Se le puede poner clase css-->
+				<%= text_field_tag :search, params[:search], placeholder: "Nombre del curso", class: "" %>
+				<%= submit_tag "Buscar", class: "" %>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
 			<br>
-			<table class = "table table-bordered table-striped">
-		   <thead>
-		   <tr>
-		   <th>Curso</th>
-		   <th>Visualizar</th>
-		   </tr>
-		   </thead>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Curso</th>
+						<th>Visualizar</th>
+					</tr>
+				</thead>
 
-		   <tbody>
-		   <% @courses.each do |course| %>
+				<tbody>
+					<% @courses.each do |course| %>
 
-		   <tr>
-		   <td><%= link_to "#{course.name}", course_path(course.id),class:"btn btn-default" %></td>
-		   <td><%= course.description%></td>
-		   </tr>
+					<tr>
+						<td><%= link_to "#{course.name}", course_path(course.id),class:"btn btn-default" %></td>
+						<td><%= course.description%></td>
+					</tr>
 
-		   <% end %>
-		   </tbody>
+					<% end %>
+				</tbody>
 
-		  </table>
+			</table>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="pagination">
-		  	<%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante' %>
-		  </div>
+				<%= will_paginate @courses, :previous_label => 'Atrás', :next_label =>'Adelante' %>
+			</div>
 		</div>
 	</div>
 	<div class="row">

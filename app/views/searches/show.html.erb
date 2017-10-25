@@ -1,0 +1,39 @@
+<%= form_tag searches_path, method: :get, class: "" do %>
+  <!-- Se le puede poner clase css-->
+  <%= text_field_tag :search, params[:search], placeholder: "Nombre del curso", class: "" %>
+  <%= submit_tag "Buscar", class: "" %>
+<% end %>
+
+<% if @find_courses.empty?%>
+  <div class="">
+    No se encontraron cursos
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Visualizar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @find_courses.each do |course| %>
+            <% course.searches = course.searches + 1 %>
+            <% course.save %>
+            <tr>
+              <td><%= link_to "#{course.name}", course_path(course.id),class:"btn btn-default" %></td>
+              <td><%= course.description%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
+
+<div style="margin-top: 100px;">
+  <%= link_to "Atras", root_path, class: "btn btn-primary" %>
+</div>

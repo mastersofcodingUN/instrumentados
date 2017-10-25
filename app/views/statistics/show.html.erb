@@ -1,0 +1,15 @@
+<h1 class="text-center">Estadísticas</h1><br><br>
+<div class="text-center">
+  <h3>Usuarios Inscritos</h3>
+  <%= line_chart User.group_by_day(:created_at).count %>
+</div>
+<div class="text-center">
+  <h3>10 cursos más buscados</h3>
+  <%= column_chart Course.most_purchased %>
+</div>
+<div class="text-center"><br><br><br>
+  <h3>Número de usuarios registrados</h3>
+  <div id="users">
+    <%= "%06d" %[User.count] %>
+  </div>
+</div>
