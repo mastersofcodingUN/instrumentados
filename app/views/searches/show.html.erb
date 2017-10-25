@@ -1,36 +1,41 @@
-<%= form_tag searches_path, method: :get, class: "" do %>
-  <!-- Se le puede poner clase css-->
-  <%= text_field_tag :search, params[:search], placeholder: "Nombre del curso", class: "" %>
-  <%= submit_tag "Buscar", class: "" %>
-<% end %>
+<div class="input-group">
+  <%= form_tag searches_path, method: :get, class: "input-group" do %>
+<!-- Se le puede poner clase css-->
+    <%= text_field_tag :search, params[:search], placeholder: "Nombre del curso", class: "form-control", type: "text" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Buscar", class: "btn btn-default" %>
+    </span>
+  <% end %>
+  <br><br>
+</div>
 
 <% if @find_courses.empty?%>
   <div class="">
     No se encontraron cursos
   </div>
 <% else %>
-  <div class="row">
-    <div class="col-md-12">
-      <br>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Curso</th>
-            <th>Visualizar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @find_courses.each do |course| %>
-            <% course.searches = course.searches + 1 %>
-            <% course.save %>
-            <tr>
-              <td><%= link_to "#{course.name}", course_path(course.id),class:"btn btn-default" %></td>
-              <td><%= course.description%></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <div class="col-md-9" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+    <% @find_courses.each do |course| %>
+    <div class="col-md-4">
+      <div>
+        <br>
+        <img style="width:100%; height:180px" src="https://ae01.alicdn.com/kf/HTB1DEWoHVXXXXclXFXXq6xXFXXX3/M-sica-moda-pared-del-vinilo-tambores-instrumentos-musicales-m-sica-Rock-Pop-Mural-etiqueta-de.jpg">
+        <div class="caption">
+          <h4><strong><%= link_to "#{course.name}", course_path(course.id)%></strong></h4>
+          <p align="justify"><strong>Descripción: </strong>
+          <%= course.description%>
+          </p>
+          <p align="justify"><strong>Género: </strong>
+          <%= course.genre%>
+          </p>
+          <p align="justify"><strong>Instrumento: </strong>
+          <%= course.instrument%>
+          </p>
+        </div>
+        <br>
+      </div>
     </div>
+    <% end %>
   </div>
 <% end %>
 
