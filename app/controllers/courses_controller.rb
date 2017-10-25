@@ -47,6 +47,15 @@ class CoursesController < ApplicationController
 
 	end
 
+	def enroll
+		id_course =  params[:id]
+		@enroll = Enroll.new(course_id: id_course ,user_id: current_user.id)
+		if @enroll.save
+			redirect_to course_path(id_course), notice: "Te has inscrito de manera exitosa"
+		else
+			render "enroll"
+		end		
+	end
 
 	private
 

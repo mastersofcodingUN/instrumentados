@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'profile/view_profile'
 
   resources :lessons
-  resources :courses
+  resources :courses do
+    member do
+      get 'enroll'
+    end
+  end
   #get 'resources/index'
 
   #get 'resources/new'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012101346) do
+ActiveRecord::Schema.define(version: 20171019111803) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "question_id"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20171012101346) do
     t.string "state", default: "INACTIVO"
   end
 
+  create_table "enrolls", force: :cascade do |t|
+    t.boolean "admin", default: false
+    t.integer "course_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -69,14 +77,6 @@ ActiveRecord::Schema.define(version: 20171012101346) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lesson_id"], name: "index_resources_on_lesson_id"
-  end
-
-  create_table "user_enrolleds", force: :cascade do |t|
-    t.boolean "admin"
-    t.integer "user_id"
-    t.integer "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

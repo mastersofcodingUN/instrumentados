@@ -18,8 +18,8 @@
 
 class Course < ApplicationRecord
 	has_many :lessons, dependent: :destroy
-	has_many :user_enrolleds
-	has_many :users, through: :user_enrolleds
+	has_many :enrolls
+	has_many :users, through: :enrolls
 	has_many :questions
 
 	accepts_nested_attributes_for :lessons	
