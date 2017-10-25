@@ -15,4 +15,5 @@
 
 class Comment < ApplicationRecord
     belongs_to :question
+    belongs_to :user_enrolled
 end

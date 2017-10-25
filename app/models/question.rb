@@ -13,5 +13,6 @@
 
 class Question < ApplicationRecord
     belongs_to :course
-    has_many :comments, , dependent: :destroy
+    belongs_to :user_enrolled
+    has_many :comments, dependent: :destroy
 end
