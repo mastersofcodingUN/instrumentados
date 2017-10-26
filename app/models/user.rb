@@ -39,6 +39,7 @@ class User < ApplicationRecord
 
   has_many :user_enrolleds
   has_many :posts
+  has_many :comments
   has_many :courses, through: :user_enrolleds
 
   def self.from_omniauth(auth)
