@@ -1,0 +1,19 @@
+<%= form_with(model: @post,local: true) do |form| %>
+    <div class="col-md-6">
+    <br>
+    <%= form.label "Titulo" %>
+    <br>
+    <%= form.text_field :title %>
+    </div>
+    
+    <div class="col-md-6">
+    <br>
+    <%= form.label "Contenido" %>
+    <br>
+    <%= form.text_field :content %>
+    </div>
+
+    <%= form.submit "Continuar", class:"btn btn-success" %>
+    
+    <% end %>
+    

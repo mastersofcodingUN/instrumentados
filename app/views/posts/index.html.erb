@@ -1,0 +1,16 @@
+<div id="posts">
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2 class="title">
+      <%= link_to post.title, post %>
+    </h2>
+    <p class="date">
+      Publicado hacer
+      <%= time_ago_in_words(post.created_at) %>
+      por
+      <%= post.user.name %>
+    </p>
+  </div>
+<% end %>
+</div>
+<%= link_to "nuevo post", new_post_path %>

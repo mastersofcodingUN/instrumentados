@@ -20,7 +20,6 @@ class Course < ApplicationRecord
 	has_many :lessons, dependent: :destroy
 	has_many :enrolls
 	has_many :users, through: :enrolls
-	has_many :questions
 
 	accepts_nested_attributes_for :lessons
 	validates :name, :description, :reputation, :difficulty, :views, presence: true

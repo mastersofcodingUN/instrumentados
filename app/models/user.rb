@@ -39,6 +39,8 @@ class User < ApplicationRecord
 
   has_many :enrolls
   has_many :courses, through: :enrolls
+  has_many :posts
+  has_many :comments
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
