@@ -8,6 +8,7 @@
       Publicado hacer
       <%= time_ago_in_words(post.created_at) %>
       por
+      <%= post.user.name %>
     </p>
   </div>
 <% end %>
