@@ -1,6 +1,6 @@
 class CreateComments < ActiveRecord::Migration[5.1]
   def change
-    create_table :comments do |t|
+    create_table :comments, force: true do |t|
       t.text :text
       t.integer :score
       t.references :post, foreign_key: true
