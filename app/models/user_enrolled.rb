@@ -3,7 +3,7 @@
 # Table name: user_enrolleds
 #
 #  id         :integer          not null, primary key
-#  admin      :boolean
+#  admin      :boolean          
 #  user_id    :integer
 #  course_id  :integer
 #  created_at :datetime         not null
