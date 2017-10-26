@@ -20,7 +20,12 @@ class CoursesController < ApplicationController
 		@course = Course.new(course_params)
 
 		if @course.save
-			redirect_to @course, notice: "El curso #{@course.name} fue creado."
+			@enroll = Enroll.new(course_id: @course.id ,user_id: current_user.id, admin: true)
+			if @enroll.save
+				redirect_to @course, notice: "El curso #{@course.name} fue creado."
+			else
+				render enroll, notice: "error al guardar"
+			end
 		else
 			render "new"
 		end
