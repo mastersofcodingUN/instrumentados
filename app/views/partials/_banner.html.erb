@@ -38,6 +38,10 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
+          <% if current_page?(statistics_path)%>
+          <% else %>
+            <%= link_to "ESTADÍSTICAS", "/statistics", class: "btn btn-default", style: "display: inline; padding: 6px 12px;"%>
+          <% end %>
           <button type="button" name="Opciones" class="btn btn-default dropdown-toggle" data-toggle="dropdown">PERFIL</button>
           <ul class="dropdown-menu">
             <li><a style="font-size:15px" href="/profile"><span class="glyphicon glyphicon-user"></span> Mi perfil</a></li>
