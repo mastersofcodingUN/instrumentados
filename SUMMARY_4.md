@@ -7,6 +7,7 @@
 * Estadísticas: Juan Castelblanco
 * Creación de quiz: Jair Villalba
 * Modificación de vistas: Fabián Ordóñez
+* Validación de administración en curso: Dago Fonseca
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
 
