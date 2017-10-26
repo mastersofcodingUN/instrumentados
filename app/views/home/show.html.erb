@@ -1,14 +1,23 @@
+<% if notice %>
+  <div class="alert alert-success alert-dismissable sesion">
+	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  <strong><%= notice %></strong>
+  </div>
+<% end %>
+
 <div class="container" style="width:100%; padding-right:2%">
   <div class="row">
     <div class="col-sm-3 sidenav" style="margin-top:1%">
       <br>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Buscar">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
+        <%= form_tag searches_path, method: :get, class: "" do %>
+			<!-- Se le puede poner clase css-->
+  				<%= text_field_tag :search, params[:search], placeholder: "Nombre del curso", class: "form-control", type: "text" %>
+          <span class="input-group-btn">
+            <%= submit_tag "Buscar", class: "btn btn-default" %>
+          </span>
+			  <% end %>
+        <br><br>
       </div>
       <h4>Navigation bar</h4>
       <ul class="nav nav-pills nav-stacked">

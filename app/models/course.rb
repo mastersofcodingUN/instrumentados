@@ -22,13 +22,13 @@ class Course < ApplicationRecord
 	has_many :users, through: :enrolls
 	has_many :questions
 
-	accepts_nested_attributes_for :lessons	
+	accepts_nested_attributes_for :lessons
 	validates :name, :description, :reputation, :difficulty, :views, presence: true
 	validates :reputation, :views, numericality: { only_integer: true }
 	#validates_associated :lessons
 	validate :check_status
 
-	def check_status  		
+	def check_status
   		unless self.state == "ACTIVO" or self.state == "INACTIVO"
   			errors.add(:state, "El estado no es válido")
   		end
@@ -39,4 +39,17 @@ class Course < ApplicationRecord
 		return @genre
 	end
 
+	def self.search(search)
+		if search != ""
+			where(["name LIKE ?","%#{search}%"])
+		else
+			none
+		end
+	end
+
+	def self.most_purchased
+	  group("courses.id")
+		.order("searches desc").limit(10)
+		.pluck("name", "searches")
+	end
 end

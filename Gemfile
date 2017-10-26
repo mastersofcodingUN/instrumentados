@@ -5,10 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-#pdf
+# pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
+# statistics
+gem 'chartkick'
+# statistics groups
+gem 'groupdate'
+# omniauth
 gem 'omniauth-oauth2'
 # Login with google
 gem 'omniauth-google-oauth2'
