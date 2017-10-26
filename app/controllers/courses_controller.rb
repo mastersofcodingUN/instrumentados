@@ -40,6 +40,12 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
+		
+		if admin?
+			render :show
+		else
+			render :show_user
+		end
   	end
 
 	def destroy
@@ -86,6 +92,17 @@ class CoursesController < ApplicationController
 			else
 				@course.update(state: "INACTIVO")
 			end
+		end
+		def admin?
+			@enrolls = Enroll.where("course_id = ? AND user_id = ?", params[:id], current_user.id)
+
+			admin = false
+			if not @enrolls.empty?
+				if @enrolls[0].admin
+					admin = true
+				end			
+			end
+			return admin
 		end
 
 end

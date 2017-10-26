@@ -52,4 +52,5 @@ class Course < ApplicationRecord
 		.order("searches desc").limit(10)
 		.pluck("name", "searches")
 	end
+
 end

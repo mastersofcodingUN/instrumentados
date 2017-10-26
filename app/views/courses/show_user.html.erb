@@ -1,0 +1,80 @@
+<body>
+	<div class="alert alert-success alert-dismissable sesion">
+ 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ 		<strong><%= notice %></strong>
+	</div>
+	<div class="container">
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-12">
+				<p style="text-align: justify;">
+					<strong>Nombre:</strong>
+					<%= @course.name %>
+				</p>
+				<p style="text-align: justify;">
+				 	<strong>Descripción:</strong>
+				 	<%= @course.description %>
+				</p>
+				<p style="text-align: justify;">
+				 	<strong>Instrumento:</strong>
+				 	<%= @course.instrument %>
+				</p>
+				<p style="text-align: justify;">
+					<strong>Genero:</strong>
+					<%= @course.genre %>
+				</p>
+				<p style="text-align: justify;">
+					<strong>Vistas:</strong>
+					<%= @course.views %>
+				</p>
+				<p style="text-align: justify;">
+				  <strong>Dificultad:</strong>
+				  <%= @course.difficulty %>
+				</p>
+				<p style="text-align: justify;">
+					<strong>Reputación:</strong>
+					<%= @course.reputation %>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" style="margin-bottom:5%">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Lecciones</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table class = "table table-bordered table-striped">
+				   <thead>
+				      <tr>
+				         <th>Leccion</th>
+				         <th>Visualizar</th>
+				      </tr>
+				   </thead>
+				   <tbody>
+				      <% @course.lessons.each do |lesson| %>
+				         <tr>
+				            <td><%= lesson.title %></td>
+				            <td><%= link_to "Visualizar Lección", lesson_path(lesson.id), class:"btn btn-default" %></td>
+				         </tr>
+				      <% end %>
+				   </tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			
+			<div class="col-md-12">
+				<% if @enrolls.empty? %>
+					<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>		
+				<%end%>		
+				
+				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>				
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,9 +1,16 @@
+<head>
 	<title><%= @course.name %></title>
 </head>
 
 <body style="background-color:#F1F1F1">
 	<%= render "partials/banner" %>
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+
+	<div class="alert alert-success alert-dismissable sesion">
+ 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ 		<strong><%= notice %></strong>
+	</div>
+	
 		<div class="row">
 			<div class="col-md-9">
 				<h3><strong>CURSO: <%= @course.name %></strong></h3>
@@ -73,11 +80,14 @@
 			<div class="col-md-2" style="margin-top:2%">
 				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-large btn-block btn-default", target: :_blank%>				
 			</div>
-			<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
-				<%= link_to 'Editar', edit_course_path(@course), class: "btn btn-default" %>
+			<div class="col-md-2" style="margin-top:2%">
+				<%= link_to 'Editar', edit_course_path(@course), class: "btn btn-default" %>			
+			</div>
+			<div class="col-md-2" style="margin-top:2%">
 				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
-		</div>
-		
+			</div>
+			
+		</div>		
 	</div>
 	<%= render "partials/footer" %>
 </body>
