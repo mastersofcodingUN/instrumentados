@@ -40,15 +40,6 @@
 		</div>
 	</div>
 
-	<% if @course.state == "INACTIVO" %>
-		<div class="alert alert-warning">
-			El curso no está activo. Añade lecciones para activarlo
-		</div>
-	<% elsif @course.state == "ACTIVO" %>
-		<div class="alert alert-warning">
-			El curso está activo.
-		</div>
-	<% end %>
 	<div class="container" style="margin-bottom:5%">
 		<div class="row">
 			<div class="col-md-12">
@@ -76,12 +67,14 @@
 			</div>
 		</div>
 		<div class="row">
+			
 			<div class="col-md-12">
-				<%= link_to "Crear Leccion", new_lesson_path(:course_id => params[:id]), class: "btn btn-default" %>
-				<%= link_to 'Editar', edit_course_path(@course), class: "btn btn-default" %>
+				<% if @enrolls.empty? %>
+					<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>		
+				<%end%>		
+				
 				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>				
 			</div>
-			
 		</div>
 	</div>
 </body>

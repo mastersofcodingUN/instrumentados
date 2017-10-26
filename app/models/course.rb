@@ -39,4 +39,5 @@ class Course < ApplicationRecord
 		return @genre
 	end
 
+	
 end
