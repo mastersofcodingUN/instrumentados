@@ -8,6 +8,7 @@
 * Creación de quiz: Jair Villalba
 * Modificación de vistas: Fabián Ordóñez
 * Validación de administración en curso: Dago Fonseca
+* Foro: Ivan Cepeda / Jair Villalba
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
 
