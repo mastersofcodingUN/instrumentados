@@ -3,15 +3,22 @@ class CoursesController < ApplicationController
 	before_action :check_state, only: [:show, :edit]
 	layout "lesson"
 
+	def generate
+	  respond_to do |format|
+			format.html { redirect_to "/courses/#{params[:id]}/generate.pdf", form:{target: "_blank"}}
+	    format.pdf { render template: 'courses/certificado', pdf:'Certificado'}
+	  end
+	end
+
 	def index
   		@courses = Course.all.paginate(:page => params[:page],per_page: 10)
   	end
 
 	def new
-		@course = Course.new		
+		@course = Course.new
 	end
 
-	def edit    
+	def edit
 		#@course = Course.find(params[:id])
 	end
 
@@ -20,7 +27,12 @@ class CoursesController < ApplicationController
 		@course = Course.new(course_params)
 
 		if @course.save
-			redirect_to @course, notice: "El curso #{@course.name} fue creado."
+			@enroll = Enroll.new(course_id: @course.id ,user_id: current_user.id, admin: true)
+			if @enroll.save
+				redirect_to @course, notice: "El curso #{@course.name} fue creado."
+			else
+				render enroll, notice: "error al guardar"
+			end
 		else
 			render "new"
 		end
@@ -28,6 +40,12 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
+		
+		if admin?
+			render :show
+		else
+			render :show_user
+		end
   	end
 
 	def destroy
@@ -40,13 +58,22 @@ class CoursesController < ApplicationController
 	def update
 		@course = Course.find(params[:id])
 		if @course.update(course_params)
-		  redirect_to @course, notice: 'El curso fue actualizado de manera exitosa.'        
+		  redirect_to @course, notice: 'El curso fue actualizado de manera exitosa.'
 		else
-		  render :edit        
+		  render :edit
 		end
 
 	end
 
+	def enroll
+		id_course =  params[:id]
+		@enroll = Enroll.new(course_id: id_course ,user_id: current_user.id)
+		if @enroll.save
+			redirect_to course_path(id_course), notice: "Te has inscrito de manera exitosa"
+		else
+			render "enroll"
+		end		
+	end
 
 	private
 
@@ -58,13 +85,24 @@ class CoursesController < ApplicationController
 
 		def check_state
 			#puts "I HOPE TO FIND THE ERROR #{params['id']}"
-			@course  = Course.find(params['id'])
-			@lessons = Lesson.where(course_id: @course.id)			
-			if @lessons.size >= 3			
+			@course  = Course.find(params[:id])
+			@lessons = Lesson.where(course_id: @course.id)
+			if @lessons.size >= 3
 				@course.update(state: "ACTIVO" )
 			else
 				@course.update(state: "INACTIVO")
-			end		
+			end
+		end
+		def admin?
+			@enrolls = Enroll.where("course_id = ? AND user_id = ?", params[:id], current_user.id)
+
+			admin = false
+			if not @enrolls.empty?
+				if @enrolls[0].admin
+					admin = true
+				end			
+			end
+			return admin
 		end
 
 end

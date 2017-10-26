@@ -4,7 +4,17 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+# Quiz
+gem 'rapidfire'
+# pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+# statistics
+gem 'chartkick'
+# statistics groups
+gem 'groupdate'
+# omniauth
+gem 'omniauth-oauth2'
 # Login with google
 gem 'omniauth-google-oauth2'
 # Login with facebook
@@ -50,9 +60,6 @@ gem 'carrierwave', '~> 1.1.0'
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
-
-gem 'will_paginate'
-gem 'will_paginate-bootstrap'
 
 
 

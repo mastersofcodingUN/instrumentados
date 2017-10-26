@@ -2,8 +2,13 @@
 
 ## Features desarrollados
 
-* Algo
-
+* Generación de certificados de los cursos: Juan Castelblanco
+* Búsqueda de cursos: Juan Castelblanco
+* Estadísticas: Juan Castelblanco
+* Creación de quiz: Jair Villalba
+* Modificación de vistas: Fabián Ordóñez
+* Validación de administración en curso: Dago Fonseca
+* Foro: Ivan Cepeda / Jair Villalba
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
 

@@ -1,8 +1,15 @@
 *{
   font-family: 'Montserrat', sans-serif;
 }
-#header{
-  padding: 5px 25px;
+
+.container{
+  min-height: 90%;
+}
+
+body{
+  padding-top: 67px;
+  background-color: #F1F1F1;
+  min-height: 100%;
 }
 .navbar-header{
   margin-left: 30px;
@@ -11,11 +18,22 @@
   font-family: 'lobster', cursive;
   font-size: 30px;
   color: black;
+
 }
-.navbar-inverse{
-  background-color: black;
-  border-color: white;
+
+@font-face {
+  font-family: 'slant';
+  src: url(slant.ttf);
 }
+
+/*.titlefont{
+  font-family: 'slant';
+  font-size: 35px;
+  color:black;
+
+}*/
+
+
 .nav>li>a {
   padding: 10px 10px;
 }
@@ -32,15 +50,28 @@
     padding-left: 43%;
   }
 }
-.jumbotron {
-  background-image: url(https://github.com/mastersofcodingUN/instrumentados/blob/develop/app/assets/images/background.jpg?raw=true);
-  background-size: 85% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 255, 255);
-  padding: 100px 7.5%;
-  margin-bottom: 0;
+
+.pagination > li > a{
+  color:black;
+}
+
+.pagination > .active > span{
+  background-color: black;
+  border-color: #DDDDDD
+}
+.pagination > .active > span:hover{
+  background-color: black;
+  border-color: #DDDDDD
+}
+
+
+a:hover{
+  background-color: inherit;
+  text-decoration: underline;
+}
+
+.title-back-color{
+  background-color: #097068;
 }
 .titulo{
   background-color: black;
@@ -51,21 +82,14 @@
 .bg-grey {
   background-color: #f6f6f6;
 }
-.container-fluid {
-  padding: 60px 10%;
-}
+
 .logo {
   font-size: 200px;
 }
 .text-center{
   color: black;
 }
-@media screen and (max-width: 768px) {
-  .col-sm-4 {
-      text-align: center;
-      margin: 25px 0;
-  }
-}
+
 #contact {
   width: 100%;
   position: absolute;
