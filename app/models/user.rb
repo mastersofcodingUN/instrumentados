@@ -37,8 +37,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable
 
-  has_many :user_enrolleds
-  has_many :courses, through: :user_enrolleds
+  has_many :enrolls
+  has_many :courses, through: :enrolls
+  has_many :posts
+  has_many :comments
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -46,15 +48,18 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.skip_confirmation!
-      user.save!
       # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
       if auth.provider == "google_oauth2"
         user.birthdate = auth.extra.raw_info.birthday
       else
-        user.birthdate = Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
+        if auth.extra.raw_info.birthday == nil
+        else
+          user.birthdate = Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
+        end
       end
+      user.save!
     end
   end
 

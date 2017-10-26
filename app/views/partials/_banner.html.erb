@@ -1,28 +1,70 @@
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-<nav class="navbar navbar-inverse" style="margin-bottom:20px;">
-  <div id="header" class="container-fluid">
+<style>
+  .navbar-inverse .navbar-link{
+    color:black;
+  }
+  .navbar-inverse .navbar-link:hover{
+    color:black;
+  }
+  .dropdown-menu>li>a{
+    color:black;
+  }
+  .dropdown-menu > li > a{
+    color:black;
+  }
+  .navbar{
+    border-radius: 0;
+    border: 0;
+  }
+  .navbar-inverse .navbar-nav > li > a{
+    color: black;
+  }
+  .navbar-inverse .navbar-nav > li > a:hover{
+    color:#337AB7;
+  }
+</style>
+<nav class="navbar navbar-inverse navbar-fixed-top bg" style=" background-color:white; box-shadow: 2px 0px 5px black">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="logofont navbar-brand" style="color:#EDB749" <%= link_to "Instrumentados", root_path %></a>
+      <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar" style="background-color:grey"></span>
+        <span class="icon-bar" style="background-color:grey"></span>
+        <span class="icon-bar" style="background-color:grey"></span>
+      </button>
+      <a class="logofont navbar-brand" style="color:#D16C00;  text-shadow: 1px 1px black" <%= link_to "Instrumentados", root_path %></a>
     </div>
-    <div>
+    <% if user_signed_in? %> <!-- Modificar el nav al iniciar sesion, uno diferente si el usuario inicia sesion-->
+
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %> <!-- Modificar el nav al iniciar sesion, uno diferente si el usuario inicia sesion-->
-          <li>
-            <%= link_to profile_path, :class => 'navbar-link' do%>
-              <span class="glyphicon glyphicon-user" style="padding-right:5px;"></span>Mi perfil
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do%>
-              <span class="glyphicon glyphicon-log-out" style="padding-right:5px;"></span>Cerrar Sesión
-            <% end %>
-          </li>
-        <% else %>
-          <li><a style="font-size:15px" href="/contacts/new"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span> Contacto</a></li>
-          <li><a style="font-size:15px" href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> Registrarse</a></li>
-          <li><a style="font-size:15px" href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>Iniciar Sesión</a></li>
-        <% end%>
+        <li class="dropdown">
+          <% if current_page?(statistics_path)%>
+          <% else %>
+            <%= link_to "ESTADÍSTICAS", "/statistics", class: "btn btn-default", style: "display: inline; padding: 6px 12px;"%>
+          <% end %>
+          <button type="button" name="Opciones" class="btn btn-default dropdown-toggle" data-toggle="dropdown">PERFIL</button>
+          <ul class="dropdown-menu">
+            <li><a style="font-size:15px" href="/profile"><span class="glyphicon glyphicon-user"></span> Mi perfil</a></li>
+            <li><a style="font-size:15px" href="/users/edit"><span class="glyphicon glyphicon-edit"></span> Editar perfil</a></li>
+            <li class="divider"></li>
+            <li><a style="font-size:15px" href="/courses"><span class="glyphicon glyphicon-plus-sign"></span> Mis cursos</a></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do%>
+                <span class="glyphicon glyphicon-log-out" style="padding-right:5px;"></span>Cerrar Sesión
+              <% end %>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
+    <% else %>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a style="font-size:15px" href="/contacts/new"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span>CONTACTO</a></li>
+        <li><a style="font-size:15px" href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> REGISTRARSE</a></li>
+        <li><a style="font-size:15px" href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>INICIAR SESIÓN</a></li>
+      </ul>
+    </div>
+    <% end%>
   </div>
 </nav>

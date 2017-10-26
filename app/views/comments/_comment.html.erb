@@ -1,0 +1,13 @@
+<div class="comment">
+<div class="content">
+  <p class="comment_content">
+    <%= comment.text %>
+  </p>
+  <p class="comment_author">
+    <%= comment.user.name %>
+  </p>
+</div>
+<% if current_user.id == comment.user.id %>
+  <%= link_to "Editar", edit_post_comment_path(comment.post, comment) %>
+  <%= link_to "Eliminar", [comment.post, comment], method: :delete, data: { confirm: "Estas seguro?" } %>
+<% end %>

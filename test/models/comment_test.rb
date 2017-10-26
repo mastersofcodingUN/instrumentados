@@ -2,15 +2,13 @@
 #
 # Table name: comments
 #
-#  id             :integer          not null, primary key
-#  question_id    :integer
-#  course_id      :integer
-#  user_id        :integer
-#  content        :text
-#  score          :integer
-#  isforumcomment :boolean
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id         :integer          not null, primary key
+#  text       :text
+#  score      :integer
+#  post_id    :integer
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 require 'test_helper'
