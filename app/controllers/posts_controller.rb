@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, expect: [:index,:show]
+	before_action :authorize, :only => [:edit, :destroy]
     def index
         @posts = Post.all.order("created_at DESC")
     end
@@ -45,6 +46,14 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-        params.require(:post).permit(:title, :content)
-        end
+		params.require(:post).permit(:title, :content)
+	end
+	def authorize
+		@post = Post.find(params[:id])
+		unless @post.user_id == current_user.id 
+			flash[:notice] = "No eres el creador de este post. No puedes realizar esta accion"
+			redirect_to post_path
+			return false
+		end
+	end
 end

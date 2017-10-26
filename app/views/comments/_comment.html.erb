@@ -7,9 +7,7 @@
     <%= comment.user.name %>
   </p>
 </div>
-<div class="buttons">
-  <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
-</div>
-</div>
-<%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %>
-    
+<% if current_user.id == comment.user.id %>
+  <%= link_to "Editar", edit_post_comment_path(comment.post, comment) %>
+  <%= link_to "Eliminar", [comment.post, comment], method: :delete, data: { confirm: "Estas seguro?" } %>
+<% end %>

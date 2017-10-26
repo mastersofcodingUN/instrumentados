@@ -1,0 +1,9 @@
+<h1>Editar respuesta</h1>
+<%= form_with(model: [@post, @comment],local: true) do |form| %>
+    <%= form.label "Contenido" %>
+    <br>
+    <%= form.text_field :text %>
+    </div>
+
+    <%= form.submit "Editar", class:"btn btn-success" %>
+<% end %>
