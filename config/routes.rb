@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   resources :lessons
   resources :courses do
     member do
+
       get 'generate'
+      get 'enroll'
+
     end
   end
   #get 'resources/index'
