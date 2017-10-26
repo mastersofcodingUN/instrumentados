@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :questions
-  resources :comments
 
+  resources :posts
   resources :contacts
 
   get 'profile/view_profile'
