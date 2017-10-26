@@ -5,6 +5,8 @@
 * Generación de certificados de los cursos: Juan Castelblanco
 * Búsqueda de cursos: Juan Castelblanco
 * Estadísticas: Juan Castelblanco
+* Creación de quiz: Jair Villalba
+* Modificación de vistas: Fabián Ordóñez
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
 

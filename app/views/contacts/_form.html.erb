@@ -1,9 +1,21 @@
+<style>
+html,body {
 
+  height:100%;
+
+}
+#wrapper{
+  min-height: 100%;
+}
+</style>
 <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
-  <div class="row">
-    <h3><strong>CONTACTO</strong></h3>
+  <div class="row bg">
+    <h3><strong class="titlefont">CONTACTO</strong></h3>
     <hr>
-    <div class="col-md-4" style="margin-top:17%">
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <br>
       <p>Contactanos y te responderemos en menos de una semana.</p>
       <p>
         <span class="glyphicon glyphicon-map-marker"></span>Bogotá D.C.,Colombia</p>
@@ -13,8 +25,8 @@
         <span class="glyphicon glyphicon-envelope"></span>instrumentados@gmail.com</p>
     </div>
 
-    <div class="col-md-8" style="margin-top:17%">
-
+    <div class="col-md-8">
+      <br>
       <%= form_with(model: contact, local: true) do |form| %>
 
       <div class="row" style="margin-bottom:3%">
