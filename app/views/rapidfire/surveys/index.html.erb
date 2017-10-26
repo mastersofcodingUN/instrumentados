@@ -1,0 +1,33 @@
+<%= render "partials/banner" %>
+<h2>
+  Quices
+</h2>
+<h3>
+  <% if can_administer? %>
+    <%= link_to "Nuevo Quiz", new_survey_path %>
+  <% end %>
+</h3>
+<h4>
+  <%= link_to t('Ir al inicio'), '/' %>
+</h4>
+<hr/>
+
+<table>
+  <colgroup>
+    <col>
+    <col width="250">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Nombre del quiz</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "survey", collection: @surveys %>
+  </tbody>
+</table>
+
+<% if defined?(Kaminari) %>
+  <%= paginate @surveys %>
+<% end %>

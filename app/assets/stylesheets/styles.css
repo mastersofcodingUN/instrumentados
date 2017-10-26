@@ -2,8 +2,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.container{
+  min-height: 90%;
+}
+
 body{
   padding-top: 67px;
+  background-color: #F1F1F1;
+  min-height: 100%;
 }
 .navbar-header{
   margin-left: 30px;
@@ -15,12 +21,18 @@ body{
 
 }
 
-.titlefont{
-  font-family: 'Paytone One', sans-serif;
-  font-size: 30px;
-  color:white;
-  margin-left: 10%;
+@font-face {
+  font-family: 'slant';
+  src: url(slant.ttf);
 }
+
+/*.titlefont{
+  font-family: 'slant';
+  font-size: 35px;
+  color:black;
+
+}*/
+
 
 .nav>li>a {
   padding: 10px 10px;

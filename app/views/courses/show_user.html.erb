@@ -67,13 +67,13 @@
 			</div>
 		</div>
 		<div class="row">
-			
+
 			<div class="col-md-12">
 				<% if @enrolls.empty? %>
-					<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>		
-				<%end%>		
-				
-				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>				
+					<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
+				<%end%>
+
+				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
 			</div>
 		</div>
 	</div>
