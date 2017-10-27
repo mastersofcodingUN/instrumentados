@@ -16,6 +16,7 @@
 <% else %>
   <div class="col-md-9" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
     <% @find_courses.each do |course| %>
+      <% course.searches += 1%>
     <div class="col-md-4">
       <div>
         <br>
