@@ -38,11 +38,17 @@ class Course < ApplicationRecord
 		return @genre
 	end
 
-	def self.search(search)
+	def self.search(search, gen, inst)
 		if search != ""
-			where(["name LIKE ?","%#{search}%"])
+			where(["name LIKE ? ","%#{search}%"])
 		else
-			none
+			all
+		end
+
+		if gen != "" or inst != ""
+			where(["genre LIKE ? AND instrument LIKE ?","%#{gen}%", "%#{inst}%"])
+		else
+			all
 		end
 	end
 
