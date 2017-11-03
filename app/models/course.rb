@@ -41,11 +41,15 @@ class Course < ApplicationRecord
 	end
 
 	def self.search(search, gen, inst)
-		if search != "" or gen != "" or inst != "" 
-			@nullSearch = false
-			where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"])
+		if not search.blank?
+			cursos = where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"])
+			cursos.each do |curso|
+				curso.searches = curso.searches + 1
+				curso.save
+			end
+			puts "busco"
+			return cursos
 		else
-			@nullSearch = true
 			all
 		end
 	end

@@ -2,12 +2,11 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, expect: [:index,:show]
 	before_action :authorize, :only => [:edit, :destroy]
-    def index
-			
-        @posts = Post.ordering.paginate(:page => params[:page],per_page: 7)
-    end
+  def index
+      @posts = Post.ordering.paginate(:page => params[:page],per_page: 7)
+  end
 
-    def show
+  def show
 	end
 
 	def new

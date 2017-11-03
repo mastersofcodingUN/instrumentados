@@ -31,6 +31,5 @@ Rails.application.routes.draw do
   get "/contacts/new", to:"contacts#new"
   get "/profile", to:"profile#view_profile"
   get "/statistics", to:"statistics#show"
-  get "/searches", to:"searches#show"
   mount Rapidfire::Engine => "/rapidfire"
 end
