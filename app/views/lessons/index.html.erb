@@ -28,7 +28,7 @@
                 <td><%= lesson.title %></td>
                 <td><%= lesson.description %></td>
                 <td><%= link_to 'Mostrar', lesson, class:"btn btn-success" %></td>
-                <td><%= link_to 'Editar', edit_lesson_path(lesson), class:"btn btn-default" %></td>
+                <td><%= link_to 'Editar', edit_course_lesson_path(lesson), class:"btn btn-default" %></td>
                 <td><%= link_to 'Eliminar', lesson, method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-danger" %></td>
               </tr>
             <% end %>

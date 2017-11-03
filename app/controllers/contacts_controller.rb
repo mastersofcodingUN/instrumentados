@@ -28,9 +28,8 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-
-        ContactMailer.contact_confirmation(@contact).deliver_later
-
+                
+        ContactMailer.contact_confirmation(@contact).deliver_later        
         format.html { redirect_to "/", notice: 'Mensaje enviado satisfactoriamente  ' }
       else
         format.html { render :new }

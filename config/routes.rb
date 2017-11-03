@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
   resources :resources, only: [:index, :new, :create, :destroy]
-  resources :contacts
-  resources :lessons
+  
+  get "/contacts/new", to: "contacts#new"
+  post "/contacts", to: "contacts#create"
+  
   resources :courses do
+    resources :lessons
     member do
 
       get 'generate'

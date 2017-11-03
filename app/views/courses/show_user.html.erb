@@ -1,4 +1,5 @@
 <body>
+	<%= render "partials/banner" %>
 	<div class="alert alert-success alert-dismissable sesion">
  		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
  		<strong><%= notice %></strong>
@@ -59,7 +60,7 @@
 				      <% @course.lessons.each do |lesson| %>
 				         <tr>
 				            <td><%= lesson.title %></td>
-				            <td><%= link_to "Visualizar Lección", lesson_path(lesson.id), class:"btn btn-default" %></td>
+				            <td><%= link_to "Visualizar Lección", course_lessons_path(lesson.id), class:"btn btn-default" %></td>
 				         </tr>
 				      <% end %>
 				   </tbody>
@@ -77,4 +78,5 @@
 			</div>
 		</div>
 	</div>
+	<%= render "partials/footer" %>
 </body>
