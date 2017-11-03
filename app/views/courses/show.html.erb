@@ -1,4 +1,4 @@
-<head>
+
 	<title><%= @course.name %></title>
 </head>
 
@@ -8,11 +8,13 @@
 
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 
-	<div class="alert alert-success alert-dismissable sesion">
- 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
- 		<strong><%= notice %></strong>
-	</div>
-	
+		<% if notice %>
+		  <div class="alert alert-success alert-dismissable sesion">
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <strong><%= notice %></strong>
+		  </div>
+		<% end %>
+
 		<div class="row">
 			<div class="col-md-9">
 				<h3><strong>CURSO: <%= @course.name %></strong></h3>
@@ -73,7 +75,7 @@
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 		<div class="row">
 			<div class="col-md-8">
-				<h3><strong>LECCIONES</strong></h3>				
+				<h3><strong>LECCIONES</strong></h3>
 			</div>
 		</div>
 		<div class="row">

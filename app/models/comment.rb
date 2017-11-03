@@ -14,4 +14,6 @@
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
+
+  validates :text, length: { in: 20..300}
 end

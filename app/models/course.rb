@@ -29,6 +29,8 @@ class Course < ApplicationRecord
 	#validates_associated :lessons
 	validate :check_status
 
+
+
 	def check_status
   		unless self.state == "ACTIVO" or self.state == "INACTIVO"
   			errors.add(:state, "El estado no es válido")
@@ -40,11 +42,13 @@ class Course < ApplicationRecord
 		return @genre
 	end
 
-	def self.search(search)
-		if search != ""
-			where(["name LIKE ?","%#{search}%"])
+	def self.search(search, gen, inst)
+		if search != "" or gen != "" or inst != "" 
+			@nullSearch = false
+			where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"])
 		else
-			none
+			@nullSearch = true
+			all
 		end
 	end
 

@@ -1,53 +1,81 @@
+<!-- Los cursos no creados -->
+<title><%= @course.name %></title>
+</head>
+
 <body>
 	<%= render "partials/banner" %>
-	<div class="alert alert-success alert-dismissable sesion">
- 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
- 		<strong><%= notice %></strong>
+	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+
+		<% if notice %>
+			<div class="alert alert-success alert-dismissable sesion">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong><%= notice %></strong>
+			</div>
+		<% end %>
+
+		<div class="row">
+			<div class="col-md-9">
+				<h3>
+					<strong>CURSO:
+						<%= @course.name %></strong>
+				</h3>
+				<hr>
+			</div>
+			<div class="col-md-3 text-center" style="margin-top:2%">
+				<%= link_to 'Editar Curso', edit_course_path(@course), class: "btn btn-large btn-block btn-default" %>
+			</div>
+			<div class="col-md-12">
+				<div class="container-fluid">
+					<h3>Descripción</h3>
+					<td><%= @course.description %></td>
+					<hr>
+				</div>
+				<div class="container-fluid">
+					<h3>Género</h3>
+					<td><%= @course.genre %></td>
+					<hr>
+				</div>
+				<div class="container-fluid">
+					<h3>Dificultad</h3>
+					<td><%= @course.difficulty %></td>
+					<hr>
+				</div>
+				<div class="container-fluid">
+					<h3>Vistas</h3>
+					<td><%= @course.views %></td>
+					<hr>
+				</div>
+				<div class="container-fluid">
+					<h3>Reputación</h3>
+					<td><%= @course.reputation %></td>
+					<hr>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
-	<div class="container">
-		<br>
-		<br>
+
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<p style="text-align: justify;">
-					<strong>Nombre:</strong>
-					<%= @course.name %>
-				</p>
-				<p style="text-align: justify;">
-				 	<strong>Descripción:</strong>
-				 	<%= @course.description %>
-				</p>
-				<p style="text-align: justify;">
-				 	<strong>Instrumento:</strong>
-				 	<%= @course.instrument %>
-				</p>
-				<p style="text-align: justify;">
-					<strong>Genero:</strong>
-					<%= @course.genre %>
-				</p>
-				<p style="text-align: justify;">
-					<strong>Vistas:</strong>
-					<%= @course.views %>
-				</p>
-				<p style="text-align: justify;">
-				  <strong>Dificultad:</strong>
-				  <%= @course.difficulty %>
-				</p>
-				<p style="text-align: justify;">
-					<strong>Reputación:</strong>
-					<%= @course.reputation %>
-				</p>
+				<br>
+				<% if @course.state == "INACTIVO" %>
+				<div class="alert alert-danger">
+					El curso no está activo. Añade lecciones para activarlo
+				</div>
+				<% elsif @course.state == "ACTIVO" %>
+				<div class="alert alert-warning">
+					El curso está activo.
+				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
 
-	<div class="container" style="margin-bottom:5%">
+	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 		<div class="row">
-			<div class="col-md-12">
-				<h3>Lecciones</h3>
-			</div>
-		</div>
-		<div class="row">
+
 			<div class="col-md-12">
 				<table class = "table table-bordered table-striped">
 				   <thead>
@@ -67,16 +95,19 @@
 				</table>
 			</div>
 		</div>
-		<div class="row">
-
-			<div class="col-md-12">
-				<% if @enrolls.empty? %>
-					<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
-				<%end%>
-
-				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
-			</div>
+		
+		<div class="col-md-12" style="margin-top:2%;">
+			<% if @enrolls.empty? %>
+				<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
+			<%end%>
 		</div>
+		<div class="col-md-2" style="margin-top:2%;">
+			<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: :_blank%>
+		</div>
+		<div class="col-md-2" style="margin-top:2%;">
+			<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
+		</div>
+	</div>
 	</div>
 	<%= render "partials/footer" %>
 </body>

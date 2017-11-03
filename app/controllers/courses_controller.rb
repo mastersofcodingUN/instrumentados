@@ -19,6 +19,9 @@ class CoursesController < ApplicationController
 	end
 
 	def edit
+		if not admin?
+			render "show_user"
+		end
 		#@course = Course.find(params[:id])
 	end
 
@@ -40,7 +43,7 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
-		
+
 		if admin?
 			render :show
 		else
@@ -72,7 +75,7 @@ class CoursesController < ApplicationController
 			redirect_to course_path(id_course), notice: "Te has inscrito de manera exitosa"
 		else
 			render "enroll"
-		end		
+		end
 	end
 
 	private
@@ -93,6 +96,7 @@ class CoursesController < ApplicationController
 				@course.update(state: "INACTIVO")
 			end
 		end
+
 		def admin?
 			@enrolls = Enroll.where("course_id = ? AND user_id = ?", params[:id], current_user.id)
 
@@ -100,7 +104,7 @@ class CoursesController < ApplicationController
 			if not @enrolls.empty?
 				if @enrolls[0].admin
 					admin = true
-				end			
+				end
 			end
 			return admin
 		end
