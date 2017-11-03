@@ -11,8 +11,8 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 .wrapper {
-  position: absolute;
-  width: 90%;
+  position: inherit;
+  width: 96%;
   background-color: #fff;
   box-shadow: 0 4px 10px #7A9BAC;
   font-size: 0.875em;
@@ -26,6 +26,8 @@ body {
   width: 90%;
   text-indent: 18px;
   line-height: 39px;
+  background-color: #6DBCDB;
+  color: white;
 }
 .items > li > a::after {
   position: absolute;
@@ -43,20 +45,23 @@ body {
   -webkit-transition: background-color 0.4s ease-in-out;
   transition: background-color 0.4s ease-in-out;
 }
-.items > li > a:hover {
+
+.items > li > a.expanded {
+  background-color: #6DBCDB;
+  color: #fff;
+  font-weight: 600;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.items > li > a.foro:hover {
   background-color: #8EE8F1;
   color: #fff;
   font-weight: 600;
   -webkit-transition: background-color 0.4s ease-in-out;
   transition: background-color 0.4s ease-in-out;
 }
-.items > li > a.expanded {
-  background-color: #64D7E2;
-  color: #fff;
-  font-weight: 600;
-  -webkit-transition: background-color 0.4s ease-in-out;
-  transition: background-color 0.4s ease-in-out;
-}
+
 .items > li > a.expanded::after {
   content: "\f063";
 }
@@ -112,4 +117,8 @@ a:hover{
 input#instrument.form-control.text-search, input#genre.form-control.text-search{
   width: 75%;
   margin-bottom: 10px;
+}
+
+div.col-sm-3.sidenav.m {
+  margin-bottom: 20px;
 }

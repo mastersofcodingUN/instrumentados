@@ -13,4 +13,12 @@
 class Post < ApplicationRecord
     belongs_to :user
     has_many :comments, dependent: :destroy
+
+    def self.ordering
+      all.order("created_at DESC")
+    end
+
+    def self.finding(param)
+      find(param)
+    end
 end

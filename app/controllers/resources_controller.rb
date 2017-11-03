@@ -4,7 +4,8 @@ class ResourcesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-  	@resources = Resource.all
+  	@resources = Resource.returnAll
+    puts @resources
   end
 
   def new
@@ -22,7 +23,7 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-  	@resource = Resource.find(params[:id])
+  	@resource = Resource.finding(params[:id])
   	@resource.destroy
   	redirect_to @resource.lesson, notice: "El recurso #{@resource.name} fue eliminado"
   end

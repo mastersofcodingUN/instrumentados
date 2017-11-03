@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, expect: [:index,:show]
 	before_action :authorize, :only => [:edit, :destroy]
     def index
-        @posts = Post.all.order("created_at DESC")
+        @posts = Post.ordering
     end
 
     def show
@@ -42,15 +42,15 @@ class PostsController < ApplicationController
 	private
 
 	def find_post
-		@post = Post.find(params[:id])
+		@post = Post.finding(params[:id])
 	end
 
 	def post_params
 		params.require(:post).permit(:title, :content)
 	end
 	def authorize
-		@post = Post.find(params[:id])
-		unless @post.user_id == current_user.id 
+		@post = Post.finding(params[:id])
+		unless @post.user_id == current_user.id
 			flash[:notice] = "No eres el creador de este post. No puedes realizar esta accion"
 			redirect_to post_path
 			return false

@@ -6,6 +6,13 @@
 	}
 </style>
 
+<% if notice %>
+  <div class="alert alert-success alert-dismissable sesion">
+	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  <strong><%= notice %></strong>
+  </div>
+<% end %>
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">

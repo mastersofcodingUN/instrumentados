@@ -8,7 +8,7 @@
 
 body{
   padding-top: 67px;
-  background-color: #F1F1F1;
+  background-color: #D7DADB;
   min-height: 100%;
 }
 .navbar-header{
@@ -67,7 +67,6 @@ body{
 
 a:hover{
   background-color: inherit;
-  text-decoration: underline;
 }
 
 .title-back-color{
