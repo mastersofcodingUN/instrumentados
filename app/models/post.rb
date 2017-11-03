@@ -13,7 +13,8 @@
 class Post < ApplicationRecord
     belongs_to :user
     has_many :comments, dependent: :destroy
-
+    validates :title, length: { minimum: 8}, presence: true
+    validates :content, length: { in: 12..300}, presence: true
     def self.ordering
       all.order("created_at DESC")
     end
