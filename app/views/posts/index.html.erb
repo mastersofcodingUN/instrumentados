@@ -1,19 +1,32 @@
-<body style="background-color:#F1F1F1">
-<%= render "partials/banner" %>
-<% @posts.each do |post| %>
-  <div class="post">
-    <h2 class="title">
-      <%= link_to post.title, post %>
-    </h2>
-    <p class="date">
-      Publicado hacer
-      <%= time_ago_in_words(post.created_at) %>
-      por
-      <%= post.user.name %>
-    </p>
+  <%= render "partials/header"%>
+  <%= stylesheet_link_tag "styles"%>
+</head>
+<body>
+  <%= render "partials/banner" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="my-4">
+          Foro
+          <small>por el momento global</small>
+        </h1>
+        <% @posts.each do |post| %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2><%= link_to post.title, post %></h2>
+          </div>
+          <div class="panel-footer" style="padding-bottom:1px">
+            <p>Publicado hace 
+              <%= time_ago_in_words(post.created_at) %> 
+              por <%= post.user.name %>
+            </p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <%= will_paginate @posts, renderer: BootstrapPagination::Rails,  :previous_label => 'Atrás', :next_label =>'Adelante'%>
   </div>
-<% end %>
-</div>
-<%= link_to "nuevo post", new_post_path %>
+  <%= link_to "nuevo post", new_post_path %>
 </body>
 <%= render "partials/footer" %>
