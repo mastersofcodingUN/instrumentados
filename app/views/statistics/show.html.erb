@@ -1,15 +1,45 @@
-<h1 class="text-center">Estadísticas</h1><br><br>
-<div class="text-center">
-  <h3>Usuarios Inscritos</h3>
-  <%= line_chart User.group_by_day(:created_at).count %>
-</div>
-<div class="text-center">
-  <h3>10 cursos más buscados</h3>
-  <%= column_chart Course.most_purchased %>
-</div>
-<div class="text-center"><br><br><br>
-  <h3>Número de usuarios registrados</h3>
-  <div id="users">
-    <%= "%06d" %[User.count] %>
+
+<div id="section0" class="container">
+  <div class="num-us">
+    <h1 class="text-center stats">Estadísticas</h1><br><br>
   </div>
 </div>
+
+<div class="container stats-chart">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Vistas</a></li>
+    <li><a data-toggle="tab" href="#menu1">Busquedas</a></li>
+    <li><a data-toggle="tab" href="#menu2">Iscripciones</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <div id="section1" class="container-fluid">
+        <h3>10 cursos más vistos</h3>
+        <%= pie_chart Course.most_viewed%>
+      </div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <div id="section3" class="container-fluid">
+        <h3>10 cursos más buscados</h3>
+        <%= column_chart Course.most_purchased%>
+      </div>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <div id="section2" class="container-fluid">
+        <h3>Usuarios Inscritos</h3>
+        <%= line_chart User.group_by_day(:created_at).count %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="section4" class="container text-center">
+  <div class="num-us">
+    <h4 id = "text-num-us">Número de usuarios registrados</h4>
+    <div id="users">
+      <%= "%06d" %[User.count] %>
+    </div>
+  </div>
+</div>
+<!-- CSS en statistics.scss -->

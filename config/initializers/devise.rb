@@ -252,7 +252,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: "email, user_birthday", info_fields: "id,email,link,birthday,first_name,last_name"
-  config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], scope: "email, https://www.googleapis.com/auth/user.birthday.read, profile", info_fields: "id,email,link,birthday,first_name,last_name"
+  config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], scope: "email, https://www.googleapis.com/auth/user.birthday.read, profile", info_fields: "id,email,link,birthday,first_name,last_name", skip_jwt: true
 
 
   # ==> Warden configuration

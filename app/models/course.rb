@@ -35,13 +35,16 @@ class Course < ApplicationRecord
   		end
 	end
 
-	def self.filter_by_genre(gen)
-		@genre = self.where(genre: gen)
-		return @genre
+	def self.finding(params)
+		find(params)
+	end
+
+	def self.getAll
+		all
 	end
 
 	def self.search(search, gen, inst)
-		if not search.blank?
+		if not search.blank? or not gen.blank? or not inst.blank?
 			cursos = where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"])
 			cursos.each do |curso|
 				curso.searches = curso.searches + 1
@@ -58,6 +61,12 @@ class Course < ApplicationRecord
 	  group("courses.id")
 		.order("searches desc").limit(10)
 		.pluck("name", "searches")
+	end
+
+	def self.most_viewed
+		group("courses.id")
+		.order("views desc").limit(10)
+		.pluck("name", "views")
 	end
 
 end

@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
 	end
 
 	def index
-  		@courses = Course.all.paginate(:page => params[:page],per_page: 10)
+  		@courses = Course.getAll.paginate(:page => params[:page],per_page: 10)
   	end
 
 	def new
@@ -42,7 +42,9 @@ class CoursesController < ApplicationController
 	end
 
 	def show
-		@course = Course.find(params[:id])
+		@course = Course.finding(params[:id])
+		@course.views = @course.views+1
+		@course.save
 
 		if admin?
 			render :show
@@ -52,14 +54,14 @@ class CoursesController < ApplicationController
   	end
 
 	def destroy
-		@course = Course.find(params[:id])
+		@course = Course.finding(params[:id])
 		@course.destroy
 		redirect_to courses_path, notice: "El curso #{@course.name} fue eliminado"
 	end
 
 
 	def update
-		@course = Course.find(params[:id])
+		@course = Course.finding(params[:id])
 		if @course.update(course_params)
 		  redirect_to @course, notice: 'El curso fue actualizado de manera exitosa.'
 		else
@@ -88,8 +90,8 @@ class CoursesController < ApplicationController
 
 		def check_state
 			#puts "I HOPE TO FIND THE ERROR #{params['id']}"
-			@course  = Course.find(params[:id])
-			@lessons = Lesson.where(course_id: @course.id)
+			@course  = Course.finding(params[:id])
+			@lessons = Lesson.search(course_id: @course.id)
 			if @lessons.size >= 3
 				@course.update(state: "ACTIVO" )
 			else
@@ -98,7 +100,7 @@ class CoursesController < ApplicationController
 		end
 
 		def admin?
-			@enrolls = Enroll.where("course_id = ? AND user_id = ?", params[:id], current_user.id)
+			@enrolls = Enroll.searchingRoll("course_id = ? AND user_id = ?", params[:id], current_user.id)
 
 			admin = false
 			if not @enrolls.empty?
