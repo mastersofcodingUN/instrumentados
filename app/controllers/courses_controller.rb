@@ -4,9 +4,11 @@ class CoursesController < ApplicationController
 	layout "lesson"
 
 	def generate
+		@course = Course.finding(params[:id]) #variable para la información en el pdf
+		@user = current_user #usuario actual
 	  respond_to do |format|
 			format.html { redirect_to "/courses/#{params[:id]}/generate.pdf", form:{target: "_blank"}}
-	    format.pdf { render template: 'courses/certificado', pdf:'Certificado'}
+	    format.pdf { render template: 'courses/certificado', pdf:'Certificado', page_height:"14cm", page_width:"20cm", margin:{ top: '3mm', bottom: '3mm', left: '3mm', right: '3mm'}}
 	  end
 	end
 

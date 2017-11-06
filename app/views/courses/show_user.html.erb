@@ -6,24 +6,20 @@
 	<%= render "partials/banner" %>
 
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
-
-		<% if notice %>
-			<div class="alert alert-success alert-dismissable sesion">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong><%= notice %></strong>
-			</div>
-		<% end %>
-
 		<div class="row">
 			<div class="col-md-9">
 				<h3>
-					<strong>CURSO:
-						<%= @course.name %></strong>
+					<strong>Curso
+						<%= @course.name %>
+						<% if not @enrolls.empty? %>
+							<br><br>
+							<div style="color: rgb(64, 233, 108);">
+								Ya estas inscrito
+							</div>
+						<% end %>
+					</strong>
 				</h3>
 				<hr>
-			</div>
-			<div class="col-md-3 text-center" style="margin-top:2%">
-				<%= link_to 'Editar Curso', edit_course_path(@course), class: "btn btn-large btn-block btn-default" %>
 			</div>
 			<div class="col-md-12">
 				<div class="container-fluid">
@@ -105,10 +101,9 @@
 		<div class="col-md-12" style="margin-top:2%;">
 			<% if @enrolls.empty? %>
 				<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
+			<% else %>
+				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: :_blank%>
 			<%end%>
-		</div>
-		<div class="col-md-2" style="margin-top:2%;">
-			<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: :_blank%>
 		</div>
 		<div class="col-md-2" style="margin-top:2%;">
 			<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
