@@ -1,12 +1,11 @@
 <%= form_with(model: [@post, @post.comments.build] ,local: true) do |form| %>
-    <div class="col-md-6">
-    <br>
-    <%= form.label "Comentario" %>
-    <br>
-    <%= form.text_field :text %>
+    <div class="panel panel-default">
+        <div class="panel-heading"><%= form.label "Comenta:" %></div>
+        <div class="panel-body">
+            <%= form.text_area :text, class:"form-control" %>
+            <br><%= form.submit "Enviar", class:"btn btn-success" %>
+        </div>
     </div>
-
-    <%= form.submit "Enviar", class:"btn btn-success" %>
     
-    <% end %>
+<% end %>
     
