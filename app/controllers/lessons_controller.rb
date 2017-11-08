@@ -46,7 +46,7 @@ class LessonsController < ApplicationController
   def update
 
     if @lesson.update(lesson_params)
-      redirect_to @lesson, notice: 'Lesson was successfully updated.'
+      redirect_to course_path(@lesson.course_id), notice: 'Lesson was successfully updated.'
     else
       render :edit
     end

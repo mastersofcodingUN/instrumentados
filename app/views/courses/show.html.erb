@@ -91,7 +91,7 @@
 				      <% @course.lessons.each do |lesson| %>
 				         <tr>
 				            <td><%= lesson.title %></td>
-				            <td><%= link_to "Visualizar Lección", course_lesson_path(lesson.id), class:"btn btn-default" %></td>
+				            <td><%= link_to "Visualizar Lección", course_lesson_path(@course.id,lesson.id), class:"btn btn-default" %></td>
 				         </tr>
 				      <% end %>
 				   </tbody>

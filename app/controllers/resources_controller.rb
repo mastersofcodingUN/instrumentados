@@ -25,7 +25,7 @@ class ResourcesController < ApplicationController
   def destroy
   	@resource = Resource.finding(params[:id])
   	@resource.destroy
-  	redirect_to @resource.lesson, notice: "El recurso #{@resource.name} fue eliminado"
+  	redirect_to  course_path(@resource.lesson.course_id), notice: "El recurso #{@resource.name} fue eliminado"
   end
 
   private
