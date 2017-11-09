@@ -18,6 +18,7 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+
 one:
   name: MyString
   description: "MyText"
@@ -29,13 +30,22 @@ one:
   image: MyString
   searches: 2
 
+trompeta:  
+  name: "Trompeta"
+  description: "MyText"
+  reputation: 1
+  difficulty: "Principiante"
+  views: 50
+  genre: "rock"
+  instrument: "Trompeta"
+
 two:
-  name: MyString
+  name: Violin
   description: MyText
   reputation: 1
-  difficulty: MyString
+  difficulty: Intermedio
   views: 2
-  genre: MyString
-  instrument: MyString
+  genre: clasica
+  instrument: Violin
   image: MyString
   searches: 3

@@ -36,6 +36,7 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+
 one:
   email: "jscastelblancoh@unal.edu.co"
 
@@ -44,5 +45,20 @@ one:
 #
 two:
   email: "instrumentados@gmail.com"
+
+three: 
+  email: "dago@gmail.com"
+  name: "example"
+  encrypted_password: Devise::Encryptor.digest(User, "12345678")
+  country: Colombia
+# column: value
+#
+two: {}
+
+john:
+  name: John Rockefeller
+  email: john@rockefeller.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  created_at: <%= Time.zone.now %>
 
 # column: value
