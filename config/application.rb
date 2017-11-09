@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Instrumentados
   class Application < Rails::Application
+    config.assets.precompile << 'delayed/web/application.css'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
@@ -15,5 +16,6 @@ module Instrumentados
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :es
+    config.active_job.queue_adapter = :delayed_job
   end
 end

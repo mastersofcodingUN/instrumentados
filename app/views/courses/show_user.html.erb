@@ -4,7 +4,6 @@
 
 <body>
 	<%= render "partials/banner" %>
-
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 		<div class="row">
 			<div class="col-md-9">
@@ -72,32 +71,27 @@
 
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 		<div class="row">
-			<div class="col-md-8">
-				<h3>
-					<strong>LECCIONES</strong>
-				</h3>
-			</div>
-		</div>
-		<div class="row">
+
 			<div class="col-md-12">
-				<table class="table table-bordered table-striped">
-					<thead>
-						<tr>
-							<th>Leccion</th>
-							<th>Visualizar</th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @course.lessons.each do |lesson| %>
-						<tr>
-							<td><%= lesson.title %></td>
-							<td><%= link_to "Visualizar Lección", lesson_path(lesson.id), class:"btn btn-default" %></td>
-						</tr>
-						<% end %>
-					</tbody>
+				<table class = "table table-bordered table-striped">
+				   <thead>
+				      <tr>
+				         <th>Leccion</th>
+				         <th>Visualizar</th>
+				      </tr>
+				   </thead>
+				   <tbody>
+				      <% @course.lessons.each do |lesson| %>
+				         <tr>
+				            <td><%= lesson.title %></td>
+				            <td><%= link_to "Visualizar Lección", course_lesson_path(@course.id,lesson.id), class:"btn btn-default" %>
+				         </tr>
+				      <% end %>
+				   </tbody>
 				</table>
 			</div>
 		</div>
+		
 		<div class="col-md-12" style="margin-top:2%;">
 			<% if @enrolls.empty? %>
 				<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>

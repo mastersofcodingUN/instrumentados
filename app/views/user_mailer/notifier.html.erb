@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>  
-  <p>Tu mensaje ha sido recibido, gracias por comunicarte con nosotros.</p>
-  <p><%= @contact.mail %></p>
-  <p>"<%= @contact.content %>"</p>
+  <p>Te inscribiste de manera exitosa al curso <b><%= @course.name %></b></p>
+  <p>La inscripción fue realizada: <%= @enroll.created_at.in_time_zone('Bogota')%></p>
 </body>
 </html>

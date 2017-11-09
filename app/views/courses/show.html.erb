@@ -6,7 +6,6 @@
 
 	<%= render "partials/banner" %>
 
-
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 
 		<% if notice %>
@@ -92,7 +91,7 @@
 				      <% @course.lessons.each do |lesson| %>
 				         <tr>
 				            <td><%= lesson.title %></td>
-				            <td><%= link_to "Visualizar Lección", lesson_path(lesson.id), class:"btn btn-default" %></td>
+				            <td><%= link_to "Visualizar Lección", course_lesson_path(@course.id,lesson.id), class:"btn btn-default" %></td>
 				         </tr>
 				      <% end %>
 				   </tbody>
@@ -100,7 +99,7 @@
 			</div>
 		</div>
 			<div class="col-md-2" style="margin-top:2%">
-				<%= link_to "Crear Lección", new_lesson_path(:course_id => params[:id]), class: "btn btn-large btn-block btn-default" %>
+				<%= link_to "Crear Lección", new_course_lesson_path(:course_id => params[:id]), class: "btn btn-large btn-block btn-default" %>
 			</div>
 			<div class="col-md-2" style="margin-top:2%">
 				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-large btn-block btn-default", target: :_blank%>

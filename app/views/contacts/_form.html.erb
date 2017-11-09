@@ -27,7 +27,7 @@ html,body {
 
     <div class="col-md-8">
       <br>
-      <%= form_with(model: contact, local: true) do |form| %>
+      <%= form_for @contact, url: {action: "create"} do |form| %>
 
       <div class="row" style="margin-bottom:3%">
         <div class="col-sm-6">

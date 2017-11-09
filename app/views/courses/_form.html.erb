@@ -44,7 +44,7 @@
 				<br>
 				<%= form.label "Género" %>
 				<br>
-				<%= form.text_field :genre, class:"form-control", placeholder:"Género" %>
+				<%= form.select( :genre, ["rock", "clasica", "jazz", "latina", "electronica", "pop", "otro",]) %>
 			</div>
 		</div>
 		<div class="row">
