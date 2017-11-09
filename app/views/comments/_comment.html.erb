@@ -1,13 +1,17 @@
-<div class="comment">
-<div class="content">
-  <p class="comment_content">
-    <%= comment.text %>
-  </p>
-  <p class="comment_author">
-    <%= comment.user.name %>
-  </p>
+
+<div class="media">
+  <div class="media-left">
+    <img src="https://www.w3schools.com/Bootstrap/img_avatar1.png" class="media-object" style="width:45px">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <a href="#"><%= comment.user.name %></a>
+      <small><i>el <%= comment.updated_at.strftime("%d %b. %Y - %l:%M %P") %></i></small>
+    </h4>
+  <p><%= comment.text %></p>
 </div>
 <% if current_user.id == comment.user.id %>
-  <%= link_to "Editar", edit_post_comment_path(comment.post, comment) %>
-  <%= link_to "Eliminar", [comment.post, comment], method: :delete, data: { confirm: "Estas seguro?" } %>
+  <%= link_to "Editar", edit_post_comment_path(comment.post, comment) , class: "btn btn-primary btn-xs"%>
+  <%= link_to "Eliminar", [comment.post, comment], method: :delete, data: { confirm: "Estas seguro?" }, class: "btn btn-danger btn-xs"%>
 <% end %>
+</div>

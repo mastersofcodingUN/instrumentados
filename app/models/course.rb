@@ -24,6 +24,8 @@ class Course < ApplicationRecord
 	accepts_nested_attributes_for :lessons
 	validates :name, :description, :reputation, :difficulty, :views, presence: true
 	validates :reputation, :views, numericality: { only_integer: true }
+	validates :genre, inclusion: {in: %w(rock clasica jazz latina electronica pop otro), message: "%{value} o es un genero válido" }
+	validates :difficulty, inclusion: {in: %w(Principiante Intermedio Avanzado), message: "%{value} no es una dificultad válida"}
 	#validates_associated :lessons
 	validate :check_status
 

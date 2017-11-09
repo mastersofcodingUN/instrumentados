@@ -8,7 +8,10 @@
       <div class="col-md-8">
         <h1 class="my-4">
           Foro
-          <small>por el momento global</small>
+          <small>Global</small> 
+          <p class="text-right">
+            <%= link_to "nuevo post", new_post_path, class: "btn btn-info" %>
+          </p>
         </h1>
         <% @posts.each do |post| %>
         <div class="panel panel-default">
@@ -27,6 +30,5 @@
     </div>
     <%= will_paginate @posts, renderer: BootstrapPagination::Rails,  :previous_label => 'Atrás', :next_label =>'Adelante'%>
   </div>
-  <%= link_to "nuevo post", new_post_path %>
 </body>
 <%= render "partials/footer" %>

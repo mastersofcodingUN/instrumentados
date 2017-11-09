@@ -61,7 +61,12 @@ gem 'carrierwave', '~> 1.1.0'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
 
-
+# delayed_job
+gem 'delayed_job_active_record'  
+# demonios
+gem 'daemons'
+# view logs on web
+gem 'delayed-web'
 
 group :development, :test do
   gem 'sqlite3'

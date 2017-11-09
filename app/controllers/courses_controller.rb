@@ -73,10 +73,11 @@ class CoursesController < ApplicationController
 	end
 
 	def enroll
-		id_course =  params[:id]
-		@enroll = Enroll.new(course_id: id_course ,user_id: current_user.id)
+		@course = Course.find(params[:id])
+		@enroll = Enroll.new(course_id: @course.id ,user_id: current_user.id)
 		if @enroll.save
-			redirect_to course_path(id_course), notice: "Te has inscrito de manera exitosa"
+			UserMailer.delay(run_at: 1.minutes.from_now, attempts: 5).notifier(current_user,@enroll,@course)
+			redirect_to course_path(@course.id ), notice: "Te has inscrito de manera exitosa"
 		else
 			render "enroll"
 		end

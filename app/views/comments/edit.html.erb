@@ -1,13 +1,22 @@
-<body style="background-color:#F1F1F1">
-<%= render "partials/banner" %>
-<h1>Editar respuesta</h1>
-<%= form_with(model: [@post, @comment],local: true) do |form| %>
-    <%= form.label "Contenido" %>
-    <br>
-    <%= form.text_field :text %>
+  <%= render "partials/header"%>
+  <%= stylesheet_link_tag "styles"%>
+</head>
+<body>
+  <%= render "partials/banner" %>
+  <div id="comment_content" class="container">
+  <div class="row">
+    <h1>Editar respuesta</h1>
+    <%= form_with(model: [@post, @comment],local: false) do |form| %>
+    <div class="panel panel-default col-md-4 container">
+        <div class="panel-heading"><%= form.label "Comenta:" %></div>
+        <div class="panel-body">
+            <%= form.text_area :text, class:"form-control" %>
+            <br>
+            <%= form.submit "Enviar", class:"btn btn-success" %>
+        </div>
     </div>
-
-    <%= form.submit "Editar", class:"btn btn-success" %>
-<% end %>
-<%= render "partials/footer" %>
+    <% end %>
+  </div>
+  </div>
 </body>
+<%= render "partials/footer" %>

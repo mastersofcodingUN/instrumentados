@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
+  mount Delayed::Web::Engine, at: '/jobs'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
   resources :posts do
     resources :comments
   end
+
   resources :resources, only: [:index, :new, :create, :destroy]
-  resources :contacts
-  resources :lessons
+  
+  get "/contacts/new", to: "contacts#new"
+  post "/contacts", to: "contacts#create"
+  
   resources :courses do
+    resources :lessons
     member do
 
       get 'generate'
