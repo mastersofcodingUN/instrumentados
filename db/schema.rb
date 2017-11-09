@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(version: 20171109184631) do
     t.integer "course_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "course_id"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rapidfire_answers", force: :cascade do |t|
     t.integer "attempt_id"
     t.integer "question_id"
