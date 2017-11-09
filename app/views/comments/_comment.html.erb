@@ -1,7 +1,7 @@
 
 <div class="media">
   <div class="media-left">
-    <img src="img_avatar1.png" class="media-object" style="width:45px">
+    <img src="https://www.w3schools.com/Bootstrap/img_avatar1.png" class="media-object" style="width:45px">
   </div>
   <div class="media-body">
     <h4 class="media-heading">
@@ -11,7 +11,7 @@
   <p><%= comment.text %></p>
 </div>
 <% if current_user.id == comment.user.id %>
-  <%= link_to "Editar", edit_post_comment_path(comment.post, comment) %>
-  <%= link_to "Eliminar", [comment.post, comment], method: :delete, data: { confirm: "Estas seguro?" } %>
+  <%= link_to "Editar", edit_post_comment_path(comment.post, comment) , class: "btn btn-primary btn-xs"%>
+  <%= link_to "Eliminar", [comment.post, comment], method: :delete, data: { confirm: "Estas seguro?" }, class: "btn btn-danger btn-xs"%>
 <% end %>
 </div>

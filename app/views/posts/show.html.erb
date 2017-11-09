@@ -9,7 +9,7 @@
 			<%= link_to 'Atras', posts_path, class: "btn btn-default" %>
       <div class="col-lg-8">
         <h1 class="mt-4">
-          <%= @post.title %>
+          <B><%= @post.title %></B>
           <small><%= @post.comments.count %> Comentarios</small>
         </h1>
         <p>
@@ -18,7 +18,7 @@
           <a href="#"><%= @post.user.name %></a>
         </p>
         <hr>
-        <p><%= @post.content %></p>
+        <h4><%= @post.content %></h4>
         <hr>
         <div class="mb-4">
           <%= render @post_comments %>
