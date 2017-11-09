@@ -8,10 +8,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
+#  course_id  :integer
 #
 
 class Post < ApplicationRecord
     belongs_to :user
+    belongs_to :course
     has_many :comments, dependent: :destroy
     validates :title, length: { minimum: 8}, presence: true
     validates :content, length: { in: 12..300}, presence: true

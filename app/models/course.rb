@@ -14,12 +14,14 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  state       :string           default("INACTIVO")
+#  searches    :integer          default(0)
 #
 
 class Course < ApplicationRecord
 	has_many :lessons, dependent: :destroy
 	has_many :enrolls
 	has_many :users, through: :enrolls
+	has_many :posts
 
 	accepts_nested_attributes_for :lessons
 	validates :name, :description, :reputation, :difficulty, :views, presence: true

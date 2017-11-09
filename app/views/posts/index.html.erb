@@ -8,15 +8,15 @@
       <div class="col-md-8">
         <h1 class="my-4">
           Foro
-          <small>Global</small> 
+          <small><%= link_to @course.name, course_path(@course) %></small> 
           <p class="text-right">
-            <%= link_to "nuevo post", new_post_path, class: "btn btn-info" %>
+            <%= link_to "nuevo post", new_course_post_path(:course => @course) , class: "btn btn-info" %>
           </p>
         </h1>
-        <% @posts.each do |post| %>
+        <% @course.posts.each do |post| %>
         <div class="panel panel-default">
           <div class="panel-body">
-            <h2><%= link_to post.title, post %></h2>
+            <h2><%= link_to post.title, course_post_path(@course.id, post.id) %></h2>
           </div>
           <div class="panel-footer" style="padding-bottom:1px">
             <p>Publicado hace 

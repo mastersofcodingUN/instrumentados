@@ -1,4 +1,4 @@
-<%= form_with(model: post,local: true) do |form| %>
+<%= form_with(model: [@course, @course.posts.build] ,local: true) do |form| %>
 <body>
 	<%= render "partials/banner" %>
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
@@ -6,12 +6,12 @@
 			<h3><strong>CREAR/EDITAR POST</strong></h3>
 			<hr>
 			<div class="col-md-12">
-				<% if post.errors.any? %>
+				<% if @post.errors.any? %>
 					<div id="error_explanation">
 			      <h2>No se pudo crear el post</h2>
 
 			      <ul>
-				      <% post.errors.full_messages.each do |message| %>
+				      <% @post.errors.full_messages.each do |message| %>
 				        <li><%= message %></li>
 				      <% end %>
 			      </ul>

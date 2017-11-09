@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 	before_action :authorize, :only => [:edit, :destroy]
   	def index
       	@posts = Post.ordering.paginate(:page => params[:page],per_page: 7)
+		@course = Course.find(params[:course_id])
   	end
 
 	def show
@@ -12,13 +13,17 @@ class PostsController < ApplicationController
 
 	def new
 		@post = current_user.posts.build
+		@course = Course.find(params[:course_id])
 	end
 
 	def create
+		@course = Course.find(params[:course_id])
 		@post = current_user.posts.build(post_params)
+		@post.course_id = params[:course_id]
+		@post.save
 
 		if @post.save
-			redirect_to @post
+			redirect_to course_post_path(@course.id,@post.id)
 		else
 			render 'new'
 		end
@@ -37,12 +42,13 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post.destroy
-		redirect_to root_path
+		redirect_to course_posts_path(@post.course_id)
 	end
 
 	private
 
 	def find_post
+		@course = Course.find(params[:course_id])
 		@post = Post.finding(params[:id])
 	end
 

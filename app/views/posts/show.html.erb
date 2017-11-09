@@ -6,7 +6,7 @@
   
   <div id="post_content" class="container">
     <div class="row">
-			<%= link_to 'Atras', posts_path, class: "btn btn-default" %>
+			<%= link_to 'Atras', course_posts_path, class: "btn btn-default" %>
       <div class="col-lg-8">
         <h1 class="mt-4">
           <B><%= @post.title %></B>
@@ -28,8 +28,8 @@
       </div>
     </div>
     <% if current_user.id == @post.user.id %>
-      <%= link_to "Edit", edit_post_path(@post), class: "btn btn-warning" %>
-      <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Estas seguro de querer eliminar este post?" }, class: "btn btn-danger" %>
+      <%= link_to "Edit", edit_course_post_path(@post.course.id, @post), class: "btn btn-warning" %>
+      <%= link_to "Delete", course_post_path(@post), method: :delete, data: { confirm: "Estas seguro de querer eliminar este post?" }, class: "btn btn-danger" %>
     <% end %>
   </div>
   <%= render "partials/footer" %>

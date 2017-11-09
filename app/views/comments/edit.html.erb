@@ -6,7 +6,7 @@
   <div id="comment_content" class="container">
   <div class="row">
     <h1>Editar respuesta</h1>
-    <%= form_with(model: [@post, @comment],local: false) do |form| %>
+    <%= form_with(model: [@post.course, @post, @comment],local: false) do |form| %>
     <div class="panel panel-default col-md-4 container">
         <div class="panel-heading"><%= form.label "Comenta:" %></div>
         <div class="panel-body">
