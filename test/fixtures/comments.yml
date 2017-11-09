@@ -13,14 +13,12 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  comment: MyText
+one:  
   score: 1
   post: one
   user: one
 
-two:
-  comment: MyText
+two: 
   score: 1
   post: two
   user: two

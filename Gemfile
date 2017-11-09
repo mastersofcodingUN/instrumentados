@@ -68,6 +68,8 @@ gem 'daemons'
 # view logs on web
 gem 'delayed-web'
 
+
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -78,6 +80,7 @@ group :development, :test do
 
   # Use this to generate data
   gem 'faker', '~> 1.8', '>= 1.8.4'
+  gem 'poltergeist'
 end
 
 group :production do
