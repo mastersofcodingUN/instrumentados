@@ -9,7 +9,7 @@
 body{
   padding-top: 67px;
   background-color: #D7DADB;
-  min-height: 100%;
+  height: -webkit-fill-available;
 }
 .navbar-header{
   margin-left: 30px;
