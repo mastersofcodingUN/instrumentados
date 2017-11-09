@@ -14,7 +14,12 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "prueba de longitud" do
+    @user = User.first
+    assert @user.save
+    @post = Post.new(title: "Titulo del post", content: "Contenido o pregunta del post", user_id: @user.id)
+    assert @post.save
+    @comment = Comment.new(text: "Un texto lo suficientemente largo para ser aceptado", score: 3, post_id: @post.id, user_id:@user.id)
+    assert @comment.save
+  end
 end

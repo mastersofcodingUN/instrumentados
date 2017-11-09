@@ -13,7 +13,14 @@
 require 'test_helper'
 
 class LessonTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "metodo search" do
+    @curso = Course.first
+    @leccion = Lesson.search(course_id: @curso.id)
+    assert_equal @leccion, []  #se espera que no encuentre la leccion en el curso
+  end
+
+  test "metodo finding" do
+    @leccion = Lesson.finding(298486374)
+    assert_equal @leccion.title, "MyString"
+  end
 end

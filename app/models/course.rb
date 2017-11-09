@@ -50,9 +50,10 @@ class Course < ApplicationRecord
 				curso.searches = curso.searches + 1
 				curso.save
 			end
-			puts "busco"
+			puts "Ha buscado lo que se le ha pedido"
 			return cursos
 		else
+			puts "No hubo búsqueda"
 			all
 		end
 	end

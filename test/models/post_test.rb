@@ -13,7 +13,13 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "metodo ordering" do
+    @posts = Post.ordering
+    assert_nil @post  #son creados al mismo tiempo por tanto es nil
+  end
+
+  test "metodo finding" do
+      @post = Post.finding(298486374)
+      assert_equal @post.title, "Post dos"
+  end
 end

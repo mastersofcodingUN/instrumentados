@@ -13,7 +13,8 @@
 require 'test_helper'
 
 class ContactTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "validaciones" do
+    @contact = Contact.new(name: "Nombre común", mail: "jscastelblancoh@unal.edu.co", content: "Correo de prueba para verificar su presencia")
+    assert @contact.save
+  end
 end

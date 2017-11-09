@@ -14,13 +14,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  comment: MyText
+  text: "Un texto lo suficientemente largo para ser aceptado"
   score: 1
   post: one
   user: one
 
 two:
-  comment: MyText
-  score: 1
+  text: "Segundo texto largo del fixture two"
+  score: 3
   post: two
   user: two

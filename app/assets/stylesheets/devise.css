@@ -142,6 +142,10 @@ input:-webkit-autofill {
   color: white;
 }
 
+a.fa.fa-facebook:hover, a.fa.fa-google:hover{
+  background: gray;
+}
+
 .fa-google {
   background: #dd4b39;
   color: white;
@@ -154,4 +158,8 @@ input:-webkit-autofill {
 a:focus, a:hover {
     color: #ffffff;
     text-decoration: solid;
+}
+
+a.register:hover, a.forgott:hover, a.unblock:hover{
+  color: gray;
 }

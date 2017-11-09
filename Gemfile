@@ -70,6 +70,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'poltergeist'
 
   # Use this to generate data
   gem 'faker', '~> 1.8', '>= 1.8.4'

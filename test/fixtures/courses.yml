@@ -20,20 +20,22 @@
 
 one:
   name: MyString
-  description: MyText
+  description: "MyText"
   reputation: 1
   difficulty: MyString
   views: 1
   genre: MyString
   instrument: MyString
   image: MyString
+  searches: 2
 
 two:
   name: MyString
   description: MyText
   reputation: 1
   difficulty: MyString
-  views: 1
+  views: 2
   genre: MyString
   instrument: MyString
   image: MyString
+  searches: 3
