@@ -6,11 +6,7 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id if current_user
 		@comment.save
 
-		if @comment.save
-			redirect_to post_path(@post)
-		else
-			render 'new'
-		end
+		redirect_to course_post_path(@post.course_id, @post)
 	end
 
 	def edit
@@ -23,7 +19,7 @@ class CommentsController < ApplicationController
 		@comment = @post.comments.finding(params[:id])
 
 		if @comment.update(params[:comment].permit(:text))
-			redirect_to post_path(@post)
+			redirect_to course_post_path(@post.course_id, @post)
 		else
 			render 'edit'
 		end
@@ -33,7 +29,7 @@ class CommentsController < ApplicationController
 		@post = Post.finding(params[:post_id])
 		@comment = @post.comments.finding(params[:id])
 		@comment.destroy
-		redirect_to post_path(@post)
+		redirect_to course_post_path(@post.course_id, @post)
     end
     private
 	def authorize

@@ -3,9 +3,6 @@ Rails.application.routes.draw do
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  resources :posts do
-    resources :comments
-  end
 
   resources :resources, only: [:index, :new, :create, :destroy]
   
@@ -14,6 +11,9 @@ Rails.application.routes.draw do
   
   resources :courses do
     resources :lessons
+    resources :posts do
+      resources :comments
+    end
     member do
 
       get 'generate'

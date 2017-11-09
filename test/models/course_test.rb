@@ -14,6 +14,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  state       :string           default("INACTIVO")
+#  searches    :integer          default(0)
 #
 
 require 'test_helper'
