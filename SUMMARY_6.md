@@ -2,6 +2,7 @@
 
 ## Features desarrollados
 
+* Visualización de Recursos corregidas: Dago Fonseca
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
 
