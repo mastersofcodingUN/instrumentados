@@ -10,7 +10,7 @@
           Foro
           <small><%= link_to @course.name, course_path(@course) %></small> 
           <p class="text-right">
-            <%= link_to "nuevo post", new_course_post_path(:course => @course) , class: "btn btn-info" %>
+            <%= link_to "nuevo post", new_course_post_path() , class: "btn btn-info" %>
           </p>
         </h1>
         <% @course.posts.each do |post| %>

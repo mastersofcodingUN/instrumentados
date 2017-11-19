@@ -1,11 +1,11 @@
 
-<div class="media">
+<div class="media list-group-item">
   <div class="media-left">
-    <img src="https://www.w3schools.com/Bootstrap/img_avatar1.png" class="media-object" style="width:45px">
+    <%= image_tag comment.user.avatar.url(:thumb), class: "media-object", style: "width:60px"  %>
   </div>
   <div class="media-body">
     <h4 class="media-heading">
-      <a href="#"><%= comment.user.name %></a>
+      <a><%= link_to comment.user.name, user_path(comment.user.id) %></a>
       <small><i>el <%= comment.updated_at.strftime("%d %b. %Y - %l:%M %P") %></i></small>
     </h4>
   <p><%= comment.text %></p>
