@@ -18,7 +18,7 @@
 #
 
 class Course < ApplicationRecord
-	mount_uploader :image, AvatarUploader
+	mount_uploader :image, CourseImageUploader
 
 	has_many :lessons, dependent: :destroy
 	has_many :enrolls
