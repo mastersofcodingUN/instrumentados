@@ -25,8 +25,16 @@
     </div>
     <div class="row">
       <% @lesson.resources.each do |resource| %>
+      <h3><%= extension = resource.attachment.file.extension.downcase %></h3>
       <div class="col-md-3">
-        <h4><strong><%= link_to resource.name, resource.attachment_url %></strong></h4>
+        <% if extension == "mp4" %>
+          <%= video_tag resource.attachment_url, :size => "320x240", :controls => true %>        
+        <% elsif extension == "jpg" or extension == "png" %>
+          <%= image_tag resource.attachment_url, :size => "320x240" %>
+        <% elsif extension == "pdf" %>
+          <embed src=<%= resource.attachment_url %> width="500" height="375" type='application/pdf'>          
+        <% end %>
+          
         <%= link_to "Eliminar",  resource, method: :delete, confirm: "Quiere eliminar el recurso #{resource.name}?" %>
         <hr>
       </div>
