@@ -25,10 +25,11 @@
         <%= line_chart User.group_by_day(:created_at).count %>
       </div>
     </div>
+    <%= link_to "Descargar Estadísticas", "statistics/generate.pdf", class: "btn btn-default stat-button", target:"_blank"%>
   </div>
 </div>
 
-<div id="section4" class="container text-center">
+<div id="section4" class="sec-cuatro container text-center">
   <div class="num-us">
     <h4 id = "text-num-us">Número de usuarios registrados</h4>
     <div id="users">
