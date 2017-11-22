@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
 		if not admin?
 			render "show_user"
 		end
-		#@course = Course.find(params[:id])
+		@course = Course.finding(params[:id])
 	end
 
 

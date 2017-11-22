@@ -18,6 +18,8 @@
 #
 
 class Course < ApplicationRecord
+	mount_uploader :image, AvatarUploader
+
 	has_many :lessons, dependent: :destroy
 	has_many :enrolls
 	has_many :users, through: :enrolls

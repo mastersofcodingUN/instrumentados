@@ -28,6 +28,7 @@
 #  name                   :string
 #  provider               :string
 #  uid                    :string
+#  avatar                 :string
 #
 
 class User < ApplicationRecord

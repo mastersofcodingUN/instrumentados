@@ -46,6 +46,16 @@
 				<br>
 				<%= form.select( :genre, ["rock", "clasica", "jazz", "latina", "electronica", "pop", "otro",]) %>
 			</div>
+			<div class="col-md-6" style="padding-right:10%">
+				<br>
+				<% if @course.image.url.present? %>
+					<%= image_tag(@course.image.url) %>
+					<%= form.label :remove_image do %>
+						<%= form.check_box :remove_image %>
+					<% end %>
+				<% end %>
+				<%= form.file_field :image %>
+          		<%= form.hidden_field :image_cache %></div>
 		</div>
 		<div class="row">
 			<div class="col-md-6" style="padding-right:10%">
