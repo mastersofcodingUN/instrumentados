@@ -40,9 +40,6 @@
                 </li>
               </ul>
             </li>
-            <li>
-              <a href="posts" class="foro">Foro</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -55,22 +52,25 @@
         </div>
 
         <% @courses.each do |course| %>
-        <div class="col-md-11" style="margin-bottom:1%">
-          <hr>
-          <br>
-          <div class="col-md-4">
-            <img style="width:100%; height:160px" src="https://ae01.alicdn.com/kf/HTB1DEWoHVXXXXclXFXXq6xXFXXX3/M-sica-moda-pared-del-vinilo-tambores-instrumentos-musicales-m-sica-Rock-Pop-Mural-etiqueta-de.jpg">
-          </div>
-          <div class="col-md-8">
-            <h4><strong><%= link_to "#{course.name}", course_path(course.id)%></strong></h4>
-            <p align="justify"><%= course.description %></p>
-            <p><%= link_to 'Editar', edit_course_path(course) %></p>
-            <p><%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Estás seguro de que quieres eliminar este curso?' }%></p>
-            <br>
-          </div>
-          <br>
-
-        </div>
+          <% @adminCourse = Enroll.where("course_id = ? AND user_id = ? AND admin = ?", course.id, current_user.id, true) %>
+          <% puts @adminCourse.name %>
+          <% if @adminCourse != nil %>
+            <div class="col-md-11" style="margin-bottom:1%">
+              <hr>
+              <br>
+              <div class="col-md-4">
+                <img style="width:100%; height:160px" src="https://ae01.alicdn.com/kf/HTB1DEWoHVXXXXclXFXXq6xXFXXX3/M-sica-moda-pared-del-vinilo-tambores-instrumentos-musicales-m-sica-Rock-Pop-Mural-etiqueta-de.jpg">
+              </div>
+              <div class="col-md-8">
+                <h4><strong><%= link_to "#{course.name}", course_path(course.id)%></strong></h4>
+                <p align="justify"><%= course.description %></p>
+                <p><%= link_to 'Editar', edit_course_path(course) %></p>
+                <p><%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Estás seguro de que quieres eliminar este curso?' }%></p>
+                <br>
+              </div>
+              <br>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>

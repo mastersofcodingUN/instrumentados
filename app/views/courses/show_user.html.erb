@@ -92,16 +92,16 @@
 				</table>
 			</div>
 		</div>
-		
+
 		<div class="col-md-12" style="margin-top:2%;">
 			<% if @enrolls.empty? %>
 				<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
 			<% else %>
-				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: :_blank%>
+				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: "_blank"%>
 			<%end%>
 		</div>
 		<div class="col-md-2" style="margin-top:2%;">
-			<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
+			<%= link_to 'Atras', home_path, class: "btn btn-default" %>
 		</div>
 	</div>
 	</div>
