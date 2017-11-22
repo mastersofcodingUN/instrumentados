@@ -1,53 +1,65 @@
 
   <title>Iniciar Sesión</title>
 </head>
+<style>
+  .btn-success{
+    border-radius: 0px;
+  }
+</style>
 <body>
   <%= render "partials/banner" %>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
-      <div class="row">
-        <h3><strong>INICIAR SESIÓN</strong></h3>
-        <hr>
-        <!--
-        <div class="col-md-12" style="color:red">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+  <div class="container" style="
+              box-shadow:inset 0px 0px 200px black;
+              min-width: 100%;
+              min-height:100%;
+              background-image: url(https://wallpapercave.com/wp/SJMRXEb.jpg);
+              background-size:100% 100%">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row">
+      <div class="col-md-12" style="padding-top:2%">
+        <div class="container" style="width:80%;
+				padding-top:2%; padding-bottom:2%;
+				background: rgba(0, 0, 0, 0.3);
+				border-radius:2px">
+          <h1 style="color:#F5F5F5; padding-left:10%">INICIAR SESIÓN</h1>
+          <hr>
+          <div class="col-md-6" style="margin-top:1%">
+            <div class="input-group" style="margin-bottom:10%; padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Correo" %>
+            </div>
+            <div class="input-group" style="padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder:"Contraseña" %>
+            </div>
+            <br>
+            <%= f.submit "Iniciar sesión", class: "btn btn-success" %>
+            <p class="alert" style="color:#DD4B39"><%= alert %></p>
+            <!--
+            <div class="col-md-12" style="color:red">
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+            </div>
+          -->
+          </div>
+          <div class="col-md-6">
+            <h4>Iniciar sesión con:</h4>
+            <%= render "devise/shared/links" %>
+          </div>
         </div>
-      -->
-      </div>
-      <div class="row" style="margin-bottom:5%">
-        <div class="col-md-6">
-          <br>
-          <p class="alert" style="color:red"><%= alert %></p>
-          <div class="input-group" style="margin-bottom:15%">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Correo" %>
-          </div>
-          <div class="input-group" style="margin-bottom:10%">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder:"Contraseña" %>
-          </div>
-          <div class="btn">
-            <%= f.submit "Iniciar sesión", class: "btn btn-default" %>
-          </div>
 
-        </div>
-        <div class="col-md-6">
-          <h4>Iniciar sesión con:</h4>
-          <%= render "devise/shared/links" %>
-        </div>
       </div>
     </div>
+    <!--
+          <% if devise_mapping.rememberable? -%>
+            <div class="field remember">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, "Recordarme" %>
+            </div>
+          <% end -%>
+    -->
+    <% end %>
+  </div>
 
-
-<!--
-      <% if devise_mapping.rememberable? -%>
-        <div class="field remember">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me, "Recordarme" %>
-        </div>
-      <% end -%>
--->
-  <% end %>
   <%= render "/partials/footer"%>
 </body>

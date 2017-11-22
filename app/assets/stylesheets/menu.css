@@ -53,10 +53,12 @@ body {
   -webkit-transition: background-color 0.4s ease-in-out;
   transition: background-color 0.4s ease-in-out;
 }
-
+.items > li > a.foro{
+  background-color:#1FAB9E;
+}
 .items > li > a.foro:hover {
-  background-color: #8EE8F1;
-  color: #fff;
+  background-color: #24C4B5;
+  color: white;
   font-weight: 600;
   -webkit-transition: background-color 0.4s ease-in-out;
   transition: background-color 0.4s ease-in-out;
