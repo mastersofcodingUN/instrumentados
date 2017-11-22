@@ -82,7 +82,7 @@
 				      </tr>
 				   </thead>
 				   <tbody>
-				      <% @course.lessons.each do |lesson| %>
+				    	<% @course.lessons.each do |lesson| %>
 				         <tr>
 				            <td><%= lesson.title %></td>
 				            <td><%= link_to "Visualizar Lección", course_lesson_path(@course.id,lesson.id), class:"btn btn-default" %>
@@ -105,7 +105,6 @@
 		</div>
 	</div>
 	</div>
-
 
 	<%= render "partials/footer" %>
 </body>

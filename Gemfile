@@ -57,6 +57,7 @@ gem 'devise'
 
 # Use carrierwave to upload files
 gem 'carrierwave', '~> 1.1.0'
+gem "mini_magick"
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
