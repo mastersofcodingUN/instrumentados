@@ -3,6 +3,7 @@
 ## Features desarrollados
 
 * Visualización de Recursos corregidas: Dago Fonseca
+* Descarga de Estadísticas: Sebastian Castelblanco
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
 
