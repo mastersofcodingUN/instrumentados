@@ -26,7 +26,6 @@ body {
   width: 90%;
   text-indent: 18px;
   line-height: 39px;
-  background-color: #1e84d6;
   color: white;
 }
 .items > li > a::after {
@@ -47,7 +46,6 @@ body {
 }
 
 .items > li > a.expanded {
-  background-color: #1e84d6;
   color: #fff;
   font-weight: 600;
   -webkit-transition: background-color 0.4s ease-in-out;
@@ -57,7 +55,6 @@ body {
   background-color:#1FAB9E;
 }
 .items > li > a.foro:hover {
-  background-color: #24C4B5;
   color: white;
   font-weight: 600;
   -webkit-transition: background-color 0.4s ease-in-out;
@@ -123,4 +120,12 @@ input#instrument.form-control.text-search, input#genre.form-control.text-search{
 
 div.col-sm-3.sidenav.m {
   margin-bottom: 20px;
+}
+
+a.expanded.barra-menu{
+  background-color: #1FAB9E;
+}
+
+button.btn.btn-primary.bttn-buscar, input.btn.btn-default.bttn-buscar{
+  background-color: #136B63;
 }

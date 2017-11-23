@@ -64,6 +64,14 @@ class Course < ApplicationRecord
 		end
 	end
 
+	def self.joinWithEnroll(param1)
+		joins(param1)
+	end
+
+	def self.searchUser(param1, param2, param3)
+	  where(param1, param2, param3)
+	end
+
 	def self.most_purchased
 	  group("courses.id")
 		.order("searches desc").limit(10)
