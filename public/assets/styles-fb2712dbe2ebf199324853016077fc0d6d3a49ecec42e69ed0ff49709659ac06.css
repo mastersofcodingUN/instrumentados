@@ -1,0 +1,139 @@
+*{
+  font-family: 'roboto', sans-serif;
+}
+
+div.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.btn-group .button {
+    background-color: white;
+    color: black;
+    padding: 10% 10%;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    width: 300px;
+    display: block;
+    border-radius: 2px;
+}
+
+.btn-group .button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+    background-color: #FFEE58;
+}
+
+
+.container{
+  min-height: 90%;
+}
+html{
+  height: 100%;
+}
+body{
+  padding-top: 55px;
+  background-color: #D7DADB;
+  height: 100%
+}
+.navbar-header{
+  margin-left: 30px;
+}
+
+.logofont{
+  font-family: 'Muli', sans-serif;
+  font-size: 30px;
+  color: black;
+
+}
+
+
+@font-face {
+  font-family: 'slant';
+  src: url(slant.ttf);
+}
+
+/*.titlefont{
+  font-family: 'slant';
+  font-size: 35px;
+  color:black;
+
+}*/
+
+
+.nav>li>a {
+  padding: 10px 10px;
+}
+@media (min-width: 768px){
+  .navbar-nav{
+    margin: 7.5px;
+  }
+  .container-fluid>.navbar-header{
+    margin-left: 70px;
+  }
+}
+@media (max-width: 768px){
+  .nav>li>a{
+    padding-left: 43%;
+  }
+}
+
+.pagination > li > a{
+  color:black;
+}
+
+.pagination > .active > span{
+  background-color: black;
+  border-color: #DDDDDD
+}
+.pagination > .active > span:hover{
+  background-color: black;
+  border-color: #DDDDDD
+}
+
+a:hover{
+  background-color: inherit;
+  text-decoration: none;
+}
+
+.title-back-color{
+  background-color: #097068;
+}
+.titulo{
+  background-color: black;
+  margin: 0 16%;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+
+.logo {
+  font-size: 200px;
+}
+.text-center{
+  color: black;
+}
+
+#contact {
+  width: 100%;
+  position: absolute;
+  background-color: #000;
+  color: #878787;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+
+}
+@media (max-width: 768px) {
+  #contact{
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    padding: 10px 10px;
+  }
+}

@@ -1,110 +1,117 @@
 
-
 <style>
 	@media screen and ( max-width: 400px ){
 		.instrumentados{
 			font-size: 18px;
 		}
 	}
-  .navbar-inverse .navbar-link{
-    color:white;
-  }
-  .navbar-inverse .navbar-link:hover{
-    color:white;
-  }
-  .dropdown-menu>li>a{
-    color:white;
-  }
-  .dropdown-menu > li > a{
-    color:white;
-  }
-  .navbar{
-    border-radius: 0;
-    border: 0;
-  }
-  .navbar-inverse .navbar-nav > li > a{
-    color: white;
-  }
-  .navbar-inverse .navbar-nav > li > a:hover{
-    color:#5E88E0;
-  }
 </style>
 
-<body style="padding-top:0; background-color:white">
-	<nav class="navbar navbar-inverse navbar-fixed-top bg" style="background-color: black; box-shadow: 2px 0px 5px black; opacity:0.9">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	        <span class="icon-bar" style="background-color:grey"></span>
-	        <span class="icon-bar" style="background-color:grey"></span>
-	        <span class="icon-bar" style="background-color:grey"></span>
-	      </button>
-	      <a class="logofont navbar-brand" style="color:#FFFFFF;  text-shadow: 1px 1px black" <%= link_to "Instrumentados", root_path %></a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a style="font-size:15px" href="/contacts/new"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span>CONTACTO</a></li>
-	        <li><a style="font-size:15px" href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> REGISTRARSE</a></li>
-	        <li><a style="font-size:15px" href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>INICIAR SESIÓN</a></li>
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
-	<% if notice %>
-	  <div class="alert alert-success alert-dismissable sesion">
-		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		  <strong><%= notice %></strong>
-	  </div>
-	<% end %>
+<body>
+
+	<%= render "partials/banner" %>
 
 	<div class="container text-center" style="
 							position:relative;
+							box-shadow:inset 0px 0px 200px black;
 							min-width: 100%;
-							height:100%;
-							background-image: url('<%= asset_path('background2.jpg') %>');
-							background-size:100% 100%;">
-		<h1 class="instrumentados" style="position:absolute; bottom:25%; right:30%"><strong  class="alternate-font" >INSTRUMENTADOS</strong></h1>
-		<h3 style="color:#5E88E0; position:absolute; bottom:10%; right:5%"><strong  class="alternate-font" >¡Aprende y comparte tu conocimiento musical!</strong></h3>
+							min-height:100%;
+							background-image: url(/assets/landing1);
+							background-size:100% 100%">
+		<div class="row" style="margin-top:5%">
+			<div class="col-md-12 text-center">
+				<div class="container" style="width:35%;
+				padding-top:2%; padding-bottom:2%;
+				background: rgba(0, 0, 0, 0.9);
+				border-radius:2px; ">
+					<h1 style="color:#FFF8E1; text-shadow: 0px 0px 5px black; opacity:0%">Instrumentados</h1>
+					<br>
+					<br>
+					<h3 style="color:white; text-shadow: 0px 0px 5px black">
+						¡Aprende y comparte <br> tu conocimiento musical!
+					</h3>
+					<div class="btn-group">
+						<a class="button" href="/users/sign_up">Registrate</a>
+						<br>
+						<a class="button" href="/users/sign_in">Inicia sesión</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
 
-	<div class="container text-center" style="min-width: 100%; height:100%; background-color:black">
-	<h1 style="color:white; position:relative; top:20%">ACERCA DE NOSOTROS</h1>
+	<div class="container text-center" style="
+	min-width: 100%;
+	min-height:100%;
+	background-image: url(/assets/landing2);
+	box-shadow:inset 0px 50px 50px black;
+	background-size:100% 100%">
+	<div class="row" style="margin-top:6%">
+		<div class="col-md-12">
+			<h1 style="color:white"><strong>ACERCA DE NOSOTROS</strong></h1>
+		</div>
+	</div>
+	<div class="row" style="margin-top:7%">
+		<div class="col-md-4" style="padding-left:5%; padding-right:5%">
+			<h3 style="color:white; text-align:center">
+				Somos una plataforma educativa que pretende facilitar el acceso a la educación músical
+				a través de cursos virtuales de manera interactiva.
+			</h3>
+		</div>
+		<div class="col-md-4" style="padding-left:5%; padding-right:5%">
+			<h3 style="color:white; text-align:center">
+				En los cursos podrás encontrar videos, documentos y lecciones para
+				darte una experiancia realmente fascinante mientras aprendes.
+			</h3>
+		</div>
+		<div class="col-md-4" style="padding-left:5%; padding-right:5%">
+			<h3 style="color:white; text-align:center">
+				Si tienes dudas con respecto a lo que estás aprendiendo, no dudes en
+				preguntar a la comunidad en el foro dispuesto en cada curso.
+			</h3>
+		</div>
+	</div>
+
 	<h3 align=justify style="color:white; position:relative; top:30%; left:10%; max-width:80%">
-		Somos una plataforma educativa que pretende facilitar el acceso a la educación músical
-		a través de cursos virtuales de manera interactiva. En los cursos podrás encontrar videos,
-		documentos, lecciones y foros para darte una experiancia realmente fascinante mientras aprendes. </h3>
+		  </h3>
 	</div>
-	<div class="container text-center" style="min-width: 100%; height:100%; background-color:white">
-		<h1 style="position:relative; top:20%">ACERCA DE LOS CURSOS</h1>
-		<h3 align=justify style="position:relative; top:30%; left:10%; max-width:80%">
-			Instrumentados ofrece una gran variedad de cursos extructurados en lecciones,
-			encontrarás cursos propios de la plataforma y cursos creados por otros usuarios
-			permitiendo una gran oferta. Algunos instrumentos que podrás aprender son:
-		</h3>
-		<h4 align=left style="position:relative; top:30%; left:10%; max-width:80%">Guitarra</h4>
-		<h4 align=left style="position:relative; top:30%; left:10%; max-width:80%">Trompeta</h4>
-		<h4 align=left style="position:relative; top:30%; left:10%; max-width:80%">Violín</h4>
-		<h4 align=left style="position:relative; top:30%; left:10%; max-width:80%">Etc.</h4>
-		</div>
-	</div>
-	<footer class="footer py-2 text-md-center" style="background-color:black; box-shadow: 2px -1px 5px black;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 text-center">
-					<br>
-					<a href="/contacts/new" style="color:white;">CONTACTO</a>
-				</div>
-				<div class="col-md-6">
-					<br>
-					<p style="font-size:15px; color:white;">Instrumentados © Todos los derechos reservados</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center" style="color:white;">
-					<p >UNIVERSIDAD NACIONAL DE COLOMBIA</p>
-					<br>
-				</div>
+	<div class="container text-center" style="
+	min-width: 100%;
+	min-height:100%;
+	background-image: url(/assets/landing3);
+	box-shadow:inset 0px 0px 200px black;
+	background-size:100% 100%">
+		<div class="row" style="padding-top:6%; width:90%; padding-left:10%">
+			<div class="col-md-12">
+				<h1 style="color:black"><strong>ACERCA DE LOS CURSOS</strong></h1>
+				<h3 style="color:black">
+					Instrumentados ofrece una gran variedad de cursos extructurados en lecciones.
+					Encontrarás cursos propios de la plataforma y cursos creados por otros usuarios
+					permitiendo una gran oferta. Algunos instrumentos que podrás aprender son:
+				</h3>
 			</div>
 		</div>
-	</footer>
+		<div class="row" style="margin-top:3%; padding-left:5%">
+			<div class="col-md-4">
+				<div class="polaroid">
+					<img src="/assets/guitarra" style="width:100%">
+					<p style="padding-top:5%; padding-bottom:5%">Curso de Guitarra</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="polaroid">
+					<img src="/assets/violin" style="width:100%">
+					<p style="padding-top:5%; padding-bottom:5%">Curso de violín</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="polaroid">
+					<img src="/assets/trompeta" style="width:100%">
+					<p style="padding-top:5%; padding-bottom:5%">Curso de trompeta</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%= render "partials/footer" %>
 </body>

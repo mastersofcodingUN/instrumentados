@@ -2,44 +2,57 @@
 </html>
 <body>
   <%= render "partials/banner" %>
-  <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+
+  <div class="container" style="width:100%; padding-right:2%; margin-bottom:2%">
     <div class="row">
-      <div class="col-md-12">
-        <h3><strong>LECCIÓN</strong></h3>
-        <hr>
-        <h3>Nombre</h3>
-        <h5><%= @lesson.title %></h5>
-        <hr>
-        <h3>Descripción</h3>
-        <h5><%= @lesson.description %></h5>
+      <div class="col-md-3 sidenav m">
+        <br>
+        <div class='wrapper'>
+          <ul class='items'>
+            <li>
+							<h4 style="padding-left:10%"><strong>☞ <%= link_to "Volver al curso", course_path%></strong></h4>
+              <hr>
+              <%= link_to 'Editar', edit_course_lesson_path(@lesson.course,@lesson) %>
+            </li>
+
+          </ul>
+        </div>
       </div>
+      <div class="col-md-9" style="padding-top:2%;">
+				<div class="container" style="
+				width:100%; background-size:100% 100%;
+				background-color:rgba(255,255,255,0.7);
+				box-shadow: 0 4px 10px #052E2D;
+				padding-top:5%;
+				padding-left:5%;
+				paddong-right:5%;
+				padding-bottom:5%">
+
+
+					<div class="col-md-12" style="background-color:#24C2CB; box-shadow: inset 0px 0px 3px black;">
+            <h3 class="text-center"><%= @lesson.title %></h3>
+					</div>
+          <div class="col-md-12" style="margin-top:2%">
+            <% @lesson.resources.each do |resource| %>
+            <% extension = resource.attachment.file.extension.downcase %>
+              <% if extension == "mp4" %>
+                <%= video_tag resource.attachment_url, :size => "720x360", :controls => true %>
+              <% elsif extension == "jpg" or extension == "png" %>
+                <%= image_tag resource.attachment_url, :size => "720x360", style:"box-shadow:4px 4px 4px black" %>
+              <% elsif extension == "pdf" %>
+                <embed src=<%= resource.attachment_url %> width="500" height="375" type='application/pdf'>
+              <% end %>
+              <h4><strong>Descripción:</strong> <%= @lesson.description %></h4>
+              <p><%= link_to "Eliminar",  resource, method: :delete, confirm: "Quiere eliminar el recurso #{resource.name}?" %></p>
+            </div>
+            <% end %>
+
+
+				</div>
+			</div>
     </div>
   </div>
-  <br>
-  <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
-    <div class="row">
-      <div class="col-md-12">
-        <h3><strong>RECURSOS</strong></h3>
-        <hr>
-      </div>
-    </div>
-    <div class="row">
-      <% @lesson.resources.each do |resource| %>
-      <div class="col-md-3">
-        <h4><strong><%= link_to resource.name, resource.attachment_url %></strong></h4>
-        <%= link_to "Eliminar",  resource, method: :delete, confirm: "Quiere eliminar el recurso #{resource.name}?" %>
-        <hr>
-      </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <br>
-      <br>
-      <div class="col-md-12">
-        <%= link_to 'Editar', edit_course_lesson_path(@lesson.course,@lesson), class:"btn btn-default" %>
-      </div>
-    </div>
-  </div>
+
   <%= render "partials/footer" %>
 
 </body>

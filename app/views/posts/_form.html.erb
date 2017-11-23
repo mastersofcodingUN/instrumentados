@@ -1,5 +1,4 @@
 <%= form_with(model: [@course, @course.posts.build] ,local: true) do |form| %>
-<body>
 	<%= render "partials/banner" %>
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 		<div class="row">
@@ -10,35 +9,34 @@
 					<div id="error_explanation">
 			      <h2>No se pudo crear el post</h2>
 
-			      <ul>
-				      <% @post.errors.full_messages.each do |message| %>
-				        <li><%= message %></li>
-				      <% end %>
-			      </ul>
-					</div>
-				<% end %>
+				      <ul>
+					      <% @post.errors.full_messages.each do |message| %>
+					        <li><%= message %></li>
+					      <% end %>
+				      </ul>
+						</div>
+					<% end %>
+				</div>
 			</div>
-		</div>
-		<div class="row form-group">
-			<div class="col-md-6" style="padding-right:10%">
-				<br>
-				<%= form.label "Titulo" %>
-				<br>
-				<%= form.text_field :title, class:"form-control", placeholder:"Titulo" %>
-				<br>
-				<%= form.label "Descripción" %>
-				<br>
-				<%= form.text_area :content, class:"form-control", placeholder:"Descripción" %>
+			<div class="row form-group">
+				<div class="col-md-6" style="padding-right:10%">
+					<br>
+					<%= form.label "Titulo" %>
+					<br>
+					<%= form.text_field :title, class:"form-control", placeholder:"Titulo" %>
+					<br>
+					<%= form.label "Descripción" %>
+					<br>
+					<%= form.text_area :content, class:"form-control", placeholder:"Descripción" %>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<br>
-					<%= form.submit "Continuar", class:"btn btn-success btn-block" %>
+			<div class="row">
+				<div class="col-md-2">
+					<br>
+						<%= form.submit "Continuar", class:"btn btn-success btn-block" %>
+				</div>
 			</div>
 		</div>
 	</div>
 	<%= render "partials/footer" %>
-</body>
-    <% end %>
-    
+<% end %>

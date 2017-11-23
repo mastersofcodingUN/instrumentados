@@ -1,4 +1,5 @@
 <style>
+
   .navbar-inverse .navbar-link{
     color:black;
   }
@@ -19,10 +20,13 @@
     color: black;
   }
   .navbar-inverse .navbar-nav > li > a:hover{
-    color:#337AB7;
+    color:white;
   }
 </style>
-<nav class="navbar navbar-inverse navbar-fixed-top bg" style=" background-color: #2CD1E8; box-shadow: 2px 0px 5px black">
+<nav class="navbar navbar-inverse navbar-fixed-top bg" style="
+background-color:#FFD882;
+box-shadow: 2px 0px 5px black;
+background-size:100% 100%;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -30,7 +34,7 @@
         <span class="icon-bar" style="background-color:grey"></span>
         <span class="icon-bar" style="background-color:grey"></span>
       </button>
-      <a class="logofont navbar-brand" style="color:#FFFFFF;  text-shadow: 1px 1px black" <%= link_to "Instrumentados", root_path %></a>
+      <a class="navbar-brand" style="color:black;  text-shadow: 0px 0px 1px white; font-size:30px" <%= link_to "Instrumentados", root_path %></a>
     </div>
     <% if user_signed_in? %> <!-- Modificar el nav al iniciar sesion, uno diferente si el usuario inicia sesion-->
 
@@ -39,9 +43,9 @@
         <li class="dropdown">
           <% if current_page?(statistics_path)%>
           <% else %>
-            <%= link_to "ESTADÍSTICAS", "/statistics", class: "btn btn-default", style: "display: inline; padding: 6px 12px;"%>
+            <%= link_to "Etadísticas", statistics_path, class: "btn btn-default", style: "display: inline; padding: 5px 5px; border-radius:30px; background-color:#EE9D31; color:black; border-color:#EE9D31"%>
           <% end %>
-          <button type="button" name="Opciones" class="btn btn-default dropdown-toggle" data-toggle="dropdown">PERFIL</button>
+          <button type="button" name="Opciones" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border-radius:30px; background-color:#1CA5B8; border-color:#1CA5B8"> <%= current_user.name %> </button>
           <ul class="dropdown-menu">
             <li><a style="font-size:15px" href="/profile"><span class="glyphicon glyphicon-user"></span> Mi perfil</a></li>
             <li><a style="font-size:15px" href="/users/edit"><span class="glyphicon glyphicon-edit"></span> Editar perfil</a></li>
@@ -60,9 +64,9 @@
     <% else %>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a style="font-size:15px; color:white;" href="/contacts/new"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span>CONTACTO</a></li>
-        <li><a style="font-size:15px; color:white" href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> REGISTRARSE</a></li>
-        <li><a style="font-size:15px; color:white" href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>INICIAR SESIÓN</a></li>
+        <li><a style="font-size:15px" href="/contacts/new"><span class="glyphicon glyphicon-envelope" style="padding-right:5px;"></span>CONTACTO</a></li>
+        <li><a style="font-size:15px" href="/users/sign_up"><span class="glyphicon glyphicon-user" style="padding-right:7px;"></span> REGISTRARSE</a></li>
+        <li><a style="font-size:15px" href="/users/sign_in"><span class="glyphicon glyphicon-log-in" style="padding-right:10px;"></span>INICIAR SESIÓN</a></li>
       </ul>
     </div>
     <% end%>

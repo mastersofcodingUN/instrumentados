@@ -32,3 +32,19 @@ div.num-us{
   box-shadow: 0 4px 10px #7A9BAC;
   height: 80px;
 }
+
+a.btn.btn-default.stat-button{
+  margin-top: 10px;
+  box-shadow: 0 2px 5px #7A9BAC;
+  background-color: rgb(102, 120, 184);
+  border-color: rgb(102, 120, 184);
+  color: white;
+}
+
+a.btn.btn-default.stat-button:hover{
+  box-shadow: 0 4px 10px #7A9BAC;
+}
+
+div#section4.sec-cuatro.container.text-center{
+  min-height: 100px;
+}

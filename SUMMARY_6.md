@@ -2,6 +2,13 @@
 
 ## Features desarrollados
 
+* Visualización de Recursos corregidas: Dago Fonseca
+* Descarga de Estadísticas: Sebastian Castelblanco
+
+* Corrección de vistas. Cambio de estilo en app: fabián Ordóñez
+* Mis cursos muestra unicamente los cursos creados: Sebastian Castelblanco
+* Foto de perfil: Iván Santiago Cepeda Zambrano
+* Visualizacion de perfiles de otros usuarios: Iván Santiago Cepeda Zambrano
 
 [**Link a heroku**](http://instrumentados.herokuapp.com/)
 

@@ -5,53 +5,79 @@
 
 <body>
 	<%= render "partials/banner" %>
-	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+
+	<div class="container" style="width:100%; padding-right:2%">
 		<div class="row">
-			<div class="col-md-9">
-				<h3>
-					<strong>Curso
-						<%= @course.name %>
-						<% if not @enrolls.empty? %>
-							<br><br>
-							<div style="color: rgb(64, 233, 108);">
-								Ya estas inscrito
-							</div>
-						<% end %>
-					</strong>
-				</h3>
-				<hr>
-			</div>
-			<div class="col-md-12">
-				<div class="container-fluid">
-					<h3>Descripción</h3>
-					<td><%= @course.description %></td>
-					<hr>
-				</div>
-				<div class="container-fluid">
-					<h3>Género</h3>
-					<td><%= @course.genre %></td>
-					<hr>
-				</div>
-				<div class="container-fluid">
-					<h3>Dificultad</h3>
-					<td><%= @course.difficulty %></td>
-					<hr>
-				</div>
-				<div class="container-fluid">
-					<h3>Vistas</h3>
-					<td><%= @course.views %></td>
-					<hr>
-				</div>
-				<div class="container-fluid">
-					<h3>Reputación</h3>
-					<td><%= @course.reputation %></td>
-					<hr>
-				</div>
-			</div>
+			<div class="col-md-3 sidenav m">
+        <br>
+        <div class='wrapper'>
+          <ul class='items'>
+            <li>
+              <a class = "expanded" style="background-color:#F06060; font-size:18px"><%= @course.name %></a>
+							<hr>
+							<% if @enrolls.empty? %>
+								<%= link_to '¡Inscribete ahora!', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-success", style:"background-color:#00A399; border-color:white" %>
+							<% else %>
+								<%= link_to 'Foro', course_posts_path(@course), style:"background-color:#52A9DE"%>
+							<% end %>
+							<hr>
+							<h4 style="padding-left:10%"><strong>☞ <%= link_to "Descripción", course_path%></strong></h4>
+							<hr>
+							<h4 style="padding-left:10%"><strong>Lecciones</strong></h4>
+							<% @course.lessons.each do |lesson| %>
+              <div class='sub-items' style="display: block;">
+								<style>a{color:black;} a:hover{color:red;}</style>
+								<h4><%= link_to lesson.title, course_lesson_path(@course.id,lesson.id)%></h4>
+              </div>
+							<% end %>
+							<hr>
+							<p style="padding-left:10%">Vistas: <%= @course.views %></p>
+							<p style="padding-left:10%">Reputación: <%= @course.reputation %></p>
+							<hr>
+							<% if @enrolls.empty? %>
 
+							<% else %>
+								<%= link_to 'Ver certificado', generate_course_path(params[:id]),style:"background-color:#00A399", target: "_blank"%>
+							<% end %>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+			<div class="col-md-9" style="padding-top:2%;">
+				<div class="container" style="
+				width:100%; background-size:100% 100%;
+				background-color:rgba(255,255,255,0.7);
+				box-shadow: 0 4px 10px #052E2D;
+				padding-top:5%;
+				padding-left:5%;
+				paddong-right:5%;
+				padding-bottom:5%">
+				<div class="container" style="margin-bottom:1%; background-color:#DCFAE5; width:100%; box-shadow:4px 4px 4px green">
+					<% if not @enrolls.empty? %>
+						<h4 style="color:#4F7452">Ya estas inscrito</h4>
+					<% end %>
+				</div>
+
+					<div class="col-md-12" style="padding-bottom:10%; padding-top:2%; background-color:rgba(255,255,255,0.1); box-shadow: 4px 4px 4px black;">
+						<h3><%= @course.description %></h3>
+					</div>
+					<div class="col-md-12" style="padding-bottom:2%; padding-top:2%; background-color:rgba(255,255,255,0.1); box-shadow: inset 4px 0px 4px black;">
+						<h3>Género</h3>
+						<h4><%= @course.genre %></h4>
+					</div>
+					<div class="col-md-12" style="padding-bottom:2%; padding-top:2%; background-color:rgba(255,255,255,0.1); box-shadow: 4px 4px 4px black;">
+						<h3>Dificultad</h3>
+						<h4><%= @course.difficulty %></h4>
+					</div>
+
+
+				</div>
+			</div>
 		</div>
-
 	</div>
+
 
 	<div class="container-fluid">
 		<div class="row">
@@ -69,42 +95,5 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
-		<div class="row">
-
-			<div class="col-md-12">
-				<table class = "table table-bordered table-striped">
-				   <thead>
-				      <tr>
-				         <th>Leccion</th>
-				         <th>Visualizar</th>
-				      </tr>
-				   </thead>
-				   <tbody>
-				    	<% @course.lessons.each do |lesson| %>
-				         <tr>
-				            <td><%= lesson.title %></td>
-				            <td><%= link_to "Visualizar Lección", course_lesson_path(@course.id,lesson.id), class:"btn btn-default" %>
-				         </tr>
-				      <% end %>
-				   </tbody>
-				</table>
-			</div>
-		</div>
-		
-		<div class="col-md-12" style="margin-top:2%;">
-			<% if @enrolls.empty? %>
-				<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
-			<% else %>
-				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: :_blank%>
-			<%end%>
-		</div>
-		<div class="col-md-2" style="margin-top:2%;">
-			<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
-		</div>
-	</div>
-	</div>
-
 	<%= render "partials/footer" %>
 </body>

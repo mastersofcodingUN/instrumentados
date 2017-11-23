@@ -5,24 +5,23 @@ Rails.application.routes.draw do
 
 
   resources :resources, only: [:index, :new, :create, :destroy]
-  
+
   get "/contacts/new", to: "contacts#new"
   post "/contacts", to: "contacts#create"
-  
+
   resources :courses do
     resources :lessons
     resources :posts do
       resources :comments
     end
     member do
-
       get 'generate'
       get 'enroll'
-
     end
   end
 
-  devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
+  devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks', :registrations => "registrations"}
+  resources :users, :only => [:show]
   #get 'resources/index'
 
   #get 'resources/new'
@@ -36,5 +35,6 @@ Rails.application.routes.draw do
   get "/contacts/new", to:"contacts#new"
   get "/profile", to:"profile#view_profile"
   get "/statistics", to:"statistics#show"
+  get "/statistics/generate", to:"statistics#generate"
   mount Rapidfire::Engine => "/rapidfire"
 end

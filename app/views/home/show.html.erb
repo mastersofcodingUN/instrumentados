@@ -1,49 +1,43 @@
 
 <body>
   <%= render "partials/banner" %>
-  <% if notice %>
-    <div class="alert alert-success alert-dismissable sesion">
-  	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  	  <strong><%= notice %></strong>
-    </div>
-  <% end %>
 
   <div class="container" style="width:100%; padding-right:2%">
     <div class="row">
-      <div class="col-sm-3 sidenav m">
+      <div class="col-md-3 sidenav m">
         <br>
         <div class='wrapper'>
           <ul class='items'>
             <li>
-              <a class = "expanded">Buscar curso</a>
+              <a class = "expanded barra-menu" style="background-color:#F06060">Buscar curso</a>
+
               <ul class='sub-items' style="display: block;">
                 <li>
                   <div class="input-group">
                     <%= form_tag home_path, method: :get, class: "" do %>
               				<%= text_field_tag :search, params[:search], placeholder: "Nombre del curso", class: "form-control text-search", type: "text" %>
-                      <span class="input-group-btn">
-                        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+                        <br>
+                        <br>
+                        <%= button_tag(type: 'submit', class: "btn btn-primary bttn-buscar") do %>
                           <span class="glyphicon glyphicon-search"></span>
                         <% end %>
-                      </span>
             			  <% end %>
                   </div>
                 </li>
               </ul>
             </li>
             <li>
-              <a class="expanded">Búsqueda avanzada</a>
+
+              <a class="expanded barra-menu" style="background-color:#52A9DE">Búsqueda avanzada</a>
+
               <ul class='sub-items' style="display: block;">
-                <li><p style="margin-right: 10px; font-style: italic; text-align: center;">Puedes buscar por cualquier campo</p></li>
-                <li>
-                  <div class="input-group">
-                    <%= form_tag home_path, method: :get, class: "" do %>
-                      <%= text_field_tag :instrument, params[:instrument], placeholder: "Instrumento", class: "form-control text-search", type: "text" %>
-              				<%= text_field_tag :genre, params[:genre], placeholder: "Genero", class: "form-control text-search", type: "text" %>
-                  </div>
-                      <%= submit_tag "Buscar", type: 'submit', class: "btn btn-default", style: "position: relative; left: 50%" %>
-                    <% end %>
-                </li>
+                <p style="margin-right: 10px; font-style: italic; text-align: center;">Puedes buscar por cualquier campo</p>
+
+                  <%= form_tag home_path, method: :get, class: "" do %>
+                    <%= text_field_tag :instrument, params[:instrument], placeholder: "Instrumento", class: "form-control text-search", type: "text" %>
+            				<%= text_field_tag :genre, params[:genre], placeholder: "Genero", class: "form-control text-search", type: "text" %>
+                    <%= submit_tag "Buscar", type: 'submit', class: "btn btn-default bttn-buscar", style: "color:white" %>
+                  <% end %>
               </ul>
             </li>
           </ul>
@@ -55,28 +49,31 @@
           No se encontraron cursos
         </div>
       <% else %>
-        <div class="col-md-9" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+        <div class="col-md-9" style="padding-top:2%">
           <% @find_courses.each do |course| %>
-            <div class="col-md-4">
-              <div>
-                <br>
-                <img style="width:100%; height:180px" src="https://ae01.alicdn.com/kf/HTB1DEWoHVXXXXclXFXXq6xXFXXX3/M-sica-moda-pared-del-vinilo-tambores-instrumentos-musicales-m-sica-Rock-Pop-Mural-etiqueta-de.jpg">
-                <div class="caption">
-                  <h4><strong><%= link_to "#{course.name}", course_path(course.id)%></strong></h4>
-                  <p align="justify"><strong>Descripción: </strong>
-                  <%= course.description%>
-                  </p>
-                  <p align="justify"><strong>Género: </strong>
-                  <%= course.genre%>
-                  </p>
-                  <p align="justify"><strong>Instrumento: </strong>
-                  <%= course.instrument%>
-                  </p>
+            <div class="col-md-12">
+              <div class="container" style="width:100%; background-color:rgba(255, 255, 255, 0.9); box-shadow: 0 4px 10px #052E2D;">
+                <div class="col-md-4" style="padding-left:0%; padding-top:1%; padding-bottom:1%">
+                  <%= image_tag course.image.url, style: "width:100%; height:180px"  %>
                 </div>
-                <br>
+                <div class="col-md-8">
+                  <div class="caption">
+                    <h4><strong><%= link_to "#{course.name}", course_path(course.id)%></strong>
+                    <small><%= course.users.first.name %></small></h4>
+                    <p align="justify"><strong>Descripción: </strong>
+                    <%= course.description%>
+                    </p>
+                    <p align="justify"><strong>Género: </strong>
+                    <%= course.genre%>
+                    </p>
+                    <p align="justify"><strong>Instrumento: </strong>
+                    <%= course.instrument%>
+                    </p>
+                  </div>
+                </div>
               </div>
+              <br>
             </div>
-
           <% end %>
         </div>
       <% end %>
