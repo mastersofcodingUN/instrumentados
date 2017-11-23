@@ -18,9 +18,11 @@
 		<div class="row">
 			<div class="col-md-9">
 				<h3><strong>CURSO: <%= @course.name %></strong></h3>
+
 				<hr>
 			</div>
 			<div class="col-md-3 text-center" style="margin-top:2%">
+				<%= link_to 'Foro', course_posts_path(@course), class: "btn btn-info" %>
 				<%= link_to 'Editar Curso', edit_course_path(@course), class: "btn btn-large btn-block btn-default" %>
 			</div>
 			<div class="col-md-12">
@@ -109,7 +111,6 @@
 			</div>
 			<div class="col-md-2" style="margin-top:2%">
 				<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
-				<%= link_to 'Foro', course_posts_path(@course), class: "btn btn-info" %>
 			</div>
 
 		</div>

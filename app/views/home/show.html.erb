@@ -60,7 +60,8 @@
                 </div>
                 <div class="col-md-8">
                   <div class="caption">
-                    <h4><strong><%= link_to "#{course.name}", course_path(course.id)%></strong></h4>
+                    <h4><strong><%= link_to "#{course.name}", course_path(course.id)%></strong>
+                    <small><%= course.users.first.name %></small></h4>
                     <p align="justify"><strong>Descripción: </strong>
                     <%= course.description%>
                     </p>

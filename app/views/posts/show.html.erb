@@ -14,7 +14,7 @@
         <p>
           <%= @post.updated_at.strftime("%d %b. %Y - %l:%M %P") %>
           por
-          <a href="#"><%= @post.user.name %></a>
+          <%= link_to @post.user.name, user_path(@post.user.id) %>
         </p>
         <hr>
         <h4><%= @post.content %></h4>

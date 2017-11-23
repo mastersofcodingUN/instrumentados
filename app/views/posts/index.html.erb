@@ -21,7 +21,7 @@
           <div class="panel-footer" style="padding-bottom:1px">
             <p>Publicado hace
               <%= time_ago_in_words(post.created_at) %>
-              por <%= post.user.name %>
+              por <%= link_to post.user.name, user_path(post.user.id) %>
             </p>
           </div>
         </div>

@@ -37,23 +37,25 @@
             <%= resource.unconfirmed_email %>
           </div>
         <% end %>
-        <div class="input-group" style="margin-top:8%">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-refresh"></i></span>
-          <%= f.password_field :password, autocomplete: "off",  class: "form-control", placeholder:"Nueva contraseña" %>
-        </div>
-        <i style="color:grey; font-size:12px;">(Déjalo en blanco si no lo quieres editar)</i>
-        <% if @minimum_password_length %>
-          <em style="font-size:12px; color:#CF4232">Mínimo <%= @minimum_password_length %> caracteres</em>
-        <% end %>
+        <% if resource.provider.nil?%>
+          <div class="input-group" style="margin-top:8%">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-refresh"></i></span>
+            <%= f.password_field :password, autocomplete: "off",  class: "form-control", placeholder:"Nueva contraseña" %>
+          </div>
+          <i style="color:grey; font-size:12px;">(Déjalo en blanco si no lo quieres editar)</i>
+          <% if @minimum_password_length %>
+            <em style="font-size:12px; color:#CF4232">Mínimo <%= @minimum_password_length %> caracteres</em>
+          <% end %>
 
-        <div class="input-group" style="margin-top:3%">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-refresh"></i></span>
-          <%= f.password_field :password_confirmation, autocomplete: "off",  class: "form-control", placeholder:"Confirmar nueva contraseña" %>
-        </div>
-        <div class="input-group" style="margin-top:8%">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <%= f.password_field :current_password, autocomplete: "off",  class: "form-control", placeholder:"Contraseña actual" %>
-        </div>
+          <div class="input-group" style="margin-top:3%">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-refresh"></i></span>
+            <%= f.password_field :password_confirmation, autocomplete: "off",  class: "form-control", placeholder:"Confirmar nueva contraseña" %>
+          </div>
+          <div class="input-group" style="margin-top:8%">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <%= f.password_field :current_password, autocomplete: "off",  class: "form-control", placeholder:"Contraseña actual" %>
+          </div>
+        <% end %>
         <div class="input-group" style="margin-top:8%">
           <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
           <%= f.text_field :country, autocomplete: "off",  class: "form-control", placeholder:"Pais" %>
