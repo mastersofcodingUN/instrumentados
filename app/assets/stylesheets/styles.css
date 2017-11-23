@@ -30,10 +30,10 @@ div.polaroid {
     background-color: #FFEE58;
 }
 
-
-.container{
-  min-height: 90%;
+.container.will-paginate{
+  min-height: 0;
 }
+
 html{
   height: 100%;
 }
