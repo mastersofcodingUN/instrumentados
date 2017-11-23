@@ -43,9 +43,9 @@ background-size:100% 100%;">
         <li class="dropdown">
           <% if current_page?(statistics_path)%>
           <% else %>
-            <%= link_to "ESTADÍSTICAS", statistics_path, class: "btn btn-default", style: "display: inline; padding: 5px 5px; border-radius:30px; background-color:#EE9D31; color:black; border-color:#EE9D31"%>
+            <%= link_to "Etadísticas", statistics_path, class: "btn btn-default", style: "display: inline; padding: 5px 5px; border-radius:30px; background-color:#EE9D31; color:black; border-color:#EE9D31"%>
           <% end %>
-          <button type="button" name="Opciones" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border-radius:30px; background-color:#1CA5B8; border-color:#1CA5B8">PERFIL</button>
+          <button type="button" name="Opciones" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border-radius:30px; background-color:#1CA5B8; border-color:#1CA5B8"> <%= current_user.name %> </button>
           <ul class="dropdown-menu">
             <li><a style="font-size:15px" href="/profile"><span class="glyphicon glyphicon-user"></span> Mi perfil</a></li>
             <li><a style="font-size:15px" href="/users/edit"><span class="glyphicon glyphicon-edit"></span> Editar perfil</a></li>

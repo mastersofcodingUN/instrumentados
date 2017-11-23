@@ -1,42 +1,71 @@
-<%= form_with(model: [@course, @course.posts.build] ,local: true) do |form| %>
+	<%= render "partials/header"%>
+	<%= stylesheet_link_tag "styles"%>
+</head>
 <body>
-	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
-		<div class="row">
-			<h3><strong>CREAR/EDITAR POST</strong></h3>
-			<hr>
-			<div class="col-md-12">
-				<% if @post.errors.any? %>
-					<div id="error_explanation">
-			      <h2>No se pudo crear el post</h2>
+	<%= render "partials/banner" %>
+	<%= form_with(model: [@course, @course.posts.build] ,local: true) do |form| %>
+		<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+			<div class="row">
+				<h3><strong>CREAR/EDITAR POST</strong></h3>
+				<hr>
+				<div class="col-md-12">
+					<% if @post.errors.any? %>
+						<div id="error_explanation">
+				      <h2>No se pudo crear el post</h2>
 
-			      <ul>
-				      <% @post.errors.full_messages.each do |message| %>
-				        <li><%= message %></li>
-				      <% end %>
-			      </ul>
+				      <ul>
+					      <% @post.errors.full_messages.each do |message| %>
+					        <li><%= message %></li>
+					      <% end %>
+				      </ul>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-md-6" style="padding-right:10%">
+					<br>
+					<%= form.label "Titulo" %>
+					<br>
+					<%= form.text_field :title, class:"form-control", placeholder:"Titulo" %>
+					<br>
+					<%= form.label "Descripción" %>
+					<br>
+					<%= form.text_area :content, class:"form-control", placeholder:"Descripción" %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<br>
+						<%= form.submit "Continuar", class:"btn btn-success btn-block" %>
+				</div>
+			</div>
+		</div>
+		<footer class="footer py-2 text-md-center" style="
+		background-image:url(http://bodybybrent.com/wp-content/uploads/2012/05/Black-Background-Metal-2560x1600-by-Freeman2.jpg);
+		background-size: 100% 100%;
+		box-shadow: 2px -1px 5px black;
+		position: absolute;
+		width: 100%;
+		bottom: 0px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 text-center">
+						<br>
+						<a href="/contacts/new" style="color:white;">CONTACTO</a>
 					</div>
-				<% end %>
+					<div class="col-md-6">
+						<br>
+						<p style="font-size:15px; color:white;">Instrumentados © Todos los derechos reservados</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center" style="color:white;">
+						<p >UNIVERSIDAD NACIONAL DE COLOMBIA</p>
+						<br>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="row form-group">
-			<div class="col-md-6" style="padding-right:10%">
-				<br>
-				<%= form.label "Titulo" %>
-				<br>
-				<%= form.text_field :title, class:"form-control", placeholder:"Titulo" %>
-				<br>
-				<%= form.label "Descripción" %>
-				<br>
-				<%= form.text_area :content, class:"form-control", placeholder:"Descripción" %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<br>
-					<%= form.submit "Continuar", class:"btn btn-success btn-block" %>
-			</div>
-		</div>
-	</div>
-	<%= render "partials/footer" %>
+		</footer>
+	<% end %>
 </body>
-    <% end %>

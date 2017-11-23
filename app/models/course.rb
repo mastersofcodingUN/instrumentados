@@ -51,7 +51,7 @@ class Course < ApplicationRecord
 
 	def self.search(search, gen, inst)
 		if not search.blank? or not gen.blank? or not inst.blank?
-			cursos = where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"])
+			cursos = where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"]).order("created_at desc")
 			cursos.each do |curso|
 				curso.searches = curso.searches + 1
 				curso.save
