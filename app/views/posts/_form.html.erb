@@ -1,5 +1,5 @@
 <%= form_with(model: [@course, @course.posts.build] ,local: true) do |form| %>
-<body>
+	<%= render "partials/banner" %>
 	<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
 		<div class="row">
 			<h3><strong>CREAR/EDITAR POST</strong></h3>
@@ -38,5 +38,4 @@
 		</div>
 	</div>
 	<%= render "partials/footer" %>
-</body>
-    <% end %>
+<% end %>

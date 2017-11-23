@@ -39,7 +39,8 @@ html{
 }
 body{
   padding-top: 55px;
-  background-color: #D7DADB;
+  background-image:url("/assets/body");
+  background-size:100% 200%;
   height: 100%
 }
 .navbar-header{
