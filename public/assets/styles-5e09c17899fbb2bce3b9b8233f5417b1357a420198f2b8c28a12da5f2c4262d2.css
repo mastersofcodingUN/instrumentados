@@ -1,35 +1,10 @@
 *{
-  font-family: 'roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-div.polaroid {
-  width: 80%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
+.alternate-font{
+  font-family: 'Calligraffitti', cursive;
 }
-
-.btn-group .button {
-    background-color: white;
-    color: black;
-    padding: 10% 10%;
-    text-align: center;
-    display: inline-block;
-    font-size: 20px;
-    cursor: pointer;
-    width: 300px;
-    display: block;
-    border-radius: 2px;
-}
-
-.btn-group .button:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
-}
-
-.btn-group .button:hover {
-    background-color: #FFEE58;
-}
-
 
 .container{
   min-height: 90%;
@@ -40,19 +15,17 @@ html{
 body{
   padding-top: 55px;
   background-color: #D7DADB;
-  height: 100%
+  height: 100%;
 }
 .navbar-header{
   margin-left: 30px;
 }
-
 .logofont{
-  font-family: 'Muli', sans-serif;
+  font-family: 'lobster', cursive;
   font-size: 30px;
   color: black;
 
 }
-
 
 @font-face {
   font-family: 'slant';
@@ -97,6 +70,7 @@ body{
   border-color: #DDDDDD
 }
 
+
 a:hover{
   background-color: inherit;
 }
@@ -109,6 +83,9 @@ a:hover{
   margin: 0 16%;
   border-radius: 10px;
   opacity: 0.8;
+}
+.bg-grey {
+  background-color: #f6f6f6;
 }
 
 .logo {

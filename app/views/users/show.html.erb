@@ -1,0 +1,39 @@
+<div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+    <div class="row">
+    <h3><strong>MI PERFIL</strong></h3>
+    <hr>
+    <div class="col-md-8">
+        <div class="container-fluid">
+        <h3>Nombre</h3>
+        <td><%= @user.name %></td>
+        <hr>
+        </div>
+        <div class="container-fluid">
+        <%if @user == current_user%>
+            <h3>Correo</h3>
+            <td><%= @user.email %></td>
+        <%end%>
+        <hr>
+        </div>
+        <div class="container-fluid">
+        <h3>País</h3>
+        <td><%= @user.country %></td>
+        <hr>
+        </div>
+        <div class="container-fluid">
+        <h3>Fecha de Nacimiento</h3>
+        <%if @user.birthdate != nil%>
+            <td><%= @user.birthdate.strftime("%d-%m-%Y") %></td>
+        <%end%>
+        </blockquote>
+        </div>
+    </div>
+    <div class="col-md-4" style="margin-top:3%">
+        <div class="thumbnail">
+        <h4>Foto de perfil</h4>
+        <%= image_tag @user.avatar.url%>
+        </div>
+
+    </div>
+    </div>
+</div>

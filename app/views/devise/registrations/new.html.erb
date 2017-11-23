@@ -9,6 +9,7 @@
 <body>
 
   <%= render "partials/banner" %>
+
   <div class="container" style="
 							box-shadow:inset 0px 0px 200px black;
 							min-width: 100%;
@@ -16,6 +17,8 @@
 							background-image: url(https://wallpapercave.com/wp/SJMRXEb.jpg);
 							background-size:100% 100%">
     <div class="row">
+  <%= devise_error_messages! %>
+
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="col-md-12" style="padding-top:2%">
         <div class="container" style="width:80%;

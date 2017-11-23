@@ -39,18 +39,18 @@ class CourseTest < ActiveSupport::TestCase
 
   test "metodo busqueda" do
     @search = Course.search("MyString", "MyString", "MyString")
-    assert_equal @search.count, 2
+    assert_equal @search.count, 1
   end
 
   test "metodo most_purchased" do
     @purchase = Course.most_purchased
-    assert_equal @purchase.count, 2 #verifica que se retornan dos elementos
+    assert_equal @purchase.count, 3 #verifica que se retornan dos elementos
     assert_equal @purchase[0][1], 3 #retorna el numero mas alto de busquedas
   end
 
   test "metodo most_viewed" do
     @view = Course.most_viewed
-    assert_equal @view.count, 2 #verifica que se retornan dos elementos
+    assert_equal @view.count, 3 #verifica que se retornan tres elementos
     assert_equal @view[0][1], 2 #retorna el numero mas alto de vistas (es decir, 2)
   end
 end

@@ -20,7 +20,9 @@
         <h4><%= @post.content %></h4>
         <hr>
         <div class="mb-4">
-          <%= render @post_comments %>
+          <ul class= "list-group">
+            <%= render @post_comments %>
+          </ul>
           <%= will_paginate @post_comments, renderer: BootstrapPagination::Rails,  :previous_label => 'Atrás', :next_label =>'Adelante'%>
           <%= render "comments/form" %>
         </div>

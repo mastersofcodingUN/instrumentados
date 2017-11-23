@@ -82,7 +82,7 @@
 				      </tr>
 				   </thead>
 				   <tbody>
-				      <% @course.lessons.each do |lesson| %>
+				    	<% @course.lessons.each do |lesson| %>
 				         <tr>
 				            <td><%= lesson.title %></td>
 				            <td><%= link_to "Visualizar Lección", course_lesson_path(@course.id,lesson.id), class:"btn btn-default" %>
@@ -92,64 +92,20 @@
 				</table>
 			</div>
 		</div>
-		
+
 		<div class="col-md-12" style="margin-top:2%;">
 			<% if @enrolls.empty? %>
 				<%= link_to 'Inscribirse', enroll_course_path(course_id: params[:id], user_id: current_user.id), class: "btn btn-default" %>
 			<% else %>
-				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: :_blank%>
+				<%= link_to 'Ver certificado', generate_course_path(params[:id]), class: "btn btn-default", target: "_blank"%>
 			<%end%>
 		</div>
 		<div class="col-md-2" style="margin-top:2%;">
-			<%= link_to 'Atras', courses_path, class: "btn btn-default" %>
+			<%= link_to 'Atras', home_path, class: "btn btn-default" %>
 		</div>
 	</div>
 	</div>
 
-<!--
-	<div class="container" style="margin-top:60px;">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#descripcion" data-toggle="tab">Descripción</a></li>
-			<li><a href="#lecciones" data-toggle="tab">Lecciones</a></li>
-			<li><a href="#quiz" data-toggle="tab">Quiz</a></li>
-			<li><a href="#foro" data-toggle="tab">Foro</a></li>
-		</ul>
 
-		<div class="tab-content">
-			<div class= "tab-pane fade in active" id="descripcion">
-				<td><%= @course.description %></td>
-			</div>
-			<div class= "tab-pane fade" id="lecciones">
-				<div class="row">
-					<div class="col-md-12">
-						<table class="table table-bordered table-striped">
-							<thead>
-								<tr>
-									<th>Leccion</th>
-									<th>Visualizar</th>
-								</tr>
-							</thead>
-							<tbody>
-								<% @course.lessons.each do |lesson| %>
-								<tr>
-									<td><%= lesson.title %></td>
-									<td><%= link_to "Visualizar Lección", lesson_path(lesson.id), class:"btn btn-default" %></td>
-								</tr>
-								<% end %>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-			<div class= "tab-pane fade" id="quiz">
-
-			</div>
-			<div class= "tab-pane fade" id="foro">
-
-			</div>
-		</div>
-
-	</div>
--->
 	<%= render "partials/footer" %>
 </body>
