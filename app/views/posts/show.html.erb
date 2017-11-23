@@ -3,7 +3,7 @@
 </head>
 <body>
   <%= render "partials/banner" %>
-  <div id="post_content" class="container">
+  <div id="post_content" class="container" style="min-height: 80%">
     <div class="row">
 			<%= link_to 'Atras', course_posts_path, class: "btn btn-default" %>
       <div class="col-lg-8">
@@ -14,7 +14,7 @@
         <p>
           <%= @post.updated_at.strftime("%d %b. %Y - %l:%M %P") %>
           por
-          <a href="#"><%= @post.user.name %></a>
+          <%= link_to @post.user.name, user_path(@post.user.id) %>
         </p>
         <hr>
         <h4><%= @post.content %></h4>
@@ -33,5 +33,6 @@
       <%= link_to "Delete", course_post_path(@post), method: :delete, data: { confirm: "Estas seguro de querer eliminar este post?" }, class: "btn btn-danger" %>
     <% end %>
   </div>
+  <br><br><br>
   <%= render "partials/footer" %>
 </body>

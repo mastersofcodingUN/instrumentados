@@ -2,17 +2,19 @@
 </html>
 <body>
   <%= render "partials/banner" %>
-  <div class="container" style="width:100%; padding-right:2%">
+  <div class="container" style="width:100%; padding-right:2%; min-height:90%">
     <div class="row">
       <div class="col-md-3 sidenav m">
         <br>
         <div class='wrapper'>
           <ul class='items'>
             <li>
-              <a class = "expanded" style="background-color:#F06060">Mis cursos</a>
+
+              <a class = "expanded  barra-menu" style="background-color:#F06060">Mis cursos</a>
               <hr>
               <%= link_to 'Nuevo curso', new_course_path, style:"background-color:#24C2CB" %>
               <hr>
+
               <ul class='sub-items' style="display: block;">
                 <li>
                   <div class="input-group">
@@ -29,7 +31,8 @@
               </ul>
             </li>
             <li>
-              <a class="expanded" style="background-color:#52A9DE">Búsqueda avanzada</a>
+              <a class="expanded  barra-menu" style="background-color:#52A9DE">Búsqueda avanzada</a>
+              <a class="expanded" >Búsqueda avanzada</a>
               <ul class='sub-items' style="display: block;">
                 <p style="margin-right: 10px; font-style: italic; text-align: center;">Puedes buscar por cualquier campo</p>
 
@@ -37,6 +40,7 @@
                     <%= text_field_tag :instrument, params[:instrument], placeholder: "Instrumento", class: "form-control text-search", type: "text" %>
             				<%= text_field_tag :genre, params[:genre], placeholder: "Genero", class: "form-control text-search", type: "text" %>
                     <%= submit_tag "Buscar", type: 'submit', class: "btn btn-default", style: "background-color:#136B63; color:white" %>
+
                   <% end %>
               </ul>
             </li>
@@ -69,7 +73,7 @@
       </div>
     </div>
   </div>
-  <div class="container" style="margin: 0 auto">
+  <div class="container will-paginate" style="margin: 0 auto">
     <div class="row">
       <div class="col-md-12 text-center">
         <br>

@@ -51,7 +51,7 @@ class Course < ApplicationRecord
 
 	def self.search(search, gen, inst)
 		if not search.blank? or not gen.blank? or not inst.blank?
-			cursos = where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"])
+			cursos = where(["name LIKE ? AND genre LIKE ? AND instrument LIKE ?","%#{search}%", "%#{gen}%", "%#{inst}%"]).order("created_at desc")
 			cursos.each do |curso|
 				curso.searches = curso.searches + 1
 				curso.save
@@ -62,6 +62,14 @@ class Course < ApplicationRecord
 			puts "No hubo búsqueda"
 			all
 		end
+	end
+
+	def self.joinWithEnroll(param1)
+		joins(param1)
+	end
+
+	def self.searchUser(param1, param2, param3)
+	  where(param1, param2, param3)
 	end
 
 	def self.most_purchased

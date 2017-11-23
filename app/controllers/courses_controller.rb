@@ -13,8 +13,8 @@ class CoursesController < ApplicationController
 	end
 
 	def index
-  		@courses = Course.getAll.paginate(:page => params[:page],per_page: 10)
-  	end
+		@courses = Course.joinWithEnroll(:enrolls).searchUser("user_id = ? AND admin = ?",current_user.id, true).paginate(:page => params[:page],per_page: 10)
+	end
 
 	def new
 		@course = Course.new
