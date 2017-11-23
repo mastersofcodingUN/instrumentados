@@ -1,81 +1,81 @@
   <title>Registro</title>
 </head>
+<style>
+  .btn-success{
+    border-radius: 0px;
+  }
+</style>
+
 <body>
+
   <%= render "partials/banner" %>
+
+  <div class="container" style="
+							box-shadow:inset 0px 0px 200px black;
+							min-width: 100%;
+							min-height:100%;
+							background-image: url(https://wallpapercave.com/wp/SJMRXEb.jpg);
+							background-size:100% 100%">
+    <div class="row">
   <%= devise_error_messages! %>
-    <div class="container" style="background-color:white; padding-top:2%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%">
+
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="row">
-        <h3><strong>REGISTRARSE</strong></h3>
-        <hr>
-        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"Nombre" %>
-          </div>
-        </div>
-        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Correo" %>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Contraseña" %>
-          </div>
-
-          <% if @minimum_password_length %>
-            <em style="color:#CF4232">(Mínimo
-            <%= @minimum_password_length %> caracteres)</em>
-          <% end %>
-        </div>
-
-        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder:"Confirmar Contraseña" %>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-            <%= f.text_field :country, autofocus: true, class: "form-control", placeholder:"País" %>
-          </div>
-        </div>
-        <div class="col-md-6" style="margin-top:3%; padding-right:5%">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-            <%= f.date_field :birthdate, autofocus: true, class: "form-control", placeholder:"Fecha de Nacimiento" %>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-md-6" style="margin-top:2%; padding-right:5%">
-            <%= f.submit "Continuar", class: "btn btn-default btn-responsive btninter" %>
-        </div>
-        <div class="col-md-6" style="margin-top:2%; padding-right:5%">
-          <h4>O crea una cuenta con:</h4>
-          <%= render "devise/shared/links" %>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-
-          </div>
-          <div class="col-md-4">
+      <div class="col-md-12" style="padding-top:2%">
+        <div class="container" style="width:80%;
+				padding-top:2%; padding-bottom:2%;
+				background: rgba(0, 0, 0, 0.3);
+				border-radius:2px">
+          <h1 style="color:#F5F5F5; padding-left:10%">REGISTRATE</h1>
+          <hr>
+          <div class="col-md-6">
+            <div class="input-group" style="padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"Nombre" %>
+            </div>
+            <br>
+            <div class="input-group" style="padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Correo" %>
+            </div>
+            <br>
+            <div class="input-group" style="padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Contraseña" %>
+            </div>
+            <% if @minimum_password_length %>
+              <em style="color:#CF4232">(Mínimo
+              <%= @minimum_password_length %> caracteres)</em>
+            <% end %>
+            <br>
+            <br>
+            <%= f.submit "Continuar", class: "btn btn-success btn-responsive btninter" %>
+            <br>
             <%= devise_error_messages! %>
           </div>
-        </div>
+          <div class="col-md-6">
+            <div class="input-group" style="padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder:"Confirmar Contraseña" %>
+            </div>
+            <br>
+            <div class="input-group" style="padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              <%= f.date_field :birthdate, autofocus: true, class: "form-control", placeholder:"Fecha de Nacimiento" %>
+            </div>
+            <br>
+            <div class="input-group" style="padding-right:10%">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+              <%= f.text_field :country, autofocus: true, class: "form-control", placeholder:"País" %>
+            </div>
+            <br>
+            <h4>O crea una cuenta con:</h4>
+            <%= render "devise/shared/links" %>
+          </div>
+      </div>
       </div>
       <% end %>
     </div>
-    <%= render "partials/footer"%>
+
+  </div>
+  <%= render "partials/footer"%>
 </body>

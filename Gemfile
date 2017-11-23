@@ -63,7 +63,7 @@ gem "mini_magick"
 gem 'bootstrap-sass', '~> 3.3.7'
 
 # delayed_job
-gem 'delayed_job_active_record'  
+gem 'delayed_job_active_record'
 # demonios
 gem 'daemons'
 # view logs on web
@@ -82,7 +82,6 @@ group :development, :test do
 
   # Use this to generate data
   gem 'faker', '~> 1.8', '>= 1.8.4'
-  gem 'poltergeist'
 end
 
 group :production do

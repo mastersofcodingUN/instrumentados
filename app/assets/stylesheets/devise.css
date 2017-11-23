@@ -1,12 +1,3 @@
-* {
-  font-family: 'Montserrat', sans-serif;
-}
-
-h2 {
-  color:white;
-  padding-bottom: 20px;
-}
-
 em {
   color: white;
 }
@@ -143,7 +134,7 @@ input:-webkit-autofill {
 }
 
 a.fa.fa-facebook:hover, a.fa.fa-google:hover{
-  background: gray;
+  background: black;
 }
 
 .fa-google {
@@ -161,5 +152,8 @@ a:focus, a:hover {
 }
 
 a.register:hover, a.forgott:hover, a.unblock:hover{
-  color: gray;
+  color: #718786;
+}
+a.register, a.forgott, a.unblock{
+  color: white;
 }

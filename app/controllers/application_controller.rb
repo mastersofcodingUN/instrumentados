@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def can_administer?
-  	:ture
+  	:true
  ##     current_user.try(:admin?)
   end
 
